@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>月詠みの部屋｜鑑定をお待ちの方へ</title>
+<meta name="description" content="公式LINEで鑑定をお申し込みいただいた方へ。鑑定の流れ、お待ちいただく間のご案内です。">
+<meta name="theme-color" content="#0f1030">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+  /* ===== 色・雰囲気はここで変更できます ===== */
+  :root {
+    --bg-deep: #0f1030;      /* 背景（濃い夜空） */
+    --bg-mid: #1f1b4a;       /* 背景（グラデーション） */
+    --card: rgba(255, 255, 255, 0.06);
+    --line: rgba(232, 204, 150, 0.35);
+    --gold: #e8cc96;         /* アクセント（ゴールド） */
+    --pink: #e9b8c9;         /* アクセント（くすみピンク） */
+    --text: #f3eee6;
+    --muted: #bdb6cf;
+    --line-green: #06c755;   /* LINEボタン */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    color: var(--text);
+    background: radial-gradient(ellipse at top, var(--bg-mid) 0%, var(--bg-deep) 60%) fixed, var(--bg-deep);
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* 星空 */
+  .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .star {
+    position: absolute; border-radius: 50%; background: #fff;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  @keyframes twinkle { 0%,100% { opacity: .2; } 50% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .star { animation: none; opacity: .6; } }
+
+  main { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; padding: 0 20px 64px; }
+
+  /* ヒーロー */
+  .hero { text-align: center; padding: 72px 0 48px; }
+  .moon {
+    width: 96px; height: 96px; margin: 0 auto 28px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fff8e6, var(--gold) 70%);
+    box-shadow: 0 0 40px rgba(232, 204, 150, .55), 0 0 90px rgba(232, 204, 150, .25);
+    position: relative;
+  }
+  .moon::after {
+    content: ""; position: absolute; width: 80px; height: 80px; border-radius: 50%;
+    top: -6px; left: 30px; background: var(--bg-mid);
+  }
+  .en {
+    font-family: "Cormorant Garamond", serif; font-style: italic;
+    color: var(--gold); letter-spacing: .2em; font-size: .95rem;
+  }
+  .hero h1 { font-size: 1.7rem; font-weight: 600; margin: 8px 0 20px; letter-spacing: .15em; }
+  .hero p { color: var(--muted); font-size: .95rem; }
+
+  .status {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 28px; padding: 10px 22px;
+    border: 1px solid var(--line); border-radius: 999px;
+    font-size: .9rem; color: var(--gold);
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: twinkle 1.6s infinite; }
+
+  /* セクション共通 */
+  section { margin-top: 56px; }
+  .heading { text-align: center; margin-bottom: 24px; }
+  .heading h2 { font-size: 1.25rem; font-weight: 600; letter-spacing: .15em; }
+  .heading h2::before, .heading h2::after { content: "✦"; color: var(--gold); font-size: .7rem; margin: 0 12px; vertical-align: middle; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 24px 22px; backdrop-filter: blur(4px);
+  }
+
+  /* 鑑定の流れ */
+  .flow { list-style: none; counter-reset: step; }
+  .flow li { position: relative; padding: 0 0 22px 52px; }
+  .flow li:last-child { padding-bottom: 0; }
+  .flow li::before {
+    counter-increment: step; content: counter(step);
+    position: absolute; left: 0; top: 0; width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid var(--gold); color: var(--gold);
+    display: grid; place-items: center; font-family: "Cormorant Garamond", serif; font-size: 1.1rem;
+  }
+  .flow li:not(:last-child)::after {
+    content: ""; position: absolute; left: 17px; top: 38px; bottom: 4px; width: 1px; background: var(--line);
+  }
+  .flow li.now::before { background: var(--gold); color: var(--bg-deep); }
+  .flow strong { display: block; font-weight: 600; }
+  .flow span { color: var(--muted); font-size: .88rem; }
+  .flow .tag { font-size: .72rem; color: var(--bg-deep); background: var(--pink); padding: 2px 8px; border-radius: 4px; margin-left: 6px; }
+
+  /* 待ち時間の過ごし方 */
+  .tips { display: grid; gap: 14px; }
+  .tip { display: flex; gap: 16px; align-items: flex-start; }
+  .tip .icon { font-size: 1.4rem; line-height: 1.5; flex-shrink: 0; }
+  .tip p { font-size: .92rem; }
+  .tip small { display: block; color: var(--muted); font-size: .82rem; }
+
+  /* 今日のメッセージカード */
+  .oracle { text-align: center; }
+  .oracle-card {
+    width: 150px; height: 220px; margin: 8px auto 20px; border-radius: 12px; cursor: pointer;
+    perspective: 800px; background: none; border: none; display: block;
+  }
+  .oracle-inner {
+    position: relative; width: 100%; height: 100%; transition: transform .8s; transform-style: preserve-3d;
+  }
+  .oracle-card.open .oracle-inner { transform: rotateY(180deg); }
+  .face {
+    position: absolute; inset: 0; border-radius: 12px; backface-visibility: hidden;
+    display: grid; place-items: center; border: 1px solid var(--gold); padding: 14px;
+  }
+  .back {
+    background:
+      repeating-linear-gradient(45deg, rgba(232,204,150,.12) 0 2px, transparent 2px 12px),
+      linear-gradient(160deg, #2a2360, #151338);
+    color: var(--gold); font-size: 2.4rem;
+  }
+  .front {
+    transform: rotateY(180deg);
+    background: linear-gradient(160deg, #fff8ec, #f1dfbe);
+    color: #3a2f55; font-size: .95rem; line-height: 1.8;
+  }
+  .front b { display: block; font-size: 1.1rem; margin-bottom: 6px; color: #7a5a2a; }
+  .oracle .hint { color: var(--muted); font-size: .85rem; }
+
+  /* メニュー */
+  .menu { display: grid; gap: 14px; }
+  .menu-item { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .menu-item + .menu-item { border-top: 1px dashed var(--line); padding-top: 14px; }
+  .menu-item h3 { font-size: 1rem; font-weight: 600; }
+  .menu-item p { color: var(--muted); font-size: .82rem; }
+  .price { color: var(--gold); white-space: nowrap; font-family: "Cormorant Garamond", serif; font-size: 1.2rem; }
+
+  /* プロフィール */
+  .profile { text-align: center; }
+  .avatar {
+    width: 110px; height: 110px; border-radius: 50%; margin: 0 auto 16px;
+    border: 1px solid var(--gold); padding: 4px;
+  }
+  .avatar div {
+    width: 100%; height: 100%; border-radius: 50%;
+    background: linear-gradient(160deg, var(--pink), #7d6fb8);
+    display: grid; place-items: center; font-size: 2.4rem;
+  }
+  .profile h3 { font-size: 1.15rem; letter-spacing: .2em; }
+  .profile .en { font-size: .85rem; }
+  .profile p { margin-top: 14px; font-size: .9rem; color: var(--muted); text-align: left; }
+
+  /* FAQ */
+  details { border-bottom: 1px solid var(--line); padding: 14px 4px; }
+  details:first-child { padding-top: 0; }
+  details:last-child { border-bottom: none; padding-bottom: 0; }
+  summary { cursor: pointer; list-style: none; font-size: .95rem; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--gold); transition: transform .3s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { color: var(--muted); font-size: .88rem; margin-top: 10px; }
+
+  /* 注意事項 */
+  .notes { font-size: .82rem; color: var(--muted); list-style: none; }
+  .notes li { padding-left: 1.2em; text-indent: -1.2em; }
+  .notes li::before { content: "※"; }
+
+  /* ボタン */
+  .buttons { display: grid; gap: 12px; margin-top: 8px; }
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 16px; border-radius: 999px; text-decoration: none; font-weight: 600; letter-spacing: .1em;
+    transition: transform .2s, opacity .2s;
+  }
+  .btn:active { transform: scale(.97); }
+  .btn-line { background: var(--line-green); color: #fff; }
+  .btn-insta {
+    color: var(--text); border: 1px solid var(--line);
+    background: linear-gradient(90deg, rgba(233,184,201,.15), rgba(232,204,150,.15));
+  }
+
+  footer { text-align: center; color: var(--muted); font-size: .75rem; margin-top: 56px; }
+  footer .en { display: block; margin-bottom: 4px; }
+
+  /* スクロールでふわっと表示 */
+  .fade { opacity: 0; transform: translateY(20px); transition: opacity .9s, transform .9s; }
+  .fade.show { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+<div class="stars" id="stars" aria-hidden="true"></div>
+
+<main>
+  <!-- ===== ヒーロー ===== -->
+  <header class="hero">
+    <div class="moon" aria-hidden="true"></div>
+    <p class="en">Welcome to Tsukuyomi Room</p>
+    <h1>鑑定をお待ちの方へ</h1>
+    <p>このたびはご依頼いただき、<br>本当にありがとうございます。<br>あなたのための鑑定を、ただいま<br>心を込めて読み解いています。</p>
+    <div class="status"><span class="dot"></span>ただいま鑑定準備中です</div>
+  </header>
+
+  <!-- ===== 鑑定の流れ ===== -->
+  <section class="fade">
+    <div class="heading"><p class="en">Flow</p><h2>鑑定の流れ</h2></div>
+    <div class="card">
+      <ol class="flow">
+        <li><strong>公式LINEからお申し込み</strong><span>ご相談内容・生年月日などをお送りいただきます</span></li>
+        <li><strong>お支払いの確認</strong><span>確認でき次第、LINEでお知らせします</span></li>
+        <li class="now"><strong>鑑定中<span class="tag">いまここ</span></strong><span>通常 48時間以内 にお届けします</span></li>
+        <li><strong>鑑定結果のお届け</strong><span>公式LINEのトークにて、文章でお送りします</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== 待ち時間の過ごし方 ===== -->
+  <section class="fade">
+    <div class="heading"><p class="en">While you wait</p><h2>お待ちいただく間に</h2></div>
+    <div class="card tips">
+      <div class="tip"><span class="icon">🕯</span><p>深呼吸して、心を落ち着けて<small>結果を受け取る準備も、鑑定の一部です。</small></p></div>
+      <div class="tip"><span class="icon">📝</span><p>気持ちをメモしておく<small>今感じている不安や願いを書き出すと、結果がより心に届きます。</small></p></div>
+      <div class="tip"><span class="icon">🌙</span><p>通知をオンにしておく<small>鑑定結果のお届けを見逃さないように。</small></p></div>
+    </div>
+  </section>
+
+  <!-- ===== 今日のメッセージ ===== -->
+  <section class="fade oracle">
+    <div class="heading"><p class="en">Today's Message</p><h2>今日のメッセージ</h2></div>
+    <button class="oracle-card" id="oracle" type="button" aria-label="カードをめくる">
+      <div class="oracle-inner">
+        <div class="face back">☾</div>
+        <div class="face front" id="oracle-text"></div>
+      </div>
+    </button>
+    <p class="hint" id="oracle-hint">待ち時間に、カードを1枚めくってみてください</p>
+  </section>
+
+  <!-- ===== メニュー ===== -->
+  <section class="fade">
+    <div class="heading"><p class="en">Menu</p><h2>鑑定メニュー</h2></div>
+    <div class="card menu">
+      <div class="menu-item"><div><h3>ひとこと鑑定</h3><p>気になることを1つだけ、タロットで</p></div><span class="price">¥1,000</span></div>
+      <div class="menu-item"><div><h3>恋愛じっくり鑑定</h3><p>相手の気持ち・これからの流れ</p></div><span class="price">¥3,000</span></div>
+      <div class="menu-item"><div><h3>総合運鑑定</h3><p>仕事・恋愛・人間関係をまとめて</p></div><span class="price">¥5,000</span></div>
+    </div>
+  </section>
+
+  <!-- ===== プロフィール ===== -->
+  <section class="fade">
+    <div class="heading"><p class="en">Profile</p><h2>占い師について</h2></div>
+    <div class="card profile">
+      <div class="avatar"><div>🔮</div></div>
+      <h3>月詠 ○○</h3>
+      <p class="en">Tsukuyomi</p>
+      <p>タロット・西洋占星術を中心に鑑定しています。答えを押しつけるのではなく、あなたが自分の道を選べるように、そっと背中を押す鑑定を大切にしています。</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="fade">
+    <div class="heading"><p class="en">Q &amp; A</p><h2>よくあるご質問</h2></div>
+    <div class="card">
+      <details><summary>結果はいつ届きますか？</summary><p>お支払い確認後、通常48時間以内に公式LINEでお届けします。混み合っている場合は事前にお知らせします。</p></details>
+      <details><summary>追加で質問してもいいですか？</summary><p>結果についての簡単なご質問は1回まで無料です。追加鑑定をご希望の場合はお気軽にご相談ください。</p></details>
+      <details><summary>相談内容を変更したいです</summary><p>鑑定を始める前であれば変更可能です。できるだけ早めに公式LINEでお知らせください。</p></details>
+      <details><summary>内容は秘密にしてもらえますか？</summary><p>はい。ご相談内容や個人情報を第三者に公開することは一切ありません。</p></details>
+    </div>
+  </section>
+
+  <!-- ===== 注意事項 ===== -->
+  <section class="fade">
+    <div class="heading"><p class="en">Notice</p><h2>ご注意</h2></div>
+    <div class="card">
+      <ul class="notes">
+        <li>鑑定結果は、未来を断定するものではありません。</li>
+        <li>医療・法律・投資などの判断は、専門家へご相談ください。</li>
+        <li>鑑定開始後のキャンセル・返金はお受けできません。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== ボタン ===== -->
+  <section class="fade">
+    <div class="buttons">
+      <!-- ↓ 公式LINEのURLに差し替えてください -->
+      <a class="btn btn-line" href="https://lin.ee/XXXXXXX">公式LINEに戻る</a>
+      <!-- ↓ InstagramのURLに差し替えてください -->
+      <a class="btn btn-insta" href="https://www.instagram.com/your_account/">Instagram をみる</a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="en">Tsukuyomi Room</span>
+    © 月詠みの部屋
+  </footer>
+</main>
+
+<script>
+  // 星をランダムに配置
+  const stars = document.getElementById('stars');
+  for (let i = 0; i < 70; i++) {
+    const s = document.createElement('span');
+    const size = Math.random() * 2 + 1;
+    s.className = 'star';
+    s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*3}s`;
+    stars.appendChild(s);
+  }
+
+  // スクロールでふわっと表示
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+  // 今日のメッセージ（自由に追加・編集できます）
+  const messages = [
+    ['星', '願いは、もう動き始めています。'],
+    ['月', '焦らなくて大丈夫。満ちる時は必ず来ます。'],
+    ['太陽', 'あなたの笑顔が、流れを明るく変えていきます。'],
+    ['女教皇', '直感を信じて。答えはあなたの中にあります。'],
+    ['恋人', '心が惹かれるほうへ、素直に進んでみて。'],
+    ['運命の輪', '小さな偶然が、大きな転機を運んできます。'],
+    ['節制', '心と体を整えるほど、良い縁が近づきます。']
+  ];
+  const card = document.getElementById('oracle');
+  card.addEventListener('click', () => {
+    if (card.classList.contains('open')) return;
+    const [name, text] = messages[Math.floor(Math.random() * messages.length)];
+    document.getElementById('oracle-text').innerHTML = `<div><b>${name}</b>${text}</div>`;
+    card.classList.add('open');
+    document.getElementById('oracle-hint').textContent = 'このメッセージを、鑑定結果と一緒に受け取ってください';
+  });
+</script>
+</body>
+</html>
