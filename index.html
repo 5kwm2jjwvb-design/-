@@ -191,6 +191,28 @@
     background: linear-gradient(90deg, rgba(233,184,201,.15), rgba(232,204,150,.15));
   }
 
+  /* 目次ボタン */
+  section { scroll-margin-top: 24px; }
+  .nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .nav a {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    padding: 12px 4px; border: 1px solid var(--line); border-radius: 12px;
+    background: var(--card); color: var(--text); text-decoration: none; font-size: .85rem; letter-spacing: .02em;
+    transition: background .2s, transform .2s;
+  }
+  .nav a:active { transform: scale(.96); background: rgba(232, 204, 150, .15); }
+  .nav .ic { color: var(--gold); font-size: 1.1rem; }
+
+  /* 上に戻るボタン */
+  .to-top {
+    position: fixed; right: 16px; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 10;
+    width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
+    background: rgba(15, 16, 48, .85); border: 1px solid var(--gold); color: var(--gold);
+    text-decoration: none; font-size: .7rem; line-height: 1.1; text-align: center;
+    opacity: 0; pointer-events: none; transition: opacity .3s;
+  }
+  .to-top.show { opacity: 1; pointer-events: auto; }
+
   footer { text-align: center; color: var(--muted); font-size: .75rem; margin-top: 56px; }
   footer .en { display: block; margin-bottom: 4px; }
 
@@ -205,7 +227,7 @@
 
 <main>
   <!-- ===== ヒーロー ===== -->
-  <header class="hero">
+  <header class="hero" id="top">
     <div class="moon" aria-hidden="true"></div>
     <p class="en">Welcome to Tsukuyomi Room</p>
     <h1>鑑定をお待ちの方へ</h1>
@@ -213,8 +235,18 @@
     <div class="status"><span class="dot"></span>ただいま鑑定準備中です</div>
   </header>
 
+  <!-- ===== 目次ボタン（押すとその場所へ移動） ===== -->
+  <nav class="nav" aria-label="ページ内メニュー">
+    <a href="#flow"><span class="ic">☽</span>鑑定の流れ</a>
+    <a href="#oracle"><span class="ic">✦</span>今日のカード</a>
+    <a href="#menu"><span class="ic">♢</span>メニュー</a>
+    <a href="#profile"><span class="ic">✧</span>占い師</a>
+    <a href="#faq"><span class="ic">?</span>よくある質問</a>
+    <a href="#links"><span class="ic">♡</span>LINE・SNS</a>
+  </nav>
+
   <!-- ===== 鑑定の流れ ===== -->
-  <section class="fade">
+  <section id="flow" class="fade">
     <div class="heading"><p class="en">Flow</p><h2>鑑定の流れ</h2></div>
     <div class="card">
       <ol class="flow">
@@ -227,7 +259,7 @@
   </section>
 
   <!-- ===== 待ち時間の過ごし方 ===== -->
-  <section class="fade">
+  <section id="wait" class="fade">
     <div class="heading"><p class="en">While you wait</p><h2>お待ちいただく間に</h2></div>
     <div class="card tips">
       <div class="tip"><span class="icon">🕯</span><p>深呼吸して、心を落ち着けて<small>結果を受け取る準備も、鑑定の一部です。</small></p></div>
@@ -237,7 +269,7 @@
   </section>
 
   <!-- ===== 今日のメッセージ ===== -->
-  <section class="fade oracle">
+  <section id="oracle" class="fade oracle">
     <div class="heading"><p class="en">Today's Message</p><h2>今日のメッセージ</h2></div>
     <button class="oracle-card" id="oracle" type="button" aria-label="カードをめくる">
       <div class="oracle-inner">
@@ -249,7 +281,7 @@
   </section>
 
   <!-- ===== メニュー ===== -->
-  <section class="fade">
+  <section id="menu" class="fade">
     <div class="heading"><p class="en">Menu</p><h2>鑑定メニュー</h2></div>
     <div class="card menu">
       <div class="menu-item"><div><h3>ひとこと鑑定</h3><p>気になることを1つだけ、タロットで</p></div><span class="price">¥1,000</span></div>
@@ -259,7 +291,7 @@
   </section>
 
   <!-- ===== プロフィール ===== -->
-  <section class="fade">
+  <section id="profile" class="fade">
     <div class="heading"><p class="en">Profile</p><h2>占い師について</h2></div>
     <div class="card profile">
       <div class="avatar"><div>🔮</div></div>
@@ -270,7 +302,7 @@
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section class="fade">
+  <section id="faq" class="fade">
     <div class="heading"><p class="en">Q &amp; A</p><h2>よくあるご質問</h2></div>
     <div class="card">
       <details><summary>結果はいつ届きますか？</summary><p>お支払い確認後、通常48時間以内に公式LINEでお届けします。混み合っている場合は事前にお知らせします。</p></details>
@@ -281,7 +313,7 @@
   </section>
 
   <!-- ===== 注意事項 ===== -->
-  <section class="fade">
+  <section id="notice" class="fade">
     <div class="heading"><p class="en">Notice</p><h2>ご注意</h2></div>
     <div class="card">
       <ul class="notes">
@@ -293,7 +325,7 @@
   </section>
 
   <!-- ===== ボタン ===== -->
-  <section class="fade">
+  <section id="links" class="fade">
     <div class="buttons">
       <!-- ↓ 公式LINEのURLに差し替えてください -->
       <a class="btn btn-line" href="https://lin.ee/XXXXXXX">公式LINEに戻る</a>
@@ -307,6 +339,8 @@
     © 月詠みの部屋
   </footer>
 </main>
+
+<a class="to-top" id="to-top" href="#top" aria-label="いちばん上に戻る">▲<br>TOP</a>
 
 <script>
   // 星をランダムに配置
@@ -324,6 +358,10 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+  // 少しスクロールしたら「TOP」ボタンを表示
+  const toTop = document.getElementById('to-top');
+  addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 500), { passive: true });
 
   // 今日のメッセージ（自由に追加・編集できます）
   const messages = [
