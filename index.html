@@ -90,13 +90,7 @@
 
   /* ===== ヒーロー ===== */
   .hero { position: relative; margin: 0 -26px; text-align: center; }
-  .hero-photo {
-    height: 260px; background: url("images/hero.jpg") center / cover no-repeat;
-    -webkit-mask-image: linear-gradient(180deg, #000 45%, transparent 100%);
-            mask-image: linear-gradient(180deg, #000 45%, transparent 100%);
-    filter: saturate(.9) brightness(.8);
-  }
-  .hero-body { position: relative; margin-top: -40px; padding: 0 26px; }
+  .hero-body { position: relative; padding: 76px 26px 0; }
 
   .tate-wrap { display: flex; justify-content: center; align-items: flex-start; gap: 18px; }
   .tate { writing-mode: vertical-rl; font-family: "Shippori Mincho B1", serif; line-height: 1.35; }
@@ -170,12 +164,23 @@
   .flow span { color: var(--muted); font-size: .86rem; }
   .flow .tag { font-size: .7rem; color: var(--ivory); background: var(--amethyst); padding: 1px 8px; border-radius: 2px; margin-left: 6px; letter-spacing: .1em; }
 
-  /* ===== お待ちいただく間に ===== */
-  .tips { display: grid; gap: 18px; }
-  .tip { display: flex; gap: 14px; align-items: flex-start; }
-  .tip svg { width: 26px; height: 26px; flex-shrink: 0; color: var(--gold); margin-top: 2px; }
-  .tip p { font-size: .93rem; }
-  .tip small { display: block; color: var(--muted); font-size: .82rem; }
+  /* ===== 心構え7つ ===== */
+  .mind .lead { font-size: .9rem; text-align: center; margin-bottom: 26px; }
+  .mind ol { list-style: none; counter-reset: mind; display: grid; gap: 24px; }
+  .mind li { position: relative; padding-left: 44px; }
+  .mind li::before {
+    counter-increment: mind; content: counter(mind, upper-roman); position: absolute; left: 0; top: -2px; width: 32px; text-align: center;
+    font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.3rem; color: var(--gold);
+  }
+  .mind li + li { border-top: 1px dashed var(--gold-soft); padding-top: 24px; }
+  .mind li + li::before { top: 22px; }
+  .mind h3 { font-family: "Shippori Mincho B1", serif; font-size: 1rem; font-weight: 700; line-height: 1.7; color: var(--ivory); }
+  .mind li:first-child h3 { color: var(--gold); }
+  .mind p { color: var(--muted); font-size: .86rem; margin-top: 6px; }
+  .closing { text-align: center; margin-top: 34px; }
+  .closing::before { content: "✦"; display: block; color: var(--gold); font-size: .6rem; margin-bottom: 14px; }
+  .closing p { font-family: "Shippori Mincho B1", serif; font-size: 1.2rem; font-weight: 700; line-height: 1.8; letter-spacing: .14em; }
+  .closing .sign { display: block; margin-top: 10px; font-size: 1.1rem; }
 
   /* ===== 今日のカード ===== */
   .oracle { text-align: center; }
@@ -203,18 +208,10 @@
   .front .en { display: block; font-size: .7rem; color: #9b7bbd; letter-spacing: .1em; margin-bottom: 2px; }
   .oracle .hint { color: var(--muted); font-size: .85rem; }
 
-  /* ===== メニュー ===== */
-  .menu { display: grid; gap: 16px; }
-  .menu-item { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-  .menu-item + .menu-item { border-top: 1px dashed var(--gold-soft); padding-top: 16px; }
-  .menu-item h3 { font-family: "Shippori Mincho B1", serif; font-size: 1rem; font-weight: 700; }
-  .menu-item p { color: var(--muted); font-size: .82rem; }
-  .price { color: var(--gold); white-space: nowrap; font-family: "Cormorant Garamond", serif; font-size: 1.25rem; }
-
   /* ===== プロフィール ===== */
   .profile { text-align: center; }
-  .avatar { width: 124px; height: 124px; margin: 0 auto 14px; border-radius: 50%; padding: 4px; border: 1px solid var(--gold); box-shadow: 0 0 24px rgba(155, 123, 189, .35); }
-  .avatar svg { width: 100%; height: 100%; display: block; border-radius: 50%; }
+  .avatar { width: 190px; height: 190px; margin: 0 auto 16px; border-radius: 50%; box-shadow: 0 0 34px rgba(155, 123, 189, .45); }
+  .avatar img { width: 100%; height: 100%; display: block; border-radius: 50%; }
   .profile h3 { font-family: "Shippori Mincho B1", serif; font-size: 1.2rem; letter-spacing: .25em; }
   .profile .sub { font-size: .82rem; color: var(--lavender); letter-spacing: .15em; }
   .profile p.text { margin-top: 16px; font-size: .9rem; text-align: left; }
@@ -282,7 +279,6 @@
 <main>
   <!-- ===== ヒーロー ===== -->
   <header class="hero" id="top">
-    <div class="hero-photo" role="img" aria-label="キャンドルとタロットカード、アンティークの鍵"></div>
     <div class="hero-body">
       <div class="tate-wrap">
         <p class="tate tate-sub">誰にも言えない恋の扉を、そっと開く</p>
@@ -295,8 +291,8 @@
         <h1>イルミ<span>|</span>ご縁を結ぶ霊視占い</h1>
       </div>
 
-      <p class="welcome">このたびはご縁をいただき、<br>本当にありがとうございます。<br>あなたの波動を丁寧に読み解きながら、<br>ただいま鑑定の準備をしています。</p>
-      <div class="status"><span class="flame"></span>ただいま鑑定準備中です</div>
+      <p class="welcome">このたびは無料鑑定にご応募いただき、<br>本当にありがとうございます。<br>あなたの波動を丁寧に読み解きながら、<br>ご応募順に鑑定を進めています。</p>
+      <div class="status"><span class="flame"></span>ただいま順番に鑑定しています</div>
 
       <p class="tap">ご案内はこちらから</p>
     </div>
@@ -305,8 +301,8 @@
   <!-- ===== 目次ボタン（押すとその場所へ移動） ===== -->
   <nav class="nav" aria-label="ページ内メニュー">
     <a href="#flow"><span class="ic">☽</span>鑑定の流れ</a>
+    <a href="#mind"><span class="ic">◇</span>心構え7つ</a>
     <a href="#oracle"><span class="ic">✦</span>今日のカード</a>
-    <a href="#menu"><span class="ic">◇</span>メニュー</a>
     <a href="#profile"><span class="ic">✧</span>イルミについて</a>
     <a href="#faq"><span class="ic">?</span>よくある質問</a>
     <a href="#links"><span class="ic">♡</span>LINE・SNS</a>
@@ -317,29 +313,31 @@
     <div class="heading"><p class="en">Flow</p><h2 class="gold-text">鑑定の流れ</h2><div class="rule">✦</div></div>
     <div class="card">
       <ol class="flow">
-        <li><strong>公式LINEからお申し込み</strong><span>ご相談内容・お名前・生年月日などをお送りいただきます</span></li>
-        <li><strong>お支払いの確認</strong><span>確認でき次第、LINEでお知らせします</span></li>
-        <li class="now"><strong>霊視・鑑定中<span class="tag">いまここ</span></strong><span>通常 48時間以内 にお届けします</span></li>
+        <li><strong>公式LINEから無料鑑定に応募</strong><span>ご相談内容・お名前・生年月日などをお送りいただきます</span></li>
+        <li><strong>ご応募の受付</strong><span>受付が完了すると、LINEでお知らせします</span></li>
+        <li class="now"><strong>霊視・鑑定中<span class="tag">いまここ</span></strong><span>ご応募順に、ひとりずつ心を込めて鑑定しています</span></li>
         <li><strong>鑑定結果のお届け</strong><span>公式LINEのトークにて、文章でお送りします</span></li>
       </ol>
     </div>
   </section>
 
-  <!-- ===== お待ちいただく間に ===== -->
-  <section id="wait" class="fade">
-    <div class="heading"><p class="en">While you wait</p><h2 class="gold-text">お待ちいただく間に</h2><div class="rule">✦</div></div>
-    <div class="card tips">
-      <div class="tip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2c1.8 2 2 3.6 0 5.5C10 5.6 10.2 4 12 2z" fill="currentColor"/><rect x="8" y="9" width="8" height="11" rx="1"/><path d="M5 21h14"/></svg>
-        <p>深呼吸して、心を静めて<small>結果を受け取る準備も、鑑定の大切な一部です。</small></p>
-      </div>
-      <div class="tip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="7" cy="12" r="3.5"/><circle cx="7" cy="12" r="1.2"/><path d="M10.5 12H21M17 12v3M19.5 12v2"/></svg>
-        <p>本当の気持ちを書き出してみる<small>誰にも言えない想いも、言葉にすると扉がひらきやすくなります。</small></p>
-      </div>
-      <div class="tip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M15 4a8 8 0 1 0 5 13 7 7 0 1 1-5-13z"/></svg>
-        <p>LINEの通知をオンにしておく<small>鑑定結果のお届けを見逃さないように。</small></p>
+  <!-- ===== 無料鑑定の効果を最大にするための心構え7つ ===== -->
+  <section id="mind" class="fade">
+    <div class="heading"><p class="en">Before your reading</p><h2 class="gold-text">無料鑑定の効果を<br>最大にするための<br>心構え 7つ</h2><div class="rule">✦</div></div>
+    <div class="card mind">
+      <p class="lead">鑑定をお待ちいただく間に、<br>少しだけ読んでみてください。<br>受け取る準備が整うほど、<br>メッセージは心に深く届きます。</p>
+      <ol>
+        <li><h3>応募できた時点で、あなたの恋はもう動き始めています</h3><p>「誰かに相談してみよう」と一歩踏み出したこと。それ自体が、止まっていた流れを動かすきっかけになっています。</p></li>
+        <li><h3>占いとは、未来を決めつけるものではありません</h3><p>占いは「いまの流れ」と「選べる道」を照らす灯りのようなもの。最後に道を選ぶのは、いつもあなた自身です。</p></li>
+        <li><h3>本当の気持ちに、正直になってみてください</h3><p>「こうあるべき」ではなく「本当はどうしたいのか」。心の奥の声に気づくほど、鑑定はあなたに寄り添ったものになります。</p></li>
+        <li><h3>どんな結果も、あなたを守るためのメッセージです</h3><p>カードが伝えるのは、あなたを傷つける言葉ではありません。より良い未来へ進むためのヒントです。</p></li>
+        <li><h3>相手の気持ちと同じくらい、あなたの心も大切に</h3><p>ご縁は、あなた自身が満たされているときほど、自然に結ばれていきます。</p></li>
+        <li><h3>結果は、時間をおいて何度か読み返してみて</h3><p>最初は気づかなかった言葉が、あとからふっと心に響くことがあります。</p></li>
+        <li><h3>穏やかな気持ちで、その時を待ちましょう</h3><p>焦りや不安は、波動を乱してしまいます。温かい飲み物を用意して深呼吸をしながら、ゆったりと結果を受け取ってください。</p></li>
+      </ol>
+      <div class="closing">
+        <p class="gold-text">では、無料鑑定で<br>お会いしましょう。</p>
+        <span class="sign en">— Irumi</span>
       </div>
     </div>
   </section>
@@ -366,36 +364,11 @@
     <p class="hint" id="oracle-hint">待ち時間に、カードを1枚めくってみてください</p>
   </section>
 
-  <!-- ===== メニュー ===== -->
-  <section id="menu" class="fade">
-    <div class="heading"><p class="en">Menu</p><h2 class="gold-text">鑑定メニュー</h2><div class="rule">✦</div></div>
-    <div class="card menu">
-      <!-- ↓ 料金・内容はご自身のメニューに書き換えてください -->
-      <div class="menu-item"><div><h3>霊視タロット鑑定</h3><p>相手の本音・ふたりのこれから</p></div><span class="price">¥3,000</span></div>
-      <div class="menu-item"><div><h3>四柱推命 × タロット</h3><p>生まれ持った恋の運命と、ご縁の時期</p></div><span class="price">¥5,000</span></div>
-      <div class="menu-item"><div><h3>波動鑑定</h3><p>あなたの波動を整え、愛される流れへ</p></div><span class="price">¥5,000</span></div>
-    </div>
-  </section>
-
   <!-- ===== プロフィール ===== -->
   <section id="profile" class="fade">
     <div class="heading"><p class="en">Profile</p><h2 class="gold-text">イルミについて</h2><div class="rule">✦</div></div>
     <div class="card profile">
-      <div class="avatar">
-        <!-- 鍵をくわえた白猫（アイコン画像に差し替えもできます） -->
-        <svg viewBox="0 0 100 100">
-          <defs><radialGradient id="av" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#3a2150"/><stop offset="1" stop-color="#1a0f24"/></radialGradient></defs>
-          <circle cx="50" cy="50" r="50" fill="url(#av)"/>
-          <circle cx="50" cy="50" r="44" fill="none" stroke="#d9b877" stroke-opacity=".5" stroke-width=".6"/>
-          <path d="M70 86c9 0 14-4 12-9-1.5-3.5-6-3-7 0" fill="none" stroke="#efe6d6" stroke-width="3.2" stroke-linecap="round"/>
-          <path d="M60 88c-14 0-22-5-21-17 1-10 7-17 9-23-3-3-4-8-3-13l-1-10 6 7c2-1 5-1 7 0l6-7-1 10c1 6-1 10-4 13 6 7 11 16 11 26 0 9-3 14-9 14z" fill="#efe6d6"/>
-          <circle cx="49" cy="34" r=".9" fill="#6b5a3a"/>
-          <g stroke="#d9b877" stroke-width="1.2" fill="none">
-            <circle cx="43" cy="42" r="2.6"/>
-            <path d="M43 44.6v14M43 54h3M43 57h2.5"/>
-          </g>
-        </svg>
-      </div>
+      <div class="avatar"><img src="images/irumi.jpg" alt="鍵をくわえた白猫のイルミのアイコン" width="190" height="190"></div>
       <h3>イルミ</h3>
       <p class="sub">ご縁を結ぶ霊視占い師</p>
       <div class="chips"><span>霊視タロット</span><span>四柱推命</span><span>波動鑑定</span></div>
@@ -411,8 +384,7 @@
     <div class="card">
       <details><summary>相談内容は秘密にしてもらえますか？</summary><p>はい、秘密は必ずお守りします。ご相談内容や個人情報を、第三者に公開・共有することは一切ありません。</p></details>
       <details><summary>既婚者や、人に言えない関係でも相談できますか？</summary><p>もちろんです。不倫・浮気・秘密の恋など、どんなご関係でも否定せずにお話を伺います。</p></details>
-      <details><summary>結果はいつ届きますか？</summary><p>お支払い確認後、通常48時間以内に公式LINEでお届けします。混み合っている場合は事前にお知らせします。</p></details>
-      <details><summary>結果について質問してもいいですか？</summary><p>結果についての簡単なご質問は1回まで無料です。追加鑑定をご希望の場合はお気軽にご相談ください。</p></details>
+      <details><summary>結果はいつ届きますか？</summary><p>ご応募順に鑑定し、公式LINEでお届けします。たくさんのご応募をいただいているため、順番が来るまで少しだけお待ちください。</p></details>
       <details><summary>相談内容を変更したいです</summary><p>鑑定を始める前であれば変更可能です。できるだけ早めに公式LINEでお知らせください。</p></details>
     </div>
   </section>
@@ -424,7 +396,7 @@
       <ul class="notes">
         <li>鑑定結果は、未来を断定するものではありません。</li>
         <li>医療・法律・投資などの判断は、専門家へご相談ください。</li>
-        <li>鑑定開始後のキャンセル・返金はお受けできません。</li>
+        <li>ご応募が多い場合、お届けまでお時間をいただくことがあります。</li>
       </ul>
     </div>
   </section>
