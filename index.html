@@ -121,7 +121,9 @@
   .tap::after { content: ""; display: block; width: 1px; height: 36px; margin: 8px auto 0; background: linear-gradient(var(--gold), transparent); }
 
   /* ===== 目次ボタン ===== */
-  .nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
+  .nav { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 8px; }
+  .nav a { grid-column: span 2; }
+  .nav a:nth-child(n+4) { grid-column: span 3; }
   .nav a {
     display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 12px 4px;
     border: 1px solid var(--gold-soft); border-radius: 4px; background: var(--card);
@@ -180,32 +182,6 @@
   .closing::before { content: "✦"; display: block; color: var(--gold); font-size: .6rem; margin-bottom: 14px; }
   .closing p { font-family: "Shippori Mincho B1", serif; font-size: 1.2rem; font-weight: 700; line-height: 1.8; letter-spacing: .14em; }
   .closing .sign { display: block; margin-top: 10px; font-size: 1.1rem; }
-
-  /* ===== 今日のカード ===== */
-  .oracle { text-align: center; }
-  .oracle-card { width: 160px; height: 250px; margin: 6px auto 22px; cursor: pointer; perspective: 900px; background: none; border: none; display: block; }
-  .oracle-inner { position: relative; width: 100%; height: 100%; transition: transform .9s; transform-style: preserve-3d; }
-  .oracle-card.open .oracle-inner { transform: rotateY(180deg); }
-  .face { position: absolute; inset: 0; border-radius: 8px; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: grid; place-items: center; padding: 16px; }
-  .back {
-    background:
-      radial-gradient(circle at 50% 45%, rgba(155, 123, 189, .35), transparent 60%),
-      linear-gradient(160deg, #3a2148, #1b0f22);
-    border: 1px solid var(--gold); color: var(--gold);
-    box-shadow: 0 0 24px rgba(155, 123, 189, .35), inset 0 0 0 6px #1b0f22, inset 0 0 0 7px var(--gold-soft);
-    animation: glow 2.6s ease-in-out infinite;
-  }
-  .back svg { width: 64px; height: 110px; }
-  @keyframes glow { 50% { box-shadow: 0 0 36px rgba(217, 184, 119, .45), inset 0 0 0 6px #1b0f22, inset 0 0 0 7px var(--gold-soft); } }
-  .oracle-card.open .back { animation: none; }
-  .front {
-    transform: rotateY(180deg); background: linear-gradient(170deg, #fbf4e7, #eadbbf);
-    border: 1px solid var(--gold); box-shadow: inset 0 0 0 6px #fbf4e7, inset 0 0 0 7px #c9a76a;
-    color: #3b2745; font-size: .92rem; line-height: 1.85;
-  }
-  .front b { display: block; font-family: "Shippori Mincho B1", serif; font-size: 1.1rem; margin-bottom: 6px; color: #8a6531; }
-  .front .en { display: block; font-size: .7rem; color: #9b7bbd; letter-spacing: .1em; margin-bottom: 2px; }
-  .oracle .hint { color: var(--muted); font-size: .85rem; }
 
   /* ===== プロフィール ===== */
   .profile { text-align: center; }
@@ -301,7 +277,6 @@
   <nav class="nav" aria-label="ページ内メニュー">
     <a href="#flow"><span class="ic">☽</span>鑑定の流れ</a>
     <a href="#mind"><span class="ic">◇</span>7つのお約束</a>
-    <a href="#oracle"><span class="ic">✦</span>今日のカード</a>
     <a href="#profile"><span class="ic">✧</span>イルミについて</a>
     <a href="#faq"><span class="ic">?</span>よくある質問</a>
     <a href="#links"><span class="ic">♡</span>LINE・SNS</a>
@@ -339,28 +314,6 @@
         <span class="sign en">— Irumi</span>
       </div>
     </div>
-  </section>
-
-  <!-- ===== 今日のカード ===== -->
-  <section id="oracle" class="fade oracle">
-    <div class="heading"><p class="en">Today's Card</p><h2 class="gold-text">今日のカード</h2><div class="rule">✦</div></div>
-    <button class="oracle-card" id="oracle-card" type="button" aria-label="カードをめくる">
-      <div class="oracle-inner">
-        <div class="face back">
-          <!-- アンティークの鍵 -->
-          <svg viewBox="0 0 40 90" fill="none" stroke="currentColor" stroke-width="1.4">
-            <path d="M20 4a3 3 0 0 1 0 6 3 3 0 0 1 0-6z" fill="currentColor"/>
-            <circle cx="20" cy="20" r="9"/>
-            <path d="M20 12c3 3 3 13 0 16M20 12c-3 3-3 13 0 16M12 20h16"/>
-            <path d="M20 29v52"/>
-            <path d="M20 66h8v5h-4M20 74h6v5h-6"/>
-            <circle cx="20" cy="36" r="1.6" fill="currentColor"/>
-          </svg>
-        </div>
-        <div class="face front" id="oracle-text"></div>
-      </div>
-    </button>
-    <p class="hint" id="oracle-hint">待ち時間に、カードを1枚めくってみてください</p>
   </section>
 
   <!-- ===== プロフィール ===== -->
@@ -437,24 +390,6 @@
   const toTop = document.getElementById('to-top');
   addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 500), { passive: true });
 
-  // 今日のカード（自由に追加・編集できます）
-  const messages = [
-    ['THE LOVERS', '恋人', '心が惹かれるほうへ。あなたの選択は、ちゃんと愛に通じています。'],
-    ['THE MOON', '月', '見えない不安は、夜明け前のしるし。焦らなくて大丈夫。'],
-    ['THE STAR', '星', '願いはもう、動き始めています。希望を手放さないで。'],
-    ['THE SUN', '太陽', 'あなたの笑顔が、止まっていたご縁をふたたび照らします。'],
-    ['WHEEL of FORTUNE', '運命の輪', '流れが変わる予感。小さな偶然を見逃さないで。'],
-    ['HIGH PRIESTESS', '女教皇', '答えはあなたの中に。直感を信じてみて。'],
-    ['TWO of CUPS', 'カップの2', '想いは、ひとりだけのものではないのかもしれません。']
-  ];
-  const card = document.getElementById('oracle-card');
-  card.addEventListener('click', () => {
-    if (card.classList.contains('open')) return;
-    const [en, name, text] = messages[Math.floor(Math.random() * messages.length)];
-    document.getElementById('oracle-text').innerHTML = `<div><span class="en">${en}</span><b>${name}</b>${text}</div>`;
-    card.classList.add('open');
-    document.getElementById('oracle-hint').textContent = 'このメッセージを、鑑定結果と一緒に受け取ってください';
-  });
 </script>
 </body>
 </html>
