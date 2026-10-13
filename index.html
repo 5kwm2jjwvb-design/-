@@ -41,6 +41,7 @@
     letter-spacing: .06em;
     min-height: 100vh;
     overflow-x: hidden;
+    word-break: keep-all; overflow-wrap: anywhere; line-break: strict;
   }
 
   /* ベルベットの質感 */
@@ -185,8 +186,6 @@
   .plate svg { display: block; width: 100%; height: 100%; color: var(--gold); }
   .plate .photo { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
   .plate .photo img { height: 84%; width: auto; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 0 30px rgba(155, 123, 189, .5); }
-  .plate figcaption { margin-top: 10px; text-align: center; font-size: .78rem; color: var(--muted); letter-spacing: .12em; }
-  .plate figcaption::before, .plate figcaption::after { content: " ✦ "; color: var(--gold); font-size: .55rem; }
   .flicker { animation: flicker 2.2s ease-in-out infinite; transform-origin: 160px 96px; }
   .twinkle { animation: tw 3s ease-in-out infinite; }
   .twinkle:nth-of-type(2n) { animation-delay: -1.2s; }
@@ -275,20 +274,20 @@
   <header class="hero" id="top">
     <div class="hero-body">
       <div class="tate-wrap">
-        <p class="tate tate-sub">誰にも言えない恋の扉を、そっと開く</p>
+        <p class="tate tate-sub">誰にも<wbr>言えない<wbr>恋の<wbr>扉を、<wbr>そっと<wbr>開く</p>
         <div class="spark-line" aria-hidden="true">✦</div>
-        <h2 class="tate tate-main gold-text">鑑定をお待ちの<br>あなたへ</h2>
+        <h2 class="tate tate-main gold-text">鑑定を<wbr>お待ちの<br>あなたへ</h2>
       </div>
 
       <div class="brand">
         <p class="en">Irumi</p>
-        <h1>イルミ<span>|</span>ご縁を結ぶ霊視占い</h1>
+        <h1>イルミ<span>|</span>ご縁を<wbr>結ぶ<wbr>霊視占い</h1>
       </div>
 
-      <p class="welcome">このたびは無料鑑定にご応募いただき、<br>本当にありがとうございます。<br>あなたの波動を丁寧に読み解きながら、<br>ご応募順に鑑定を進めています。</p>
-      <div class="status"><span class="flame"></span>ただいま順番に鑑定しています</div>
+      <p class="welcome">この<wbr>たびは<wbr>無料鑑定に<wbr>ご応募いただき、<br>本当に<wbr>ありがとう<wbr>ございます。<br>あなたの<wbr>波動を<wbr>丁寧に<wbr>読み解きながら、<br>ご応募順に<wbr>鑑定を<wbr>進めています。</p>
+      <div class="status"><span class="flame"></span>ただいま順番に<wbr>鑑定しています</div>
 
-      <p class="tap">お待ちのあいだに、読んでほしいこと</p>
+      <p class="tap">お待ちの<wbr>あいだに、<wbr>読んで<wbr>ほしい<wbr>こと</p>
     </div>
   </header>
 
@@ -314,41 +313,41 @@
   <section class="letter fade" id="letter">
     <div class="title-block">
       <p class="en">Seven Keys</p>
-      <h2 class="gold-text">恋の扉がひらく前に<br>鑑定を受け取るための<br>七つの鍵</h2>
+      <h2 class="gold-text">恋の<wbr>扉が<wbr>ひらく<wbr>前に<br>鑑定を<wbr>受け取る<wbr>ための<br>七つの<wbr>鍵</h2>
       <p class="by">イルミ</p>
       <div class="rule">✦</div>
     </div>
 
     <div class="prose">
-      <p>このたびは、イルミの無料鑑定にご応募いただき、本当にありがとうございます。</p>
-      <p>いただいたご相談は、ひとつずつ順番に、心を込めて読み解いています。結果をお届けするまで、もう少しだけお待ちくださいね。</p>
-      <p>そのあいだに、あなたに読んでおいてほしいことを、ここにまとめました。</p>
-      <p>鑑定のメッセージは、<span class="hl">受け取る心の状態によって、届く深さが変わります。</span><br>同じ言葉でも、張りつめた心には弾かれてしまうし、ほどけた心にはすっと沁みこんでいく。</p>
-      <p>せっかく結ばれたご縁だから、あなたには、いちばん奥まで届けたいのです。</p>
-      <p>ここにあるのは、決まりごとでも注意書きでもありません。鑑定がひらく扉の前で、あなたの心をやわらかくほどいておくための<span class="gd">「七つの鍵」</span>です。</p>
-      <p>温かい飲み物を片手に、ゆっくり読み進めてみてください。</p>
+      <p>この<wbr>たびは、<wbr>イルミの<wbr>無料鑑定に<wbr>ご応募いただき、<wbr>本当に<wbr>ありがとう<wbr>ございます。</p>
+      <p>いただいた<wbr>ご相談は、<wbr>ひと<wbr>つずつ<wbr>順番に、<wbr>心を<wbr>込めて<wbr>読み解いています。<wbr>結果を<wbr>お届けするまで、<wbr>もう<wbr>少しだけ<wbr>お待ちくださいね。</p>
+      <p>その<wbr>あいだに、<wbr>あなたに<wbr>読んで<wbr>おいてほしい<wbr>ことを、<wbr>ここに<wbr>まとめました。</p>
+      <p>鑑定の<wbr>メッセージは、<span class="hl">受け取る<wbr>心の<wbr>状態に<wbr>よって、<wbr>届く<wbr>深さが<wbr>変わります。</span><br>同じ<wbr>言葉でも、<wbr>張りつめた<wbr>心には<wbr>弾かれてしまうし、<wbr>ほどけた<wbr>心には<wbr>すっと<wbr>沁みこんでいく。</p>
+      <p>せっかく<wbr>結ばれた<wbr>ご縁だから、<wbr>あなたには、<wbr>いちばん奥まで<wbr>届けたいのです。</p>
+      <p>ここに<wbr>あるのは、<wbr>決まりごとでも<wbr>注意<wbr>書きでもありません。<wbr>鑑定が<wbr>ひらく<wbr>扉の<wbr>前で、<wbr>あなたの<wbr>心を<wbr>やわらかく<wbr>ほどいて<wbr>おくための<span class="gd">「七つの<wbr>鍵」</span>です。</p>
+      <p>温かい<wbr>飲み物を<wbr>片手に、<wbr>ゆっくり読み進めてみてください。</p>
     </div>
 
     <!-- 目次（押すとその章へ移動） -->
     <nav class="toc card" aria-label="目次">
       <h3>目 次</h3>
       <ol>
-        <li><a href="#key1"><span class="no">第一の鍵</span>扉は、もう少しだけ開いています</a></li>
-        <li><a href="#key2"><span class="no">第二の鍵</span>占いは「灯りをともすこと」</a></li>
-        <li><a href="#key3"><span class="no">第三の鍵</span>待っている時間にも、意味がある</a></li>
-        <li><a href="#key4"><span class="no">第四の鍵</span>厳しい言葉は、あなたを守るもの</a></li>
-        <li><a href="#key5"><span class="no">第五の鍵</span>人に言えない恋を、恥じなくていい</a></li>
-        <li><a href="#key6"><span class="no">第六の鍵</span>無料鑑定は、恋の地図の最初の一枚</a></li>
-        <li><a href="#key7"><span class="no">第七の鍵</span>読み終えたら、小さなおまじないを</a></li>
-        <li><a href="#ending"><span class="no">おわりに</span>では、鑑定でお会いしましょう</a></li>
+        <li><a href="#key1"><span class="no">第一の<wbr>鍵</span>扉は、<wbr>もう<wbr>少しだけ開いています</a></li>
+        <li><a href="#key2"><span class="no">第二の<wbr>鍵</span>占いは<wbr>「灯りを<wbr>ともすこと」</a></li>
+        <li><a href="#key3"><span class="no">第三の<wbr>鍵</span>待っている<wbr>時間にも、<wbr>意味が<wbr>ある</a></li>
+        <li><a href="#key4"><span class="no">第四の<wbr>鍵</span>厳しい<wbr>言葉は、<wbr>あなたを<wbr>守る<wbr>もの</a></li>
+        <li><a href="#key5"><span class="no">第五の<wbr>鍵</span>人に<wbr>言えない<wbr>恋を、<wbr>恥じなくていい</a></li>
+        <li><a href="#key6"><span class="no">第六の<wbr>鍵</span>無料鑑定は、<wbr>恋の<wbr>地図の<wbr>最初の<wbr>一枚</a></li>
+        <li><a href="#key7"><span class="no">第七の<wbr>鍵</span>読み終えたら、<wbr>小さな<wbr>おまじないを</a></li>
+        <li><a href="#ending"><span class="no">おわりに</span>では、<wbr>鑑定で<wbr>お会いしましょう</a></li>
       </ol>
     </nav>
   </section>
 
   <!-- ===== 第一の鍵 ===== -->
   <article class="chapter fade" id="key1">
-    <p class="ch-no"><span class="en">The First Key</span>第一の鍵</p>
-    <h2 class="ch-title gold-text">ご応募のその瞬間から、<br>扉はもう少しだけ<br>開いています</h2>
+    <p class="ch-no"><span class="en">The First Key</span>第一の<wbr>鍵</p>
+    <h2 class="ch-title gold-text">ご応募の<wbr>その<wbr>瞬間から、<br>扉は<wbr>もう<wbr>少しだけ<br>開いています</h2>
     <figure class="plate">
       <div class="art">
         <svg viewBox="0 0 320 200" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="鍵穴から光がこぼれる扉">
@@ -371,23 +370,22 @@
           <use href="#star" x="240" y="70" class="twinkle" transform="scale(1)"/><use href="#star" x="34" y="150" class="twinkle"/>
         </svg>
       </div>
-      <figcaption>鍵穴から、細い光がこぼれはじめる</figcaption>
     </figure>
     <div class="prose">
-      <p>最初に、これだけは伝えさせてください。</p>
-      <p>きっかけは「無料だし、試しに」でかまいません。<br>それでもあなたは、自分の恋を誰かに打ち明けようと決めて、実際にメッセージを送ってくれました。</p>
-      <p><span class="hl">それは、思っている以上に大きな一歩です。</span></p>
-      <p>人に言えない恋ほど、ひとりで抱えるしかなくなります。<br>友達にも、家族にも話せない。<br>答えの出ない問いを、夜ごと胸の中で繰り返してきた——私のもとには、そんな方がたくさんいらっしゃいます。</p>
-      <p>その閉じこめてきた想いを、あなたは今日、はじめて外の世界へ差し出しました。</p>
-      <p>私はこれを、<span class="gd">「鍵を鍵穴に差しこんだ瞬間」</span>だと思っています。<br>まだ回していなくても、差しこんだときから、扉の向こうの空気はもう動きはじめている。</p>
-      <p>結果が届く前から、あなたの恋は、静かに流れを変えはじめていますよ。</p>
+      <p>最初に、<wbr>これだけは<wbr>伝えさせてください。</p>
+      <p>きっかけは<wbr>「無料だし、<wbr>試しに」でかまいません。<br>それでもあなたは、<wbr>自分の<wbr>恋を<wbr>誰かに<wbr>打ち明けようと<wbr>決めて、<wbr>実際に<wbr>メッセージを<wbr>送ってくれました。</p>
+      <p><span class="hl">それは、<wbr>思っている<wbr>以上に<wbr>大きな<wbr>一歩です。</span></p>
+      <p>人に<wbr>言えない<wbr>恋ほど、<wbr>ひとりで<wbr>抱えるしかなくなります。<br>友達にも、<wbr>家族にも<wbr>話せない。<br>答えの<wbr>出ない<wbr>問いを、<wbr>夜ごと<wbr>胸の<wbr>中で<wbr>繰り返してきた<wbr>——私のもとには、<wbr>そんな<wbr>方が<wbr>たくさん<wbr>いらっしゃいます。</p>
+      <p>その<wbr>閉じこめてきた<wbr>想いを、<wbr>あなたは<wbr>今日、<wbr>はじめて<wbr>外の<wbr>世界へ<wbr>差し出しました。</p>
+      <p>私は<wbr>これを、<span class="gd">「鍵を<wbr>鍵穴に<wbr>差しこんだ<wbr>瞬間」</span>だと<wbr>思っています。<br>まだ回していなくても、<wbr>差しこんだ<wbr>ときから、<wbr>扉の<wbr>向こうの<wbr>空気は<wbr>もう<wbr>動きはじめている。</p>
+      <p>結果が<wbr>届く<wbr>前から、<wbr>あなたの<wbr>恋は、<wbr>静かに<wbr>流れを<wbr>変えはじめていますよ。</p>
     </div>
   </article>
 
   <!-- ===== 第二の鍵 ===== -->
   <article class="chapter fade" id="key2">
-    <p class="ch-no"><span class="en">The Second Key</span>第二の鍵</p>
-    <h2 class="ch-title gold-text">占いは「答え合わせ」ではなく<br>「灯りをともすこと」</h2>
+    <p class="ch-no"><span class="en">The Second Key</span>第二の<wbr>鍵</p>
+    <h2 class="ch-title gold-text">占いは<wbr>「答え合わせ」ではなく<br>「灯りを<wbr>ともすこと」</h2>
     <figure class="plate">
       <div class="art">
         <svg viewBox="0 0 320 200" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="闇の中にゆれるキャンドルの炎">
@@ -404,22 +402,21 @@
           <use href="#star" x="256" y="150" class="twinkle"/><use href="#star" x="60" y="160" class="twinkle"/>
         </svg>
       </div>
-      <figcaption>闇の中に、ひとつの炎がゆれる</figcaption>
     </figure>
     <div class="prose">
-      <blockquote>「占いって、本当に当たるの？」</blockquote>
-      <p>そう聞かれることがあります。<br>正直にお話しすると、私は「当てること」を、いちばんの目的にはしていません。</p>
-      <p>霊視やタロットで私がしているのは、<span class="hl">夜の道にキャンドルをひとつ置くようなこと</span>。<br>道そのものは、最初からそこにあります。ただ、暗くて見えなかっただけなのです。</p>
-      <p>相手の心の奥。あなた自身も気づいていなかった本音。この先に続いていく流れ。<br>光が照らすのは、ずっとそこにあったものばかりです。</p>
-      <p>だから鑑定を読むときは、「合っているか、外れているか」を採点するより、<span class="gd">「この灯りで、何が浮かびあがってくるだろう」</span>と眺めてみてください。</p>
-      <p>そのほうが、受け取れるものはずっと多くなります。</p>
+      <blockquote>「占いって、<wbr>本当に<wbr>当たるの？」</blockquote>
+      <p>そう<wbr>聞かれる<wbr>ことがあります。<br>正直に<wbr>お話しすると、<wbr>私は<wbr>「当てる<wbr>こと」を、<wbr>いちばんの<wbr>目的には<wbr>していません。</p>
+      <p>霊視や<wbr>タロットで<wbr>私が<wbr>しているのは、<span class="hl">夜の<wbr>道に<wbr>キャンドルを<wbr>ひとつ<wbr>置くような<wbr>こと</span>。<br>道<wbr>その<wbr>ものは、<wbr>最初から<wbr>そこに<wbr>あります。<wbr>ただ、<wbr>暗くて<wbr>見えなかっただけなのです。</p>
+      <p>相手の<wbr>心の<wbr>奥。<wbr>あなた<wbr>自身も<wbr>気づいていなかった<wbr>本音。<wbr>この<wbr>先に<wbr>続いていく<wbr>流れ。<br>光が<wbr>照らすのは、<wbr>ずっと<wbr>そこに<wbr>あった<wbr>ものばかりです。</p>
+      <p>だから<wbr>鑑定を<wbr>読む<wbr>ときは、<wbr>「合っているか、<wbr>外れているか」を<wbr>採点するより、<span class="gd">「この<wbr>灯りで、<wbr>何が<wbr>浮かびあがってくるだろう」</span>と<wbr>眺めてみてください。</p>
+      <p>その<wbr>ほうが、<wbr>受け取れる<wbr>ものは<wbr>ずっと<wbr>多くなります。</p>
     </div>
   </article>
 
   <!-- ===== 第三の鍵 ===== -->
   <article class="chapter fade" id="key3">
-    <p class="ch-no"><span class="en">The Third Key</span>第三の鍵</p>
-    <h2 class="ch-title gold-text">待っている時間にも、<br>意味があります</h2>
+    <p class="ch-no"><span class="en">The Third Key</span>第三の<wbr>鍵</p>
+    <h2 class="ch-title gold-text">待っている<wbr>時間にも、<br>意味が<wbr>あります</h2>
     <figure class="plate">
       <div class="art">
         <svg viewBox="0 0 320 200" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="砂時計と満ちていく月">
@@ -441,24 +438,23 @@
           <use href="#star" x="262" y="150" class="twinkle"/>
         </svg>
       </div>
-      <figcaption>砂時計の向こうで、月が満ちていく</figcaption>
     </figure>
     <div class="prose">
-      <p>文章でお届けする鑑定には、<span class="hl">「結果を待つ時間」</span>があります。</p>
-      <p>その場ですぐ答えが出る占いとちがって、届くまでのあいだに、あなたの中では「本当は、どうなりたいんだろう」という問いが、少しずつ形になっていきます。</p>
-      <p>待っているうちに、自分の気持ちがはっきり見えてくる方は、本当に多いのです。</p>
-      <blockquote>「あの人を取り戻したいというより、<br>私はもう、寂しい夜を過ごしたくないんだ」</blockquote>
-      <p>——そんなふうに。</p>
-      <p>だから、落ちつかない時間も、どうか大切にしてください。</p>
-      <p>眠る前にあの人のことが浮かんだら、<span class="gd">「いま、私は何を願っているの？」</span>と、自分にそっと問いかけてみる。</p>
-      <p>それだけで、届いた言葉の沁みこみ方がまるで変わります。</p>
+      <p>文章で<wbr>お届けする<wbr>鑑定には、<span class="hl">「結果を<wbr>待つ<wbr>時間」</span>が<wbr>あります。</p>
+      <p>その<wbr>場ですぐ<wbr>答えが<wbr>出る<wbr>占いとちがって、<wbr>届くまでの<wbr>あいだに、<wbr>あなたの<wbr>中では<wbr>「本当は、<wbr>どうなりたいんだろう」と<wbr>いう<wbr>問いが、<wbr>少し<wbr>ずつ形に<wbr>なっていきます。</p>
+      <p>待っている<wbr>うちに、<wbr>自分の<wbr>気持ちがはっきり<wbr>見えてくる方は、<wbr>本当に<wbr>多いのです。</p>
+      <blockquote>「あの<wbr>人を<wbr>取り戻したいと<wbr>いうより、<br>私は<wbr>もう、<wbr>寂しい<wbr>夜を<wbr>過ごしたくないんだ」</blockquote>
+      <p>——<wbr>そんな<wbr>ふうに。</p>
+      <p>だから、<wbr>落ちつかない<wbr>時間も、<wbr>どうか<wbr>大切に<wbr>してください。</p>
+      <p>眠る<wbr>前に<wbr>あの<wbr>人の<wbr>ことが<wbr>浮かんだら、<span class="gd">「いま、<wbr>私は<wbr>何を<wbr>願っているの？」</span>と、<wbr>自分に<wbr>そっと<wbr>問いかけてみる。</p>
+      <p>それだけで、<wbr>届いた<wbr>言葉の<wbr>沁みこみ方が<wbr>まるで<wbr>変わります。</p>
     </div>
   </article>
 
   <!-- ===== 第四の鍵 ===== -->
   <article class="chapter fade" id="key4">
-    <p class="ch-no"><span class="en">The Fourth Key</span>第四の鍵</p>
-    <h2 class="ch-title gold-text">厳しい言葉は、<br>あなたを守るためのもの</h2>
+    <p class="ch-no"><span class="en">The Fourth Key</span>第四の<wbr>鍵</p>
+    <h2 class="ch-title gold-text">厳しい<wbr>言葉は、<br>あなたを<wbr>守る<wbr>ための<wbr>もの</h2>
     <figure class="plate">
       <div class="art">
         <svg viewBox="0 0 320 200" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="星を指す羅針盤">
@@ -478,22 +474,21 @@
           <use href="#star" x="248" y="170" class="twinkle"/><use href="#star" x="70" y="164" class="twinkle"/>
         </svg>
       </div>
-      <figcaption>星を指す羅針盤が、迷い道を教えてくれる</figcaption>
     </figure>
     <div class="prose">
-      <p>カードや霊視が伝えるのは、やさしい言葉ばかりではありません。</p>
-      <p>「いまは追いかけないほうがいい」<br>「相手の心は、まだ揺れている」<br>受け止めるのに少し勇気がいるメッセージが出ることもあります。</p>
-      <p>けれど、<span class="hl">それはあなたを否定する言葉ではありません。</span></p>
-      <p>夜の海で、羅針盤が「その先は岩場だよ」と針を振るのは、船を沈めたいからではなく、無事に港へ着いてほしいからですよね。</p>
-      <p>厳しめのメッセージも同じです。<br>あなたが遠回りをしないように、これ以上傷つかないように、いま知っておいてほしいことを教えてくれているだけ。</p>
-      <p>私はその言葉を、<span class="gd">あなたの心に届くやわらかな形にして</span>お渡しします。<br>だから、怖がらずに受け取ってくださいね。</p>
+      <p>カードや<wbr>霊視が<wbr>伝えるのは、<wbr>やさしい<wbr>言葉ばかりではありません。</p>
+      <p>「いまは<wbr>追いかけない<wbr>ほうが<wbr>いい」<br>「相手の<wbr>心は、<wbr>まだ<wbr>揺れている」<br>受け止めるのに<wbr>少し<wbr>勇気が<wbr>いる<wbr>メッセージが<wbr>出る<wbr>こともあります。</p>
+      <p>けれど、<span class="hl">それは<wbr>あなたを<wbr>否定する<wbr>言葉ではありません。</span></p>
+      <p>夜の<wbr>海で、<wbr>羅針盤が<wbr>「その<wbr>先は<wbr>岩場だよ」と<wbr>針を<wbr>振るのは、<wbr>船を<wbr>沈めたいからではなく、<wbr>無事に<wbr>港へ<wbr>着いてほしいからですよね。</p>
+      <p>厳しめの<wbr>メッセージも<wbr>同じです。<br>あなたが<wbr>遠回りを<wbr>しないように、<wbr>これ以上<wbr>傷つかないように、<wbr>いま知って<wbr>おいてほしい<wbr>ことを<wbr>教えてくれているだけ。</p>
+      <p>私は<wbr>その<wbr>言葉を、<span class="gd">あなたの<wbr>心に<wbr>届く<wbr>やわらかな<wbr>形に<wbr>して</span>お渡しします。<br>だから、<wbr>怖がらずに<wbr>受け取ってくださいね。</p>
     </div>
   </article>
 
   <!-- ===== 第五の鍵 ===== -->
   <article class="chapter fade" id="key5">
-    <p class="ch-no"><span class="en">The Fifth Key</span>第五の鍵</p>
-    <h2 class="ch-title gold-text">人に言えない恋を、<br>恥じなくていい</h2>
+    <p class="ch-no"><span class="en">The Fifth Key</span>第五の<wbr>鍵</p>
+    <h2 class="ch-title gold-text">人に<wbr>言えない<wbr>恋を、<br>恥じなくていい</h2>
     <figure class="plate">
       <div class="art">
         <svg viewBox="0 0 320 200" aria-hidden="true">
@@ -503,23 +498,22 @@
         </svg>
         <div class="photo"><img src="images/irumi.jpg" alt="鍵をくわえた白猫" width="600" height="600" loading="lazy"></div>
       </div>
-      <figcaption>月明かりの下、白猫は静かに見守っている</figcaption>
     </figure>
     <div class="prose">
-      <p>応募したあとで、ふと胸がちくりとした方もいるかもしれません。</p>
-      <blockquote>「こんな恋を相談するなんて、<br>いけないことかな」</blockquote>
-      <p>はっきりお伝えしますね。<br><span class="hl">恥じることは、何ひとつありません。</span></p>
-      <p>不倫、浮気、音信不通、復縁、誰にも言えない秘密の恋。<br>私自身、複雑な恋を経験してきたからこそ、わかることがあります。</p>
-      <p>人を想う気持ちは、関係の名前や、世間の正しさだけでは割りきれないもの。<br>守りたいものと、手放せない想いのあいだで揺れるのは、あなたが真剣に生きている証です。</p>
-      <p>ここでは、誰もあなたを裁きません。</p>
-      <p>私が見つめるのは、<span class="gd">あなたの心の奥にある、本当の想いだけ</span>です。</p>
+      <p>応募した<wbr>あとで、<wbr>ふと<wbr>胸が<wbr>ちくりと<wbr>した<wbr>方も<wbr>いるかもしれません。</p>
+      <blockquote>「こんな<wbr>恋を<wbr>相談する<wbr>なんて、<br>いけない<wbr>ことかな」</blockquote>
+      <p>はっきり<wbr>お伝えしますね。<br><span class="hl">恥じる<wbr>ことは、<wbr>何ひとつありません。</span></p>
+      <p>不倫、<wbr>浮気、<wbr>音信不通、<wbr>復縁、<wbr>誰にも<wbr>言えない<wbr>秘密の<wbr>恋。<br>私自身、<wbr>複雑な<wbr>恋を<wbr>経験してきたからこそ、<wbr>わかる<wbr>ことがあります。</p>
+      <p>人を<wbr>想う<wbr>気持ちは、<wbr>関係の<wbr>名前や、<wbr>世間の<wbr>正しさだけでは<wbr>割りきれない<wbr>もの。<br>守りたい<wbr>ものと、<wbr>手放せない<wbr>想いの<wbr>あいだで<wbr>揺れるのは、<wbr>あなたが<wbr>真剣に<wbr>生きている<wbr>証です。</p>
+      <p>ここでは、<wbr>誰も<wbr>あなたを<wbr>裁きません。</p>
+      <p>私が<wbr>見つめるのは、<span class="gd">あなたの<wbr>心の<wbr>奥に<wbr>ある、<wbr>本当の<wbr>想いだけ</span>です。</p>
     </div>
   </article>
 
   <!-- ===== 第六の鍵 ===== -->
   <article class="chapter fade" id="key6">
-    <p class="ch-no"><span class="en">The Sixth Key</span>第六の鍵</p>
-    <h2 class="ch-title gold-text">無料鑑定は、<br>恋の地図の「最初の一枚」</h2>
+    <p class="ch-no"><span class="en">The Sixth Key</span>第六の<wbr>鍵</p>
+    <h2 class="ch-title gold-text">無料鑑定は、<br>恋の<wbr>地図の<wbr>「最初の<wbr>一枚」</h2>
     <figure class="plate">
       <div class="art">
         <svg viewBox="0 0 320 200" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="伏せられたタロットカード">
@@ -539,23 +533,22 @@
           <use href="#star" x="258" y="168" class="twinkle"/>
         </svg>
       </div>
-      <figcaption>伏せられたカードに、扉の紋が浮かぶ</figcaption>
     </figure>
     <div class="prose">
-      <p>今回の無料鑑定では、あなたのご相談に対して、<span class="hl">いまのあなたにいちばん必要なメッセージ</span>をお届けします。</p>
-      <p>恋のすべてを細かく描ききるものではありません。<br>けれどそのぶん、いまのあなたが見るべき景色を、まっすぐに映し出してくれます。</p>
-      <p>イメージとしては、「まずは、ここから見てみて」と、最初の扉をひとつ開けてくれるようなものです。</p>
-      <p>そして扉がひらくと、たいてい、その奥の景色が気になりはじめます。</p>
-      <blockquote>「あの人は、本当はどう思っているの？」<br>「この流れは、いつ動きだすの？」</blockquote>
-      <p>そんな新しい問いが生まれるのは、ごく自然なこと。<br>それは、<span class="gd">あなたの心が前を向きはじめたしるし</span>です。</p>
-      <p>まずはこの最初の一枚を、ゆっくり味わってみてください。<br>それが、あなたの恋の地図のはじまりになります。</p>
+      <p>今回の<wbr>無料鑑定では、<wbr>あなたの<wbr>ご相談に<wbr>対して、<span class="hl">いまの<wbr>あなたに<wbr>いちばん必要な<wbr>メッセージ</span>を<wbr>お届けします。</p>
+      <p>恋の<wbr>すべてを<wbr>細かく<wbr>描ききる<wbr>ものではありません。<br>けれど<wbr>その<wbr>ぶん、<wbr>いまの<wbr>あなたが<wbr>見るべき景色を、<wbr>まっすぐに<wbr>映し出してくれます。</p>
+      <p>イメージと<wbr>しては、<wbr>「まずは、<wbr>ここから<wbr>見てみて」と、<wbr>最初の<wbr>扉を<wbr>ひとつ開けてくれるような<wbr>ものです。</p>
+      <p>そして<wbr>扉が<wbr>ひらくと、<wbr>たいてい、<wbr>その<wbr>奥の<wbr>景色が<wbr>気に<wbr>なりはじめます。</p>
+      <blockquote>「あの<wbr>人は、<wbr>本当は<wbr>どう<wbr>思っているの？」<br>「この<wbr>流れは、<wbr>いつ<wbr>動きだすの？」</blockquote>
+      <p>そんな<wbr>新しい<wbr>問いが<wbr>生まれるのは、<wbr>ごく<wbr>自然な<wbr>こと。<br>それは、<span class="gd">あなたの<wbr>心が<wbr>前を<wbr>向きはじめたしるし</span>です。</p>
+      <p>まずは<wbr>この<wbr>最初の<wbr>一枚を、<wbr>ゆっくり<wbr>味わってみてください。<br>それが、<wbr>あなたの<wbr>恋の<wbr>地図の<wbr>はじまりに<wbr>なります。</p>
     </div>
   </article>
 
   <!-- ===== 第七の鍵 ===== -->
   <article class="chapter fade" id="key7">
-    <p class="ch-no"><span class="en">The Seventh Key</span>第七の鍵</p>
-    <h2 class="ch-title gold-text">読み終えたら、<br>小さな「おまじない」をひとつ</h2>
+    <p class="ch-no"><span class="en">The Seventh Key</span>第七の<wbr>鍵</p>
+    <h2 class="ch-title gold-text">読み終えたら、<br>小さな<wbr>「おまじない」を<wbr>ひとつ</h2>
     <figure class="plate">
       <div class="art">
         <svg viewBox="0 0 320 200" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="月明かりの下のノートと羽根ペン">
@@ -576,16 +569,15 @@
           <use href="#star" x="286" y="150" class="twinkle"/>
         </svg>
       </div>
-      <figcaption>月の光の下、ノートに一行だけ書きとめる</figcaption>
     </figure>
     <div class="prose">
-      <p>最後の鍵です。</p>
-      <p>鑑定を読み終えたら、なにかひとつだけ、小さなことをしてみてください。</p>
-      <p>大きな決断はいりません。<br>むしろ、勢いで動くのはやめておきましょうね。</p>
-      <p>たとえば——<br>心に残った言葉を、スマホのメモに残す。<br>届いたメッセージを、夜にもう一度読み返す。<br>感じたことを、ノートに一行だけ書く。<br>あの人を想いながら、お気に入りの香りに包まれて眠る。</p>
-      <p>そんな、ささやかなことで十分です。</p>
-      <p>読んで終わりにすると、言葉はいつのまにか流れていってしまいます。<br>けれど、<span class="hl">小さな行動をひとつ添えるだけで、メッセージはあなたの毎日にしっかりと根をおろします。</span></p>
-      <p>その小さな根が、思いがけないタイミングで、<span class="gd">ご縁を結びなおしてくれる</span>こともあるのです。</p>
+      <p>最後の<wbr>鍵です。</p>
+      <p>鑑定を<wbr>読み終えたら、<wbr>なにか<wbr>ひとつだけ、<wbr>小さな<wbr>ことを<wbr>してみてください。</p>
+      <p>大きな<wbr>決断は<wbr>いりません。<br>むしろ、<wbr>勢いで<wbr>動くのは<wbr>やめて<wbr>おきましょうね。</p>
+      <p>たとえば<wbr>——<br>心に<wbr>残った<wbr>言葉を、<wbr>スマホの<wbr>メモに<wbr>残す。<br>届いた<wbr>メッセージを、<wbr>夜に<wbr>もう<wbr>一度<wbr>読み返す。<br>感じた<wbr>ことを、<wbr>ノートに<wbr>一行だけ<wbr>書く。<br>あの<wbr>人を<wbr>想いながら、<wbr>お気に入りの<wbr>香りに<wbr>包まれて<wbr>眠る。</p>
+      <p>そんな、<wbr>ささやかな<wbr>ことで<wbr>十分です。</p>
+      <p>読んで<wbr>終わりに<wbr>すると、<wbr>言葉は<wbr>いつのまに<wbr>か流れていってしまいます。<br>けれど、<span class="hl">小さな<wbr>行動を<wbr>ひとつ<wbr>添えるだけで、<wbr>メッセージは<wbr>あなたの<wbr>毎日に<wbr>しっかりと<wbr>根を<wbr>おろします。</span></p>
+      <p>その<wbr>小さな<wbr>根が、<wbr>思いがけない<wbr>タイミングで、<span class="gd">ご縁を<wbr>結びな<wbr>おしてくれる</span>こともあるのです。</p>
     </div>
   </article>
 
@@ -597,44 +589,44 @@
       <div class="rule">✦</div>
     </div>
     <div class="prose">
-      <p>七つの鍵、最後まで読んでくださって、ありがとうございました。</p>
-      <p>ここまで読んだあなたは、もう<span class="hl">鑑定を受け取る準備ができています。</span><br>あとは、届く日を楽しみに待っていてください。</p>
-      <p>そして、鑑定を読んだあとに——</p>
-      <p>新しい問いが生まれたり、「あの人とのこれからを、もっと深く知りたい」と感じたりしたら、その気持ちをどうか大切にしてください。<br>それは、あなたの恋が<span class="gd">次の扉を開けたがっているサイン</span>です。</p>
-      <p>最初の扉の奥には、もっと広い景色が続いています。<br>そのお話は、また鑑定のあとで。</p>
-      <p>まずは、あなただけに届けるメッセージを、心を込めて読み解きますね。</p>
+      <p>七つの<wbr>鍵、<wbr>最後まで<wbr>読んでくださって、<wbr>ありがとう<wbr>ございました。</p>
+      <p>ここまで<wbr>読んだ<wbr>あなたは、<wbr>もう<span class="hl">鑑定を<wbr>受け取る<wbr>準備が<wbr>できています。</span><br>あとは、<wbr>届く<wbr>日を<wbr>楽しみに<wbr>待っていてください。</p>
+      <p>そして、<wbr>鑑定を<wbr>読んだ<wbr>あとに<wbr>——</p>
+      <p>新しい<wbr>問いが<wbr>生まれたり、<wbr>「あの<wbr>人との<wbr>これからを、もっと<wbr>深く<wbr>知りたい」と<wbr>感じたりしたら、<wbr>その<wbr>気持ちを<wbr>どうか<wbr>大切に<wbr>してください。<br>それは、<wbr>あなたの<wbr>恋が<span class="gd">次の<wbr>扉を<wbr>開けたがっている<wbr>サイン</span>です。</p>
+      <p>最初の<wbr>扉の<wbr>奥には、<wbr>もっと<wbr>広い<wbr>景色が<wbr>続いています。<br>その<wbr>お話は、<wbr>また<wbr>鑑定の<wbr>あとで。</p>
+      <p>まずは、<wbr>あなただけに<wbr>届ける<wbr>メッセージを、<wbr>心を<wbr>込めて<wbr>読み<wbr>解きますね。</p>
     </div>
     <div class="farewell">
-      <p class="gold-text">では、無料鑑定で<br>お会いしましょう。</p>
+      <p class="gold-text">では、<wbr>無料鑑定で<br>お会いしましょう。</p>
     </div>
     <div class="sign">
-      <small>誰にも言えない恋の扉を、そっと開く</small>
+      <small>誰にも<wbr>言えない<wbr>恋の<wbr>扉を、<wbr>そっと<wbr>開く</small>
       <span class="en">Irumi</span>
     </div>
   </section>
 
   <!-- ===== プロフィール ===== -->
   <section id="profile" class="fade">
-    <div class="heading"><p class="en">Profile</p><h2 class="gold-text">イルミについて</h2><div class="rule">✦</div></div>
+    <div class="heading"><p class="en">Profile</p><h2 class="gold-text">イルミに<wbr>ついて</h2><div class="rule">✦</div></div>
     <div class="card profile">
       <div class="avatar"><img src="images/irumi.jpg" alt="鍵をくわえた白猫のイルミのアイコン" width="190" height="190"></div>
       <h3>イルミ</h3>
-      <p class="sub">ご縁を結ぶ霊視占い師</p>
+      <p class="sub">ご縁を<wbr>結ぶ<wbr>霊視占い<wbr>師</p>
       <div class="chips"><span>霊視タロット</span><span>四柱推命</span><span>波動鑑定</span></div>
-      <p class="text">わたし自身、複雑な恋愛を経験してきました。だからこそ、誰にも言えない恋の苦しさがわかります。あなたの波動を読み解き、否定することなく、愛される運命へとそっと導きます。</p>
-      <p class="label">— こんなお悩みに —</p>
-      <div class="chips worry"><span>不倫</span><span>浮気</span><span>音信不通</span><span>復縁</span><span>秘密の恋</span></div>
+      <p class="text">わたし自身、<wbr>複雑な<wbr>恋愛を<wbr>経験してきました。<wbr>だからこそ、<wbr>誰にも<wbr>言えない<wbr>恋の<wbr>苦しさが<wbr>わかります。<wbr>あなたの<wbr>波動を<wbr>読み解き、<wbr>否定する<wbr>ことなく、<wbr>愛される<wbr>運命へと<wbr>そっと<wbr>導きます。</p>
+      <p class="label">— こんな<wbr>お悩みに<wbr> —</p>
+      <div class="chips worry"><span>不倫</span><span>浮気</span><span>音信不通</span><span>復縁</span><span>秘密の<wbr>恋</span></div>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
   <section id="faq" class="fade">
-    <div class="heading"><p class="en">Q &amp; A</p><h2 class="gold-text">よくあるご質問</h2><div class="rule">✦</div></div>
+    <div class="heading"><p class="en">Q &amp; A</p><h2 class="gold-text">よく<wbr>ある<wbr>ご質問</h2><div class="rule">✦</div></div>
     <div class="card">
-      <details><summary>相談内容は秘密にしてもらえますか？</summary><p>はい、秘密は必ずお守りします。ご相談内容や個人情報を、第三者に公開・共有することは一切ありません。</p></details>
-      <details><summary>既婚者や、人に言えない関係でも相談できますか？</summary><p>もちろんです。不倫・浮気・秘密の恋など、どんなご関係でも否定せずにお話を伺います。</p></details>
-      <details><summary>結果はいつ届きますか？</summary><p>ご応募順に鑑定し、公式LINEでお届けします。たくさんのご応募をいただいているため、順番が来るまで少しだけお待ちください。</p></details>
-      <details><summary>相談内容を変更したいです</summary><p>鑑定を始める前であれば変更可能です。できるだけ早めに公式LINEでお知らせください。</p></details>
+      <details><summary>相談内容は<wbr>秘密に<wbr>して<wbr>もらえますか？</summary><p>はい、<wbr>秘密は<wbr>必ず<wbr>お守りします。<wbr>ご相談内容や<wbr>個人情報を、<wbr>第三者に<wbr>公開・共有する<wbr>ことは<wbr>一切ありません。</p></details>
+      <details><summary>既婚者や、<wbr>人に<wbr>言えない<wbr>関係でも<wbr>相談できますか？</summary><p>もちろんです。<wbr>不倫・浮気・秘密の<wbr>恋など、<wbr>どんな<wbr>ご関係でも<wbr>否定せずに<wbr>お話を<wbr>伺います。</p></details>
+      <details><summary>結果は<wbr>いつ<wbr>届きますか？</summary><p>ご応募順に<wbr>鑑定し、<wbr>公式LINEで<wbr>お届けします。<wbr>たくさんの<wbr>ご応募を<wbr>いただいている<wbr>ため、<wbr>順番が<wbr>来るまで<wbr>少しだけ<wbr>お待ちください。</p></details>
+      <details><summary>相談内容を<wbr>変更したいです</summary><p>鑑定を<wbr>始める<wbr>前であれば<wbr>変更可能です。<wbr>できるだけ<wbr>早めに<wbr>公式LINEで<wbr>お知らせ<wbr>ください。</p></details>
     </div>
   </section>
 
@@ -643,9 +635,9 @@
     <div class="heading"><p class="en">Notice</p><h2 class="gold-text">ご注意</h2><div class="rule">✦</div></div>
     <div class="card">
       <ul class="notes">
-        <li>鑑定結果は、未来を断定するものではありません。</li>
-        <li>医療・法律・投資などの判断は、専門家へご相談ください。</li>
-        <li>ご応募が多い場合、お届けまでお時間をいただくことがあります。</li>
+        <li>鑑定結果は、<wbr>未来を<wbr>断定する<wbr>ものではありません。</li>
+        <li>医療・法律・投資などの<wbr>判断は、<wbr>専門家へ<wbr>ご相談ください。</li>
+        <li>ご応募が<wbr>多い<wbr>場合、<wbr>お届けまで<wbr>お時間を<wbr>いただく<wbr>ことがあります。</li>
       </ul>
     </div>
   </section>
@@ -654,14 +646,14 @@
   <section id="links" class="fade">
     <div class="heading"><p class="en">Links</p><h2 class="gold-text">LINE・SNS</h2><div class="rule">✦</div></div>
     <div class="buttons">
-      <a class="btn btn-line" href="https://lin.ee/weEZDF0">公式LINEに戻る</a>
+      <a class="btn btn-line" href="https://lin.ee/weEZDF0">公式LINEに<wbr>戻る</a>
       <a class="btn btn-insta" href="https://www.instagram.com/irumi_uranai/">Instagram @irumi_uranai</a>
     </div>
   </section>
 
   <footer>
     <span class="en">Irumi</span>
-    © イルミ｜ご縁を結ぶ霊視占い
+    © イルミ｜ご縁を<wbr>結ぶ<wbr>霊視占い
   </footer>
 </main>
 
