@@ -179,18 +179,6 @@
     box-shadow: 0 12px 30px rgba(6, 199, 85, .28); }
   .btn-line .ex { font-weight: 500; font-size: .8rem; margin-top: 4px; letter-spacing: .1em; opacity: .95; }
 
-  /* ===== お客様の声 ===== */
-  .voices { display: grid; gap: 20px; }
-  .voice { margin: 0; }
-  .voice img { display: none; width: 100%; height: auto; border-radius: 20px; box-shadow: 0 14px 34px rgba(150, 120, 90, .15); }
-  .voice .ph {
-    display: flex; aspect-ratio: 4 / 3; border: 1.5px dashed var(--line); border-radius: 20px; background: var(--white);
-    flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--sub); font-size: .85rem; letter-spacing: .15em;
-  }
-  .voice .ph svg { width: 40px; height: 32px; color: var(--gold); }
-  .voice.loaded img { display: block; }
-  .voice.loaded .ph { display: none; }
-
   /* ===== 流れ ===== */
   .steps { list-style: none; counter-reset: step; }
   .steps li { position: relative; display: flex; gap: 16px; padding-bottom: 26px; font-size: .97rem; line-height: 1.85; }
@@ -679,26 +667,6 @@
     </div>
   </section>
 
-  <!-- ===== VOICES ===== -->
-  <section class="fade" id="voices">
-    <div class="heading">
-      <p class="en">Voices</p>
-      <h2 class="gold-text">お客様の声</h2>
-      <p class="catch">実際に鑑定をお受けくださった<br>方々から届いた、<br>そのままのお声です。</p>
-      <div class="rule">✦</div>
-    </div>
-    <!-- 画像は kantei/images/voice1.jpg 〜 voice7.jpg に置くと表示されます -->
-    <div class="voices">
-      <figure class="voice"><img src="images/voice1.jpg" alt="お客様の声1"><div class="ph"><svg viewBox="0 0 100 80"><use href="#moon"/></svg>お客様の声 1</div></figure>
-      <figure class="voice"><img src="images/voice2.jpg" alt="お客様の声2" ><div class="ph"><svg viewBox="0 0 100 80"><use href="#moon"/></svg>お客様の声 2</div></figure>
-      <figure class="voice"><img src="images/voice3.jpg" alt="お客様の声3" ><div class="ph"><svg viewBox="0 0 100 80"><use href="#moon"/></svg>お客様の声 3</div></figure>
-      <figure class="voice"><img src="images/voice4.jpg" alt="お客様の声4" ><div class="ph"><svg viewBox="0 0 100 80"><use href="#moon"/></svg>お客様の声 4</div></figure>
-      <figure class="voice"><img src="images/voice5.jpg" alt="お客様の声5" ><div class="ph"><svg viewBox="0 0 100 80"><use href="#moon"/></svg>お客様の声 5</div></figure>
-      <figure class="voice"><img src="images/voice6.jpg" alt="お客様の声6" ><div class="ph"><svg viewBox="0 0 100 80"><use href="#moon"/></svg>お客様の声 6</div></figure>
-      <figure class="voice"><img src="images/voice7.jpg" alt="お客様の声7" ><div class="ph"><svg viewBox="0 0 100 80"><use href="#moon"/></svg>お客様の声 7</div></figure>
-    </div>
-  </section>
-
   <!-- ===== FLOW ===== -->
   <section class="fade" id="flow">
     <div class="heading"><p class="en">Flow</p><h2 class="gold-text">鑑定の流れ</h2><div class="rule">✦</div></div>
@@ -855,13 +823,6 @@
 <a class="to-top" id="to-top" href="#top" aria-label="いちばん上に戻る">▲<br>TOP</a>
 
 <script>
-  // お客様の声：画像が読み込めたら枠と入れ替える
-  document.querySelectorAll('.voice img').forEach(img => {
-    const ok = () => img.parentElement.classList.add('loaded');
-    if (img.complete && img.naturalWidth > 0) ok();
-    img.addEventListener('load', ok);
-  });
-
   // スクロールでふわっと表示
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
