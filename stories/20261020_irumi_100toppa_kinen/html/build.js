@@ -7,6 +7,8 @@ const ROOT = path.resolve(__dirname, '..');
 const slides = JSON.parse(fs.readFileSync(path.join(ROOT, 'slides.json'), 'utf8'));
 
 // 配色：ネイビー×イエロー（暗い画面用）
+// スタンプの置き場所（最後の1枚）：中心座標と種類
+const SPOT = { x: 540, y: 1370, label: '絵文字スライダー' };
 const C = { em: '#FFD65A', marker: 'rgba(255,214,90,.60)', ink: '#1F2A3D' };
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -20,7 +22,7 @@ const lines = arr => arr.map(l => l === '' ? '<div class="ln blank">&nbsp;</div>
 const V = {
   1: { align: 'left', size: 44, head: 96, hold: 1130 },
   2: { align: 'center', size: 44, head: 100, hold: 1220 },
-  3: { align: 'left', size: 44, head: 96, hold: 1290 },
+  3: { align: 'left', size: 44, head: 96, hold: 1180 },
 };
 
 function page(s, guide) {
@@ -49,16 +51,16 @@ body{position:relative;font-family:"ZOM",serif;font-weight:400;color:#fff;letter
 .next{position:absolute;right:72px;bottom:352px;font-size:26px;line-height:1;letter-spacing:.08em;opacity:.88;
   padding:10px 18px;border-radius:999px;background:rgba(10,14,30,.45);
   text-shadow:0 0 2px rgba(0,0,0,.9),0 1px 8px rgba(0,0,0,.7)}
-.spot{position:absolute;left:${230 - 55}px;top:${1852 - 55}px;width:110px;height:110px;border-radius:50%;
+.spot{position:absolute;left:${SPOT.x - 55}px;top:${SPOT.y - 55}px;width:110px;height:110px;border-radius:50%;
   border:4.5px dashed #fff;filter:drop-shadow(0 0 1.5px rgba(0,0,0,.9)) drop-shadow(0 1px 2px rgba(0,0,0,.6))}
-.spotlabel{position:absolute;left:${230 + 55 + 20}px;top:${1852 - 17}px;font-size:30px;line-height:1.15;letter-spacing:.06em;
+.spotlabel{position:absolute;left:${SPOT.x + 55 + 20}px;top:${SPOT.y - 17}px;font-size:30px;line-height:1.15;letter-spacing:.06em;
   text-shadow:0 0 2px #000,0 1px 3px rgba(0,0,0,.8)}
 `;
   const html = `<div class="bg"></div><div class="shade"></div>
 <div class="blk"><div class="head">${head.map(h => `<div class="ln">${esc(h)}</div>`).join('')}</div>
 <div class="rule"></div><div class="txt">${lines(body)}</div></div>
 ${last ? '' : '<div class="next">次へ →</div>'}
-${guide ? '<div class="spot"></div><div class="spotlabel">DMでキーワード</div>' : ''}`;
+${guide ? `<div class="spot"></div><div class="spotlabel">${SPOT.label}</div>` : ''}`;
   return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><style>${css}</style></head><body>${html}</body></html>`;
 }
 
