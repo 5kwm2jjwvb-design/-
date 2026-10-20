@@ -2,32 +2,31 @@
 @font-face{font-family:"ZOM";src:url(fonts/ZenOldMincho-Regular.ttf);font-weight:400}
 @font-face{font-family:"ZOM";src:url(fonts/ZenOldMincho-SemiBold.ttf);font-weight:600}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1080px;height:1920px;overflow:hidden;background:#0d1020}
-body{position:relative;font-family:"ZOM",serif;font-weight:400;color:#fff;letter-spacing:.05em}
-.bg{position:absolute;inset:0;background:url(../bg/01.jpg) center/cover}
-.shade{position:absolute;left:0;right:0;top:0;height:1510px;
-  background:linear-gradient(rgba(0,0,0,.70),rgba(0,0,0,.70) 1130px,rgba(0,0,0,.35) 1300px,rgba(0,0,0,0))}
-.blk{position:absolute;top:290px;left:96px;right:72px;display:flex;flex-direction:column;align-items:flex-start}
-.head{font-size:96px;line-height:1.32;font-weight:600;color:#FFD65A;letter-spacing:.06em;text-align:left;
-  text-shadow:0 2px 6px rgba(0,0,0,.55)}
-.rule{width:150px;height:2px;background:#FFD65A;opacity:.9;margin:38px 0 44px}
-.txt{font-size:44px;line-height:1.7;text-align:left}
-.ln{white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.6),0 0 16px rgba(0,0,0,.45)}
-.mk{background:linear-gradient(transparent 60%, rgba(255,214,90,.60) 60%)}
-.em,.hero{color:#FFD65A;font-weight:600}
-.next{position:absolute;right:72px;bottom:352px;font-size:26px;line-height:1;letter-spacing:.08em;opacity:.88;
-  padding:10px 18px;border-radius:999px;background:rgba(10,14,30,.45);
-  text-shadow:0 0 2px rgba(0,0,0,.9),0 1px 8px rgba(0,0,0,.7)}
-.spot{position:absolute;left:485px;top:1315px;width:110px;height:110px;border-radius:50%;
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{position:relative;font-family:"ZOM",serif;font-weight:400;
+  background:radial-gradient(ellipse 620px 760px at 50% 48%, #1f1544, #110a24 100%) #110a24}
+.stars{position:absolute;inset:0}
+.blk{position:absolute;left:72px;right:72px;top:560px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.moon{margin-bottom:96px}
+.head{font-size:60px;line-height:1.6;letter-spacing:.12em;color:#E8D6A8}
+.txt{margin-top:72px;font-size:40px;line-height:1.75;letter-spacing:.14em;color:#CDB98F}
+.ln{white-space:nowrap}
+.em{color:#F3DC95}
+.mk{background:linear-gradient(transparent 62%, rgba(217,191,133,.26) 62%)}
+.sign{position:absolute;left:0;right:0;top:1520px;text-align:center;font-size:32px;letter-spacing:.5em;color:#CDB98F;opacity:.9}
+.next{position:absolute;right:72px;bottom:352px;font-size:26px;line-height:1;letter-spacing:.1em;color:#CDB98F;opacity:.85}
+.spot{position:absolute;left:485px;top:1330px;width:110px;height:110px;border-radius:50%;
   border:4.5px dashed #fff;filter:drop-shadow(0 0 1.5px rgba(0,0,0,.9)) drop-shadow(0 1px 2px rgba(0,0,0,.6))}
-.spotlabel{position:absolute;left:615px;top:1353px;font-size:30px;line-height:1.15;letter-spacing:.06em;
+.spotlabel{position:absolute;left:615px;top:1368px;font-size:30px;line-height:1.15;letter-spacing:.06em;color:#fff;
   text-shadow:0 0 2px #000,0 1px 3px rgba(0,0,0,.8)}
-</style></head><body><div class="bg"></div><div class="shade"></div>
-<div class="blk"><div class="head"><div class="ln">100人突破、</div><div class="ln">記念企画。</div></div>
-<div class="rule"></div><div class="txt"><div class="ln">50人記念の無料鑑定を募集していたら、</div>
+</style></head><body><svg class="stars" width="1080" height="1920" viewBox="0 0 1080 1920"><circle cx="1030" cy="1470" r="1.6" fill="#fff" opacity="0.16"/><circle cx="832" cy="996" r="3.2" fill="#fff" opacity="0.39"/><circle cx="446" cy="575" r="1.5" fill="#fff" opacity="0.26"/><circle cx="557" cy="1919" r="1.2" fill="#fff" opacity="0.21"/><circle cx="487" cy="270" r="3.3" fill="#fff" opacity="0.40"/><circle cx="481" cy="612" r="3.0" fill="#fff" opacity="0.27"/><circle cx="381" cy="604" r="2.2" fill="#fff" opacity="0.45"/><circle cx="111" cy="1673" r="1.6" fill="#fff" opacity="0.38"/><circle cx="874" cy="271" r="1.6" fill="#fff" opacity="0.25"/><circle cx="593" cy="1524" r="2.2" fill="#fff" opacity="0.22"/><circle cx="872" cy="1525" r="1.8" fill="#fff" opacity="0.35"/><circle cx="634" cy="1633" r="3.2" fill="#fff" opacity="0.25"/><circle cx="202" cy="1000" r="1.4" fill="#fff" opacity="0.24"/><circle cx="700" cy="1906" r="1.6" fill="#fff" opacity="0.35"/><circle cx="931" cy="1017" r="2.2" fill="#fff" opacity="0.28"/><circle cx="379" cy="1111" r="2.3" fill="#fff" opacity="0.18"/><circle cx="766" cy="1056" r="3.5" fill="#fff" opacity="0.41"/><circle cx="776" cy="503" r="3.2" fill="#fff" opacity="0.38"/><circle cx="133" cy="98" r="2.5" fill="#fff" opacity="0.44"/><circle cx="79" cy="1055" r="1.6" fill="#fff" opacity="0.21"/><circle cx="259" cy="251" r="1.7" fill="#fff" opacity="0.22"/><circle cx="635" cy="40" r="2.2" fill="#fff" opacity="0.34"/><circle cx="890" cy="142" r="2.0" fill="#fff" opacity="0.13"/><circle cx="549" cy="422" r="2.5" fill="#fff" opacity="0.20"/><circle cx="894" cy="1098" r="1.5" fill="#fff" opacity="0.25"/><circle cx="49" cy="399" r="2.4" fill="#fff" opacity="0.18"/><circle cx="657" cy="1174" r="2.2" fill="#fff" opacity="0.32"/><circle cx="1001" cy="1511" r="1.6" fill="#fff" opacity="0.22"/><circle cx="885" cy="64" r="1.6" fill="#fff" opacity="0.42"/><circle cx="672" cy="749" r="1.9" fill="#fff" opacity="0.28"/><circle cx="1045" cy="1440" r="1.5" fill="#fff" opacity="0.26"/><circle cx="248" cy="1218" r="2.3" fill="#fff" opacity="0.15"/><circle cx="684" cy="1227" r="2.0" fill="#fff" opacity="0.46"/><circle cx="37" cy="1045" r="2.5" fill="#fff" opacity="0.41"/><circle cx="389" cy="181" r="2.1" fill="#fff" opacity="0.12"/><circle cx="784" cy="846" r="2.3" fill="#fff" opacity="0.17"/><circle cx="226" cy="485" r="2.2" fill="#fff" opacity="0.34"/><circle cx="317" cy="953" r="2.3" fill="#fff" opacity="0.35"/><circle cx="1062" cy="1688" r="1.9" fill="#fff" opacity="0.16"/><circle cx="623" cy="1841" r="2.0" fill="#fff" opacity="0.43"/><circle cx="123" cy="1774" r="1.7" fill="#fff" opacity="0.17"/><circle cx="527" cy="71" r="2.0" fill="#fff" opacity="0.45"/><circle cx="237" cy="1432" r="3.1" fill="#fff" opacity="0.38"/><circle cx="977" cy="884" r="3.0" fill="#fff" opacity="0.31"/><circle cx="349" cy="1917" r="1.5" fill="#fff" opacity="0.36"/><circle cx="239" cy="1339" r="2.1" fill="#fff" opacity="0.19"/><circle cx="808" cy="362" r="1.4" fill="#fff" opacity="0.45"/><circle cx="620" cy="1626" r="1.8" fill="#fff" opacity="0.29"/><circle cx="718" cy="1721" r="1.5" fill="#fff" opacity="0.25"/><circle cx="786" cy="370" r="1.7" fill="#fff" opacity="0.27"/><circle cx="347" cy="1276" r="1.6" fill="#fff" opacity="0.25"/><circle cx="685" cy="819" r="1.3" fill="#fff" opacity="0.25"/><circle cx="1002" cy="1066" r="1.8" fill="#fff" opacity="0.15"/><circle cx="702" cy="1029" r="1.3" fill="#fff" opacity="0.28"/><circle cx="229" cy="712" r="1.7" fill="#fff" opacity="0.21"/><circle cx="465" cy="692" r="1.6" fill="#fff" opacity="0.46"/><circle cx="695" cy="1044" r="1.9" fill="#fff" opacity="0.41"/><circle cx="521" cy="1561" r="1.6" fill="#fff" opacity="0.15"/><circle cx="346" cy="1326" r="2.6" fill="#fff" opacity="0.19"/><circle cx="415" cy="1481" r="1.3" fill="#fff" opacity="0.31"/><circle cx="570" cy="1606" r="2.2" fill="#fff" opacity="0.47"/><circle cx="735" cy="1209" r="2.3" fill="#fff" opacity="0.41"/><circle cx="1032" cy="580" r="1.9" fill="#fff" opacity="0.37"/><circle cx="467" cy="1006" r="1.3" fill="#fff" opacity="0.13"/><circle cx="641" cy="501" r="2.2" fill="#fff" opacity="0.46"/><circle cx="477" cy="422" r="1.5" fill="#fff" opacity="0.26"/><circle cx="301" cy="1842" r="1.3" fill="#fff" opacity="0.22"/><circle cx="154" cy="1282" r="2.2" fill="#fff" opacity="0.36"/><circle cx="1000" cy="1166" r="1.2" fill="#fff" opacity="0.37"/><circle cx="163" cy="433" r="2.5" fill="#fff" opacity="0.41"/></svg>
+<div class="blk"><svg class="moon" width="140" height="96" viewBox="0 0 140 96">
+<path d="M48 4a44 44 0 1 0 30 76A38 38 0 1 1 48 4z" fill="#D9BF85"/>
+<path d="M112 26l3 17 17 3-17 3-3 17-3-17-17-3 17-3z" fill="#D9BF85"/></svg><div class="head"><div class="ln">100人突破、</div><div class="ln">記念企画。</div></div>
+<div class="txt"><div class="ln">50人記念の無料鑑定を募集していたら、</div>
 <div class="ln">思っていたより早く100人を超えて、</div>
 <div class="ln">今は115人になりました。</div>
 <div class="ln blank">&nbsp;</div>
 <div class="ln"><span class="mk">こんなに早いとは、思っていなくて。</span></div></div></div>
-<div class="next">次へ →</div>
+<div class="sign">イルミ</div><div class="next">次へ →</div>
 </body></html>
