@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鑑定が届く前に　七つのおはなし｜イルミ</title>
+<meta name="description" content="イルミの無料鑑定にお申し込みいただいた方へ。鑑定結果が届く前に、そっと読んでほしい七つのおはなし。">
+<meta name="theme-color" content="#120f26">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Shippori+Mincho:wght@500;600&display=swap">
+<style>
+/*
+  イルミ「灯りがともる七つのおはなし」（りりぃ「夜明けを待つ七つのおはなし」のイルミ版）
+  ★ ページ全体が「暗い夜 → ひとつずつ灯りがともる → やわらかな明るさ」。下へ読み進めるほど明るくなる。
+  ★ 色はイルミのストーリーズと同じ。夜は紫がかった紺、明るい面はセージ（#E9EFE5・墨緑 #253026・金 #7A5A12）。
+  ★ 七つのおはなしの写真は、ろうそく → ランプ → 朝の光 と、灯りが少しずつ大きくなる順に並べた。
+  ★ どの節も「背景の上端＝前の節の下端」でつなぐ。
+*/
+:root {
+  --yoru-ink: #eeeae2;        /* 夜の地の上の字 */
+  --yoru-ink-soft: #bdb6cc;
+  --yoru-gold: #d9bd82;       /* 灯りの金：夜の地の上の飾り */
+  --yoru-sage: #c2e3a8;       /* ストーリーズの強調色（暗い画面） */
+  --asa-ink: #253026;         /* 墨緑：明るい地の上の字 */
+  --asa-ink-soft: #566055;
+  --asa-gold: #7a5a12;        /* 明るい地の上でも読める金 */
+  --display: "Zen Old Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --body: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --column: 34rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: #120f26; }
+body {
+  margin: 0;
+  background: #120f26;
+  color: var(--yoru-ink);
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 1.03rem;
+  line-height: 2.05;
+  letter-spacing: .04em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
+
+/* ── 節（背景は上端→下端のグラデーション。oklab で混ぜ、上下はゆっくり・まん中で速く変わる S字） ── */
+.sora {
+  background: linear-gradient(var(--top), var(--bottom));
+  background: linear-gradient(in oklab,
+    var(--top) 0%,
+    color-mix(in oklab, var(--top) 97%, var(--bottom)) 10%,
+    color-mix(in oklab, var(--top) 84%, var(--bottom)) 25%,
+    color-mix(in oklab, var(--top) 50%, var(--bottom)) 50%,
+    color-mix(in oklab, var(--top) 16%, var(--bottom)) 75%,
+    color-mix(in oklab, var(--top) 3%, var(--bottom)) 90%,
+    var(--bottom) 100%);
+  padding-inline: 20px;
+}
+/* 暗い紺の段々（バンディング）を目立たなくする、ごく薄いざらつき */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  opacity: .07;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 1.4 -.2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.yoru { color: var(--yoru-ink); --ink-soft: var(--yoru-ink-soft); --gold: var(--yoru-gold); }
+.asa  { color: var(--asa-ink);  --ink-soft: var(--asa-ink-soft);  --gold: var(--asa-gold); }
+.inner { max-width: var(--column); margin-inline: auto; }
+
+/* ── 表紙 ──
+   夜の灯り（瓶に入れた小さな光）の写真を左右いっぱいに敷き、その上に題をのせる。
+   スマホ・タブレットは縦長（9:16）、広い画面は横長（16:9）。画面より高くなる機種は高さを止めて上下を切る */
+.hyoshi {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  padding-inline: 0;
+}
+.hyoshi-waku {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: max(calc(100svh - 4.5rem), 34rem);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(2.2rem, 6svh, 3.4rem) 16px clamp(1.2rem, 3svh, 2rem);
+}
+.hyoshi-e { position: absolute; inset: 0; z-index: -2; }
+.hyoshi-e img { width: 100%; height: 100%; object-fit: cover; }
+/* 題が写真の光に溶けないよう、上から紺のグラデーション＋題の後ろに楕円の暗がり。下の端は次の節の紺に溶かす */
+.hyoshi-waku::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 40% 36% at 50% 40%, rgba(10, 8, 26, .55), rgba(10, 8, 26, 0) 100%),
+    linear-gradient(to bottom,
+      rgba(14, 11, 32, .60) 0%,
+      rgba(14, 11, 32, .40) 22%,
+      rgba(14, 11, 32, .44) 50%,
+      rgba(14, 11, 32, .52) 70%,
+      rgba(16, 13, 36, .84) 88%,
+      #120f26 100%);
+  pointer-events: none;
+}
+.hyoshi-naka {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  text-align: center;
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, .9),
+    0 0 4px rgba(0, 0, 0, .75),
+    0 0 12px rgba(6, 4, 18, .6);
+}
+.hyoshi-naka .soe { margin-top: clamp(.8rem, 2.5svh, 1.6rem); }
+/* 表紙のマーク：灯りのしるし（金の細線）。地は透明なので写真になじむ */
+.shirushi-e {
+  width: clamp(4.4rem, 19vw, 5.6rem);
+  aspect-ratio: 1;
+  color: #ffe3a6;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .8));
+}
+.shirushi-e svg { width: 100%; height: 100%; display: block; }
+.daimei {
+  margin: 0;
+  writing-mode: vertical-rl;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2rem, 8.8vw, 2.7rem);
+  line-height: 1.9;
+  letter-spacing: .2em;
+  color: #ffffff;
+  padding: 1rem .6rem;
+  position: relative;
+  isolation: isolate;
+}
+/* 題のうしろのにじみ（ふちの無い楕円。線が出ない） */
+.daimei::before {
+  content: "";
+  position: absolute;
+  inset: -2.4rem -3.4rem;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgba(10, 8, 26, .48), rgba(10, 8, 26, .26) 55%, rgba(10, 8, 26, 0) 100%);
+  pointer-events: none;
+}
+.daimei .ato { color: #ffe3a6; }
+.soe {
+  display: grid;
+  gap: .4rem;
+  justify-items: center;
+  padding: .7rem .6rem;
+  position: relative;
+  isolation: isolate;
+}
+.soe::before {
+  content: "";
+  position: absolute;
+  inset: -1.6rem -2.6rem;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgba(10, 8, 26, .54), rgba(10, 8, 26, .3) 55%, rgba(10, 8, 26, 0) 100%);
+  pointer-events: none;
+}
+.soe-bun { margin: 0; font-size: min(1rem, 4.4vw); font-weight: 600; line-height: 1.8; letter-spacing: .06em; color: #ffffff; }
+.namae { margin: 0; font-family: var(--display); font-size: 1.7rem; font-weight: 700; line-height: 1.6; letter-spacing: .35em; color: #ffe3a6; padding-left: .35em; }
+.shita { margin: 0; padding-block: 1.4rem 2.8rem; font-size: .88rem; letter-spacing: .3em; color: var(--yoru-ink-soft); text-align: center; }
+.shita::after { content: ""; display: block; width: 1px; height: 2.6rem; margin: .8rem auto 0; background: linear-gradient(var(--gold), transparent); }
+
+/* ── はじめに ── 本文は「。」ごとに改行、左揃え（表紙だけ中央） */
+.hajimeni { padding-block: 3.5rem 4.5rem; }
+.hon { display: flex; flex-direction: column; gap: 1.45em; }
+.hon p { margin: 0; }
+.lead-kotoba {
+  font-family: var(--display);
+  font-size: 1.14rem;
+  line-height: 2;
+  text-align: left;
+  color: var(--yoru-ink);
+  padding-block: .6rem 1.2rem;
+}
+
+/* ── 七つのおはなし ── */
+.ohanashi { padding-block: 4.5rem 5rem; }
+.ohanashi header { display: grid; gap: 1rem; margin-bottom: 2rem; }
+.bangou {
+  display: flex;
+  align-items: center;
+  gap: .25rem .7rem;
+  font-size: .8rem;
+  letter-spacing: .24em;
+  color: var(--gold);
+}
+/* 番号の前の小さな灯（おはなしごとに、ひとつずつともる） */
+.bangou::before {
+  content: "";
+  width: .5rem; height: .5rem;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 .5rem .1rem color-mix(in oklab, var(--gold) 60%, transparent);
+  flex: none;
+}
+.bangou .sen { flex: 1 1 3rem; height: 1px; background: currentColor; opacity: .45; }
+.ohanashi h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.28rem, 4.6vw, 1.5rem);
+  line-height: 1.85;
+  letter-spacing: .06em;
+  text-wrap: balance;
+}
+.e { margin: 0 0 2.2rem; }
+.e img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* 灯りがともる境目（ことばを置かない、色だけの節）
+   紫がかった紺 → 灯りの琥珀色をうすくはさんで → セージの明るい面へ。いちばん色の差が大きいので背を高くする */
+.tomoru {
+  min-height: min(70svh, 34rem);
+  padding-block: 3rem;
+}
+.sora.tomoru {
+  background: linear-gradient(in oklab,
+    #2f284c 0%, #332b4f 8%, #3d3456 18%, #4d4260 30%,
+    #665869 42%, #857773 54%, #a69b88 66%, #c3bfa4 78%,
+    #d9dfc9 90%, #e3e9dc 100%);
+}
+
+/* ── おわりに ── */
+.owarini { padding-block: 4.5rem 3.5rem; }
+.owarini h2 { margin: 0 0 1.8rem; font-family: var(--display); font-weight: 700; font-size: 1.35rem; letter-spacing: .12em; text-align: left; }
+.daijoubu { font-family: var(--display); font-size: 1.25rem; text-align: left; letter-spacing: .2em; padding-top: .8rem; }
+.akari-e { margin: 3.2rem auto 0; max-width: var(--column); }
+.akari-e img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 3px; }
+.musubi {
+  margin: 2.6rem auto 0;
+  max-width: var(--column);
+  font-family: var(--display);
+  font-size: clamp(1.05rem, 3.8vw, 1.25rem);
+  line-height: 2;
+  letter-spacing: .14em;
+  text-align: left;
+}
+.okuri {
+  padding-block: 1rem 3.5rem;
+  display: grid;
+  justify-items: center;
+  gap: 1.6rem;
+  text-align: center;
+}
+.line-e {
+  display: inline-block;
+  padding: .85rem 2.2rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-size: .9rem;
+  letter-spacing: .18em;
+  text-decoration: none;
+  color: var(--asa-ink);
+  background: #fbfcf7;
+  transition: background-color .25s ease;
+}
+.line-e:hover { background: #e9efe5; }
+.kenri { margin: 0; font-size: .7rem; letter-spacing: .16em; color: var(--ink-soft); }
+.shutten { margin: 0; font-size: .62rem; letter-spacing: .1em; color: var(--ink-soft); opacity: .8; }
+
+/* 写真は、見える場所に来たときに、灯りがともるように明るくなる（非対応のブラウザでは最初から見えている） */
+@supports (animation-timeline: view()) {
+  .e img { animation: tomoru linear both; animation-timeline: view(); animation-range: entry 0% cover 35%; }
+  @keyframes tomoru { from { opacity: .45; filter: brightness(.6) saturate(.7); } to { opacity: 1; filter: none; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .e img { animation: none; }
+}
+@media (min-width: 720px) {
+  body { font-size: 1.06rem; }
+  .ohanashi { padding-block: 6rem 6.5rem; }
+  .e { margin-inline: -3rem; }
+  .akari-e { max-width: calc(var(--column) + 6rem); }
+  .soe { padding: .8rem 1.4rem; }
+  .soe-bun { font-size: 1.1rem; letter-spacing: .06em; }
+}
+/* 横長の画面は高さが足りないので、題の大きさを画面の高さに合わせて、イルミの名前まで最初の画面に入れる */
+@media (min-width: 1080px) {
+  .hyoshi-waku { aspect-ratio: 16 / 9; }
+  .hyoshi-naka { gap: .8rem; }
+  .shirushi-e { width: clamp(3.6rem, 9svh, 5.6rem); }
+  .daimei { font-size: clamp(1.8rem, 4.6svh, 2.7rem); }
+  .soe { padding: .9rem 1.8rem; }
+  .soe-bun { font-size: 1.15rem; letter-spacing: .1em; }
+  .namae { font-size: 1.85rem; }
+}
+</style>
+</head>
+<body>
+
+<main>
+
+  <!-- 表紙：夜 -->
+  <section class="sora yoru hyoshi" style="--top:#120f26; --bottom:#120f26">
+    <div class="hyoshi-waku">
+    <picture class="hyoshi-e" aria-hidden="true">
+      <source media="(min-width: 1080px)" srcset="img/hyoshi_yoko.webp">
+      <img src="img/hyoshi_tate.webp" alt="" width="900" height="1600">
+    </picture>
+    <div class="hyoshi-naka">
+      <div class="shirushi-e" aria-hidden="true">
+        <!-- 灯りのしるし：小さな炎と、まわりの光 -->
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="50" cy="52" r="30" opacity=".45"/>
+          <circle cx="50" cy="52" r="41" opacity=".22"/>
+          <path d="M50 30c7 9 11 15 11 22a11 11 0 0 1-22 0c0-7 4-13 11-22z"/>
+          <path d="M50 44c3 4 5 7 5 10a5 5 0 0 1-10 0c0-3 2-6 5-10z" fill="currentColor" stroke="none" opacity=".85"/>
+          <path d="M50 4v6M50 94v-4M8 52h5M92 52h-5M20 22l4 4M80 22l-4 4"/>
+        </svg>
+      </div>
+      <h1 class="daimei">恋に悩む心に<br><span class="ato">灯りをともすお話</span></h1>
+      <div class="soe">
+        <p class="soe-bun">鑑定が届く前に、そっと読んでほしい<br>七つのおはなし</p>
+        <p class="namae">イルミ</p>
+      </div>
+    </div>
+    </div>
+    <p class="shita">ゆっくり、下へ</p>
+  </section>
+
+  <!-- はじめに -->
+  <section class="sora yoru hajimeni" style="--top:#120f26; --bottom:#16122e">
+    <div class="inner">
+      <p class="lead-kotoba">もう、ひとりで抱えなくて大丈夫です。</p>
+      <div class="hon">
+        <p>無料鑑定にお申し込みいただき、本当にありがとうございます。<br>イルミです。</p>
+        <p>送っていただいたお名前やお悩みを、大切に受け取りました。<br>いただいた順番に、カードを一枚ずつ丁寧に引いていきます。<br>お一人ずつ向き合うため、お届けまで少しお時間をいただきます。</p>
+        <p>鑑定結果を待つあいだに、このおはなしを読んでみてください。<br>占いを味方にする受け取り方を、七つにまとめました。<br>決まりごとではありませんので、気楽に読んでみてくださいね。</p>
+        <p>部屋の灯りを少し落として、あたたかい飲み物でもいかがですか。<br>肩の力を抜いて、ゆったりした気持ちで読んでみてください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第一のおはなし -->
+  <article class="sora yoru ohanashi" style="--top:#16122e; --bottom:#1a1534">
+    <div class="inner">
+      <header>
+        <div class="bangou"><span>第一のおはなし</span><span class="sen" aria-hidden="true"></span></div>
+        <h2>言葉にしてくれたことは、<br>とても大きな一歩です</h2>
+      </header>
+      <figure class="e"><img src="img/s1.webp" alt="暗い部屋に、ろうそくがひとつだけ灯っている" width="1200" height="800" loading="lazy"></figure>
+      <div class="hon">
+        <p>これまでずっと、ひとりで悩んできたのですね。<br>だれにも言えずに、胸の奥にしまっていたのですね。<br>それを言葉にして送ってくれたのは、とても大きな一歩です。</p>
+        <p>暗い部屋でも、灯りがひとつあるだけで足もとが見えてきます。<br>あなたが書いてくれたひとことが、その最初の灯りです。<br>ひとりで抱え込むのをやめると決めたこと自体が、もう大きな変化です。</p>
+        <p>あなたが打ち明けてくれた想いは、私がしっかりと受け止めました。<br>ここからは、私と一緒に考えていきましょう。<br>まずはリラックスして、鑑定結果を楽しみにしていてください。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 第二のおはなし -->
+  <article class="sora yoru ohanashi" style="--top:#1a1534; --bottom:#1f1a3b">
+    <div class="inner">
+      <header>
+        <div class="bangou"><span>第二のおはなし</span><span class="sen" aria-hidden="true"></span></div>
+        <h2>未来を決めつけるのではなく、<br>心を照らすための占いです</h2>
+      </header>
+      <figure class="e"><img src="img/s2.webp" alt="木のテーブルの上で、すりガラスのキャンドルがやわらかく灯っている" width="1200" height="800" loading="lazy"></figure>
+      <div class="hon">
+        <p>占いを「当てるもの」だと思っていませんか。<br>私のカードは、未来を一方的に決めるものではありません。<br>暗くて見えなかった心の中を、そっと照らすためのものです。</p>
+        <p>鑑定では、これまで見えなかった大切な部分が見えてきます。<br>お相手の本当の気持ちや、あなた自身の本音が浮かび上がってきます。<br>それは新しく作るものではなく、もともとあなたの中にあるものです。</p>
+        <p>見えないからこそ、不安になってしまうのですね。<br>「そうだったんだ」と気づくだけで、心がすっと軽くなることもあります。<br>あなたの本当の気持ちを、一緒にやさしく照らしていきましょう。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 第三のおはなし -->
+  <article class="sora yoru ohanashi" style="--top:#1f1a3b; --bottom:#262043">
+    <div class="inner">
+      <header>
+        <div class="bangou"><span>第三のおはなし</span><span class="sen" aria-hidden="true"></span></div>
+        <h2>待っているその時間も、<br>鑑定の一部です</h2>
+      </header>
+      <figure class="e"><img src="img/s3.webp" alt="夜の暗がりの中で、小さな灯りがいくつか、静かにゆれている" width="1200" height="800" loading="lazy"></figure>
+      <div class="hon">
+        <p>「結果はいつ届くのかな」と待つ時間があります。<br>実は、この待っている時間も鑑定の一部なのです。<br>そわそわする気持ちの中に、大切な想いが隠れています。</p>
+        <p>待つあいだに、お相手とのこれまでを思い返していませんか。<br>自分の気持ちを見つめるうちに、本当に望むことが見えてきます。<br>その気づきが、結果を受け取るための大切な準備になります。</p>
+        <p>結果を待つからこそ、自分の本音と向き合えるのですね。<br>焦らずに、お茶でも飲みながらゆったり過ごしてください。<br>この静かな時間も、大切に味わってみませんか。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 第四のおはなし -->
+  <article class="sora yoru ohanashi" style="--top:#262043; --bottom:#2f284c">
+    <div class="inner">
+      <header>
+        <div class="bangou"><span>第四のおはなし</span><span class="sen" aria-hidden="true"></span></div>
+        <h2>耳の痛い言葉がでても、<br>あなたの否定ではありません</h2>
+      </header>
+      <figure class="e"><img src="img/s4.webp" alt="夕暮れの空の下、手のひらの上で小さな灯りの連なりが光っている" width="1200" height="800" loading="lazy"></figure>
+      <div class="hon">
+        <p>カードは、ときに望まない答えを示すこともあります。<br>けれどそれは、あなたやあなたの恋を否定するものではありません。<br>「ここでつまずきやすいから気をつけてね」という合図です。</p>
+        <p>暗い道で、足もとの石を先に照らしてくれる灯りのようなものです。<br>耳の痛い言葉は、あなたを守るためのアドバイスなのです。<br>ですから、結果を怖がらなくても大丈夫です。</p>
+        <p>私も、複雑な恋をしてきました。<br>だから、どんな恋でも頭ごなしに「やめなよ」とは言いません。<br>前を向いて進めるように、やさしい言葉でお伝えします。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 灯りがともる -->
+  <div class="sora tomoru" aria-hidden="true"></div>
+
+  <!-- 第五のおはなし -->
+  <article class="sora asa ohanashi" style="--top:#e3e9dc; --bottom:#e6ecdf">
+    <div class="inner">
+      <header>
+        <div class="bangou"><span>第五のおはなし</span><span class="sen" aria-hidden="true"></span></div>
+        <h2>恋に悩む自分を、<br>どうか責めないであげてください</h2>
+      </header>
+      <figure class="e"><img src="img/s5.webp" alt="ハートの形に重ねた両手が、小さな灯火をやさしく包んでいる" width="1200" height="800" loading="lazy"></figure>
+      <div class="hon">
+        <p>「どうしてこんなに悩むのだろう」と自分を責めていませんか。<br>悩みが深くなっているときは、自分が弱く見えてしまうものです。<br>けれど、悩んでしまうのはあなたが弱いからではありません。</p>
+        <p>お相手のことを、それだけ真剣に想っている証拠です。<br>人をそこまで深く想えるのは、とても素敵なことです。<br>その想いは、両手で包んだ灯りのように大切なものです。</p>
+        <p>まずは悩んでいる自分を、やさしく認めてあげましょう。<br>ここまで一生懸命がんばってきた自分を、褒めてあげてください。<br>自分自身に「本当にお疲れさま」と言ってあげませんか。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 第六のおはなし -->
+  <article class="sora asa ohanashi" style="--top:#e6ecdf; --bottom:#ebefe3">
+    <div class="inner">
+      <header>
+        <div class="bangou"><span>第六のおはなし</span><span class="sen" aria-hidden="true"></span></div>
+        <h2>今回の鑑定は、<br>新しい一歩の始まりです</h2>
+      </header>
+      <figure class="e"><img src="img/s6.webp" alt="薄暗い部屋の窓のブラインドのすき間から、日の光が差しこみ、窓辺の鉢植えを照らしている" width="1200" height="800" loading="lazy"></figure>
+      <div class="hon">
+        <p>この鑑定で、すべての悩みが一気に消えるわけではありません。<br>今回の鑑定はゴールではなく、これから進むスタート地点です。<br>いまのあなたに必要なメッセージを、カード一枚に込めてお伝えします。</p>
+        <p>鑑定を読んだあと、新しい疑問が出てくるかもしれません。<br>それは、占いが足りなかったからではないのです。<br>あなたの心が、前を向いて進み始めようとしている証拠です。</p>
+        <p>新しく生まれた疑問は、消さずに大切にしてください。<br>その疑問こそが、次へ進むための大切なヒントになります。<br>焦らず、一歩ずつ進んでいきましょう。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 第七のおはなし -->
+  <article class="sora asa ohanashi" style="--top:#ebefe3; --bottom:#f0f2e8">
+    <div class="inner">
+      <header>
+        <div class="bangou"><span>第七のおはなし</span><span class="sen" aria-hidden="true"></span></div>
+        <h2>鑑定結果を読んだら、<br>小さなことを、ひとつだけ</h2>
+      </header>
+      <figure class="e"><img src="img/s7.webp" alt="明るい窓辺。日の光が差しこみ、窓際の植物の葉がきらきらと透けている" width="1200" height="800" loading="lazy"></figure>
+      <div class="hon">
+        <p>鑑定結果を読んだとき、大きな決断を急ぐ必要はありません。<br>気持ちが少し軽くなったら、小さなことを一つだけしませんか。<br>難しいことを考える必要は、まったくありません。</p>
+        <p>たとえば、心に残った言葉をメモに書き留めてみる。<br>カーテンを開けて、外の光をたっぷり浴びてみる。<br>それだけのことで、本当に十分なのです。</p>
+        <p>小さな行動を重ねるうちに、気持ちは少しずつ変わります。<br>固くなっていた心を、ゆっくりほぐしていきましょう。<br>少しも焦る必要はありません。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- おわりに -->
+  <section class="sora asa owarini" style="--top:#f0f2e8; --bottom:#f5f6ef">
+    <div class="inner">
+      <h2>最後に、あなたへ</h2>
+      <div class="hon">
+        <p>最後まで読んでいただき、本当にありがとうございました。<br>おはなしを読み終えたあなたは、もう結果を受け取る準備ができています。<br>少しでも、心に灯りがともっていたらうれしいです。</p>
+        <p>鑑定を読んだあと、もっと知りたいことが出てくるかもしれません。<br>もしそう思ったら、その前向きな気持ちを大切にしてください。<br>その先のことは、鑑定結果をお届けしたあとにお話しします。</p>
+        <p>いまはどうぞ、心を楽にしてリラックスしてください。<br>鑑定結果が届くまで、楽しみにお待ちくださいね。</p>
+        <p class="daijoubu">大丈夫です。</p>
+      </div>
+    </div>
+    <figure class="akari-e"><img src="img/akari.webp" alt="やわらかな日の光が差しこむ、ラベンダーの野原" width="1200" height="800" loading="lazy"></figure>
+    <p class="musubi">あなたの心に、やさしい灯りがともりますように。</p>
+  </section>
+
+</main>
+
+<footer class="sora asa okuri" style="--top:#f5f6ef; --bottom:#f5f6ef">
+  <!-- ★ イルミの公式LINEのURLに差し替える -->
+  <a class="line-e" href="https://lin.ee/XXXXXXX">公式LINEにもどる</a>
+  <p class="kenri">© イルミ</p>
+  <p class="shutten">写真：Unsplash</p>
+</footer>
+
+</body>
+</html>
