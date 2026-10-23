@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>イルミ｜ご縁を結ぶ霊視占い｜完全個別鑑定のご案内</title>
+<meta name="description" content="誰にも言えない恋の扉を、そっと開く。イルミの霊視タロットによる完全個別鑑定のご案内です。">
+<meta name="theme-color" content="#2a1733">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Shippori+Mincho:wght@400;600&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ===== 色はここで変更できます ===== */
+  :root {
+    --cream: #faf6f1;         /* 背景（クリーム） */
+    --beige: #f7f0e6;         /* 薄いベージュの箱 */
+    --white: #ffffff;
+    --ink: #3b3735;           /* 本文 */
+    --sub: #8b827c;           /* サブの文字 */
+    --line: #eadfce;          /* 区切り線 */
+    --pink: #ee9bb7;          /* ピンク */
+    --pink-ink: #c96a8d;      /* ピンクの文字 */
+    --gold: #f1c86c;          /* ゴールド */
+    --gold-ink: #c99a3c;      /* ゴールドの文字 */
+    --night: #2a1733;         /* ヒーロー・おわりの背景（イルミの紫） */
+    --night-2: #140c1a;
+    --line-green: #06c755;
+    --grad: linear-gradient(90deg, #f19ab7 0%, #f3c66c 100%);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.95;
+    letter-spacing: .08em;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  main { position: relative; max-width: 560px; margin: 0 auto; padding: 0 26px 0; }
+
+  .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .gold-text { color: var(--ink); }
+  .en { font-family: "Cormorant Garamond", serif; font-style: italic; letter-spacing: .2em; color: var(--gold-ink); }
+  .hl { color: var(--pink-ink); }
+  .gd { color: var(--gold-ink); }
+
+  /* ===== ヒーロー（チャコール） ===== */
+  .hero { position: relative; margin: 0 -26px; text-align: center; background: radial-gradient(ellipse 90% 60% at 50% 18%, #4a2a5a 0%, var(--night) 55%, var(--night-2) 100%); color: #fff; padding: 64px 26px 72px; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 60px; background: linear-gradient(transparent, rgba(0,0,0,.08)); pointer-events: none; }
+  .emblem { position: relative; width: 230px; height: 230px; margin: 0 auto; border-radius: 50%; padding: 3px; background: var(--grad);
+    box-shadow: 0 0 70px 30px rgba(241, 214, 120, .14), 0 0 40px rgba(155, 123, 189, .5); }
+  .emblem img { display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+  .hero .lead1 { margin-top: 44px; font-size: 1rem; letter-spacing: .35em; color: #eae6e1; }
+  .hero h2 { margin-top: 26px; font-family: "Shippori Mincho B1", serif; font-weight: 700; font-size: 1.42rem; letter-spacing: .1em; line-height: 1.5; }
+  .hero h1 { margin-top: 22px; font-family: "Shippori Mincho B1", serif; font-weight: 800; font-size: 2.9rem; letter-spacing: .12em; line-height: 1.3; }
+  .hero .tag { margin-top: 2px; font-size: .78rem; letter-spacing: .3em; color: #cfc9c2; }
+  .hero .sub { margin-top: 20px; font-family: "Shippori Mincho B1", serif; font-size: 1.15rem; letter-spacing: .12em; }
+  .hero .welcome { margin-top: 30px; font-size: 1.02rem; line-height: 2.4; color: #f1ede8; }
+  .offer {
+    display: block; margin: 40px auto 0; padding: 18px 16px; max-width: 380px; text-decoration: none;
+    border: 1.5px solid var(--gold); border-radius: 999px;
+  }
+  .offer .top { display: block; color: var(--gold); font-size: .98rem; letter-spacing: .1em; white-space: nowrap; }
+  .offer .bottom { display: block; margin-top: 4px; font-size: .82rem; line-height: 1.9; color: #eae6e1; letter-spacing: .14em; }
+
+  /* ===== セクション共通 ===== */
+  section { margin-top: 96px; scroll-margin-top: 28px; }
+  .heading { text-align: center; margin-bottom: 30px; }
+  .heading .en { font-size: .95rem; }
+  .heading h2 { font-family: "Shippori Mincho B1", serif; font-size: 1.45rem; font-weight: 700; letter-spacing: .16em; line-height: 1.7; margin-top: 4px; }
+  .heading .catch { margin-top: 12px; color: var(--sub); font-size: .95rem; line-height: 2; letter-spacing: .12em; }
+  .rule { width: 56px; height: 2px; margin: 16px auto 0; border-radius: 2px; background: var(--grad); font-size: 0; }
+
+  .card {
+    position: relative; background: var(--white); border-radius: 28px; padding: 30px 24px;
+    box-shadow: 0 18px 40px rgba(150, 120, 90, .12);
+  }
+
+  /* 詩のような文章 */
+  .poem p { margin-top: 1.9em; font-size: .98rem; line-height: 2.25; letter-spacing: .04em; }
+  .poem p:first-child { margin-top: 0; }
+  .poem .soft { color: var(--sub); }
+  .poem .big { font-family: "Shippori Mincho B1", serif; font-size: 1.1rem; font-weight: 700; line-height: 2; letter-spacing: .04em; }
+  .center { text-align: center; }
+
+  .prose p { margin-top: 1.4em; font-size: .97rem; line-height: 2.15; }
+  .prose p:first-child { margin-top: 0; }
+  .small-note { margin-top: 1.6em; font-size: .82rem; color: var(--sub); line-height: 2; }
+  .small-note p { padding-left: 1em; text-indent: -1em; }
+  .small-note p + p { margin-top: .6em; }
+
+  /* 挿絵（写真のような角丸パネル） */
+  .plate { margin: 36px 0; }
+  .plate .art {
+    position: relative; aspect-ratio: 16 / 10.5; overflow: hidden; border-radius: 24px;
+    background: radial-gradient(ellipse 80% 90% at 40% 60%, #4b2d55 0%, #2a1733 55%, #160d1c 100%);
+    box-shadow: 0 20px 44px rgba(60, 40, 30, .22);
+  }
+  .plate svg, .plan-img svg { display: block; width: 100%; height: 100%; color: #f3c77c; }
+  .plate .art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .flicker { animation: flicker 2.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes flicker { 0%,100% { opacity: .85; } 45% { opacity: 1; } 60% { opacity: .7; } }
+  .twinkle { animation: tw 3s ease-in-out infinite; }
+  .twinkle:nth-of-type(2n) { animation-delay: -1.2s; }
+  .twinkle:nth-of-type(3n) { animation-delay: -2.1s; }
+  @keyframes tw { 50% { opacity: .25; } }
+  .float { animation: float 3.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes float { 50% { transform: translateY(-4px); opacity: .75; } }
+
+  /* 区切り */
+  .divider { display: flex; justify-content: center; margin: 60px 0; }
+  .divider svg { width: 40px; height: 32px; color: var(--gold); }
+
+  /* 箇条書き（桜） */
+  .keys { list-style: none; }
+  .keys li { position: relative; padding: 14px 0 14px 32px; font-size: .97rem; line-height: 1.85; }
+  .keys li + li { border-top: 1px dashed var(--line); }
+  .keys li::before { content: "❀"; position: absolute; left: 4px; top: 14px; color: var(--pink); font-size: .95rem; }
+
+  .checks { list-style: none; }
+  .checks li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; font-size: .98rem; line-height: 1.8; }
+  .checks li + li { border-top: 1px dashed var(--line); }
+  .checks li::before {
+    content: "✓"; flex-shrink: 0; width: 24px; height: 24px; margin-top: 2px; border-radius: 50%;
+    display: grid; place-items: center; color: #fff; background: var(--grad); font-size: .78rem; line-height: 1;
+  }
+  .after-checks { margin-top: 32px; text-align: center; font-size: 1.05rem; line-height: 2.2; }
+
+  /* ===== プラン ===== */
+  .plans { display: grid; gap: 44px; }
+  .plan { padding: 0 0 34px; text-align: center; overflow: hidden; }
+  .plan.featured { box-shadow: 0 0 0 2px var(--gold), 0 22px 50px rgba(240, 180, 100, .25); overflow: visible; }
+  .plan.featured .plan-img { border-radius: 28px 28px 0 0; overflow: hidden; }
+  .plan-img { position: relative; background: #1a0f20; }
+  .plan-img img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .plan-img::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 32px; background: linear-gradient(transparent, #fff); }
+  .ribbon {
+    position: absolute; top: -16px; left: 50%; transform: translateX(-50%); z-index: 2; white-space: nowrap;
+    padding: 4px 22px; border-radius: 999px; font-size: .85rem; letter-spacing: .12em; color: #fff; background: var(--grad);
+    box-shadow: 0 6px 16px rgba(240, 160, 140, .35);
+  }
+  .plan-body { padding: 18px 24px 0; }
+  .plan .rank { font-size: .9rem; color: var(--sub); letter-spacing: .35em; }
+  .plan h3 { margin-top: 10px; font-family: "Shippori Mincho B1", serif; font-size: 1.7rem; font-weight: 800; letter-spacing: .2em; line-height: 1.5; }
+  .plan .for { margin-top: 12px; font-size: .92rem; color: var(--sub); line-height: 1.9; }
+  .price { margin-top: 26px; }
+  .price .was { font-size: .98rem; color: var(--sub); text-decoration: line-through; text-decoration-color: var(--sub); }
+  .price .was s { text-decoration: none; }
+  .price .off { display: inline-block; margin-top: 12px; padding: 4px 26px; border-radius: 999px; font-size: .9rem; color: #fff; background: var(--grad); letter-spacing: .05em; }
+  .price .now { margin-top: 10px; font-family: "Shippori Mincho B1", serif; font-weight: 800; font-size: 3rem; line-height: 1.3; letter-spacing: .02em; color: var(--ink); }
+  .price .now small { font-size: 1rem; font-weight: 600; letter-spacing: .02em; }
+  .price .limit { margin-top: 10px; font-size: .9rem; color: var(--pink-ink); line-height: 2.1; }
+  .includes { list-style: none; margin-top: 26px; text-align: left; }
+  .includes li { position: relative; padding: 14px 0 14px 34px; font-size: .97rem; line-height: 1.85; border-bottom: 1px dashed var(--line); }
+  .includes li::before { content: "❀"; position: absolute; left: 6px; top: 14px; font-size: .95rem; color: var(--pink); }
+  .includes .sm { display: block; font-size: .8rem; color: var(--sub); }
+  .beyond { margin-top: 26px; padding: 22px 20px; text-align: left; background: var(--beige); border-radius: 20px; }
+  .beyond h4 { text-align: center; font-weight: 500; font-size: .92rem; letter-spacing: .2em; color: var(--gold-ink); margin-bottom: 6px; }
+  .beyond li { list-style: none; position: relative; padding: 12px 0 12px 30px; font-size: .93rem; line-height: 1.9; }
+  .beyond li + li { border-top: 1px dashed var(--line); }
+  .beyond li::before { content: "✦"; position: absolute; left: 4px; top: 12px; color: var(--gold); }
+  .plan .close { margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 1rem; line-height: 2.1; }
+  .plan .close + .close { margin-top: 0; padding-top: 0; border-top: none; }
+
+  .apply { margin-top: 64px; text-align: center; }
+  .apply .lead { font-size: .95rem; line-height: 2; letter-spacing: .04em; }
+
+  /* ===== ボタン ===== */
+  .btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 16px; margin: 26px auto 0; max-width: 360px;
+    border-radius: 999px; text-decoration: none; transition: transform .2s;
+  }
+  .btn:active { transform: scale(.97); }
+  .btn-line { background: var(--line-green); color: #fff; font-family: "Hiragino Sans", "Noto Sans JP", sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: .08em;
+    box-shadow: 0 12px 30px rgba(6, 199, 85, .28); }
+  .btn-line .ex { font-weight: 500; font-size: .8rem; margin-top: 4px; letter-spacing: .1em; opacity: .95; }
+
+  /* ===== 流れ ===== */
+  .steps { list-style: none; counter-reset: step; }
+  .steps li { position: relative; display: flex; gap: 16px; padding-bottom: 26px; font-size: .97rem; line-height: 1.85; }
+  .steps li:last-child { padding-bottom: 0; }
+  .steps li::before {
+    counter-increment: step; content: counter(step); flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center; color: #fff; background: var(--grad);
+    font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.3rem; position: relative; z-index: 1;
+  }
+  .steps li:not(:last-child)::after { content: ""; position: absolute; left: 19.5px; top: 42px; bottom: 2px; width: 1px; border-left: 1px dashed var(--pink); }
+  .steps .txt { padding-top: 7px; }
+  .steps .sm { display: block; font-size: .84rem; color: var(--pink-ink); }
+  .after-steps { margin-top: 26px; text-align: center; font-size: .92rem; color: var(--sub); }
+
+  /* ===== プロフィール ===== */
+  .profile { text-align: center; }
+  .avatar { width: 160px; height: 160px; margin: 0 auto 18px; border-radius: 50%; padding: 4px; background: var(--grad); }
+  .avatar img { width: 100%; height: 100%; display: block; border-radius: 50%; }
+  .profile h3 { font-family: "Shippori Mincho B1", serif; font-size: 1.3rem; letter-spacing: .25em; }
+  .profile .sub { font-size: .85rem; color: var(--sub); letter-spacing: .15em; }
+  .profile p.text { margin-top: 18px; font-size: .93rem; text-align: left; line-height: 2.1; }
+  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
+  .chips span { font-size: .8rem; padding: 3px 14px; border-radius: 999px; color: var(--gold-ink); background: var(--beige); }
+  .chips.worry span { color: var(--pink-ink); background: #fcebf1; }
+  .label { margin-top: 22px; font-size: .8rem; color: var(--sub); letter-spacing: .15em; }
+  .btn-insta { color: var(--ink); border: 1px solid var(--line); background: var(--cream); margin-top: 24px; padding: 14px; font-size: .9rem; letter-spacing: .1em; }
+
+  /* ===== FAQ ===== */
+  details { border-bottom: 1px dashed var(--line); padding: 16px 2px; }
+  details:first-child { padding-top: 0; }
+  details:last-child { border-bottom: none; padding-bottom: 0; }
+  summary { cursor: pointer; list-style: none; font-size: .96rem; display: flex; justify-content: space-between; gap: 12px; line-height: 1.8; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "Q."; color: var(--pink-ink); font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.15rem; line-height: 1.6; flex-shrink: 0; }
+  summary span { flex: 1; }
+  summary::after { content: "+"; color: var(--gold-ink); transition: transform .3s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { color: var(--sub); font-size: .9rem; margin-top: 10px; padding-left: 1.8em; line-height: 2; }
+
+  /* ===== 注意事項 ===== */
+  .notes { font-size: .86rem; color: var(--sub); list-style: none; line-height: 2; }
+  .notes li { padding-left: 1.2em; text-indent: -1.2em; }
+  .notes li + li { margin-top: 10px; }
+  .notes li::before { content: "※"; }
+
+  /* ===== おわりに（チャコール） ===== */
+  .ending { margin: 110px -26px 0; padding: 80px 26px 90px; background: linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%); color: #f1ede8; }
+  .ending .heading h2 { color: #fff; }
+  .ending .poem .soft { color: #d6c3e6; }
+  .ending .hl { color: #f4b3c8; }
+  .ending .plate .art { box-shadow: 0 20px 44px rgba(0, 0, 0, .35); }
+  .final-cta { margin-top: 56px; text-align: center; }
+  .final-cta .lead { color: var(--gold); font-size: .98rem; line-height: 2; }
+  .final-cta .limit { margin-top: 26px; font-size: .9rem; line-height: 2.1; color: #e2ddd7; }
+  .final-cta .limit strong { display: block; color: var(--gold); font-weight: 600; letter-spacing: .12em; }
+  .final-cta .wait { margin-top: 30px; font-family: "Shippori Mincho B1", serif; font-size: 1.15rem; font-weight: 700; line-height: 2.1; letter-spacing: .1em; }
+  .sign { margin-top: 36px; text-align: center; }
+  .sign small { display: block; color: #d6c3e6; font-size: .82rem; letter-spacing: .2em; }
+  .sign .en { display: block; font-size: 1.6rem; margin-top: 4px; color: var(--gold); }
+
+  footer { text-align: center; color: #b9a9c4; font-size: .75rem; margin: 0 -26px; padding: 0 26px 40px; background: var(--night-2); }
+  footer .en { display: block; font-size: 1.1rem; margin-bottom: 2px; color: var(--gold); }
+
+  /* 上に戻る */
+  .to-top {
+    position: fixed; right: 18px; bottom: calc(22px + env(safe-area-inset-bottom)); z-index: 30;
+    width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
+    background: rgba(255, 255, 255, .92); color: var(--gold-ink); box-shadow: 0 6px 18px rgba(150, 120, 90, .25);
+    text-decoration: none; font-size: .68rem; line-height: 1.1; text-align: center;
+    opacity: 0; pointer-events: none; transition: opacity .3s;
+  }
+  .to-top.show { opacity: 1; pointer-events: auto; }
+
+  /* スクロールでふわっと表示 */
+  .fade { opacity: 0; transform: translateY(20px); transition: opacity 1s, transform 1s; }
+  .fade.show { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flicker, .twinkle, .float { animation: none; }
+    .fade { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 挿絵で共通に使う部品 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="halo"><stop offset="0" stop-color="#ffd79a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd79a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#ffe2a8" stop-opacity=".55"/><stop offset="1" stop-color="#ffe2a8" stop-opacity="0"/></linearGradient>
+    <linearGradient id="beamUp" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffe2a8" stop-opacity=".5"/><stop offset="1" stop-color="#ffe2a8" stop-opacity="0"/></linearGradient>
+    <g id="star"><path d="M0-5L1.1-1.1 5 0 1.1 1.1 0 5-1.1 1.1-5 0-1.1-1.1z" fill="currentColor"/></g>
+    <!-- 三日月と星（100×80） -->
+    <symbol id="moon" viewBox="0 0 100 80">
+      <path d="M52 10a30 30 0 1 0 22 50 25 25 0 1 1-22-50z" fill="currentColor" fill-opacity=".85"/>
+      <path d="M80 14l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="currentColor"/>
+      <path d="M86 46l1.2 3.4 3.4 1.2-3.4 1.2L86 55l-1.2-3.4-3.4-1.2 3.4-1.2z" fill="currentColor" opacity=".8"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main>
+  <!-- ===== ヒーロー ===== -->
+  <header class="hero" id="top">
+    <div class="emblem"><img src="../images/irumi.jpg" alt="鍵をくわえた白猫のイルミ" width="230" height="230"></div>
+    <p class="lead1">もう、ひとりで抱えなくていい。</p>
+    <h2>あの人の心の扉をひらく</h2>
+    <h1 class="grad">イルミ</h1>
+    <p class="tag">ご縁を結ぶ霊視占い</p>
+    <p class="sub">― 完全個別鑑定 ―</p>
+    <p class="welcome">あなたの波動を読み解きながら、<br>静かにひらかれたカードが、<br>あなたと大切なあの人の<br>「いま」と「これから」を<br>そっと照らします。</p>
+    <a class="offer" href="#plans">
+      <span class="top">▼ 新規様限定・特別価格でご案内中 ▼</span>
+      <span class="bottom">このページのお受け取りから<br>48時間以内のお申し込み限定</span>
+    </a>
+  </header>
+
+  <!-- ===== 導入 ===== -->
+  <section class="fade" id="intro">
+    <figure class="plate">
+      <div class="art">
+        <img src="images/intro-moon.jpg" alt="雲間に浮かぶ夜の月" width="1024" height="672" loading="lazy">
+      </div>
+    </figure>
+
+    <div class="poem">
+      <p>夜、ふと目が覚めて、<br>あの人のことを考えてしまう。</p>
+      <p class="soft">既読のついたまま返ってこないメッセージ。<br>会えない時間に膨らんでいく不安。<br>「私ばかりが想っているのかな」という、<br>小さな痛み。</p>
+      <p>誰かに話したい。<br>でも、身近な人にほど、話せない。</p>
+      <p>そんな想いを、たったひとりで<br>そっと胸にしまってきたあなたへ。</p>
+    </div>
+
+    <div class="divider" aria-hidden="true"><svg viewBox="0 0 100 80"><use href="#moon"/></svg></div>
+
+    <div class="poem">
+      <p class="big grad">恋の悩みは、<br>答えが見えないから苦しいのです。</p>
+      <p>あの人の気持ち、ふたりの向かう先、<br>そして、あなた自身の心のありか。</p>
+      <p>見えないものが見えたとき、<br>人は驚くほど、穏やかになれます。</p>
+    </div>
+
+    <figure class="plate">
+      <div class="art">
+        <img src="images/door.jpg" alt="暗い部屋の扉からこぼれる光" width="1024" height="672" loading="lazy">
+      </div>
+    </figure>
+
+    <div class="poem">
+      <p>その<span class="gd">「見えないものをひらく鍵」</span>を、<br>あなたにお渡しするのが、<br>この鑑定です。</p>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="fade" id="about">
+    <div class="heading">
+      <p class="en">About</p>
+      <h2 class="gold-text">イルミから、あなたへ</h2>
+      <p class="catch">― カードが紡ぐ、<br>あなただけの物語 ―</p>
+      <div class="rule">✦</div>
+    </div>
+
+    <div class="prose">
+      <p>お届けするのは、お一人おひとりのお悩みに合わせて、あなたの波動を読み解きながら、カードを一枚ずつ丁寧に展開する<span class="gd">完全個別の鑑定</span>です。</p>
+    </div>
+
+    <figure class="plate">
+      <div class="art">
+        <img src="images/about-moon.jpg" alt="木々の向こうに浮かぶ満ちつつある月" width="1024" height="672" loading="lazy">
+      </div>
+    </figure>
+
+    <div class="prose">
+      <p>欠けた月が、また必ず満ちていくように、いま閉じている心の扉にも、<span class="hl">必ず鍵穴があります。</span></p>
+      <p>ひらかれたカードは、たとえば ――</p>
+    </div>
+
+    <ul class="keys card" style="margin-top:22px">
+      <li>あの人の表の気持ちと、言葉にしない本音</li>
+      <li>ふたりの間にいま流れているもの</li>
+      <li>関係が動き出すきっかけと時期の目安</li>
+      <li>あなたが手放していいもの、大切に守るべきもの</li>
+      <li>ふたりの未来がひらけていく道すじ</li>
+    </ul>
+
+    <div class="prose">
+      <p style="margin-top:22px">―― といったことを映し出します。</p>
+    </div>
+
+    <figure class="plate">
+      <div class="art">
+        <img src="images/cards.jpg" alt="テーブルに並べられたカード" width="1024" height="672" loading="lazy">
+      </div>
+    </figure>
+
+    <div class="prose">
+      <p>占い結果をただお伝えするのではありません。読み終えたあと、心がふっと軽くなって、<span class="hl">「明日からこうしてみよう」</span>と思える言葉で、あなたのためだけの鑑定文を一文字ずつ綴ります。</p>
+    </div>
+    <div class="small-note">
+      <p>※占う内容は、お悩みやご相談の内容に合わせて変わります。基本的には、上に挙げたことをカードにおたずねしていきます。</p>
+      <p>※Aプランは5枚、B・Cプランは7枚のカードで視させていただきます。</p>
+    </div>
+  </section>
+
+  <!-- ===== FOR YOU ===== -->
+  <section class="fade" id="for-you">
+    <div class="heading"><p class="en">For You</p><h2 class="gold-text">こんな方へ</h2><div class="rule">✦</div></div>
+    <ul class="checks card">
+      <li>あの人の本当の気持ちが知りたい</li>
+      <li>連絡が減って、不安な夜を過ごしている</li>
+      <li>復縁したいけれど、動いていいのか迷っている</li>
+      <li>片想いのまま、時間だけが過ぎていく</li>
+      <li>不倫や浮気、秘密の恋で、誰にも相談できない</li>
+      <li>この恋を続けるべきか、手放すべきか決めかねている</li>
+    </ul>
+    <p class="after-checks">ひとつでも当てはまるなら、<br><span class="gd">イルミ</span>の鑑定は、<br>あなたのためのものです。</p>
+  </section>
+
+  <!-- ===== プロフィール ===== -->
+  <section class="fade" id="profile">
+    <div class="heading"><p class="en">Profile</p><h2 class="gold-text">イルミについて</h2><div class="rule">✦</div></div>
+    <div class="card profile">
+      <div class="avatar"><img src="../images/irumi.jpg" alt="鍵をくわえた白猫のイルミのアイコン" width="170" height="170"></div>
+      <h3>イルミ</h3>
+      <p class="sub">ご縁を結ぶ霊視占い師</p>
+      <div class="chips"><span>霊視タロット</span><span>四柱推命</span><span>波動鑑定</span></div>
+      <p class="text">わたし自身、複雑な恋愛を経験してきました。だからこそ、誰にも言えない恋の苦しさがわかります。あなたの波動を読み解き、否定することなく、愛される運命へとそっと導きます。</p>
+      <p class="label">— こんなお悩みに —</p>
+      <div class="chips worry"><span>不倫</span><span>浮気</span><span>音信不通</span><span>復縁</span><span>秘密の恋</span></div>
+      <a class="btn btn-insta" href="https://www.instagram.com/irumi_uranai/">Instagram @irumi_uranai</a>
+    </div>
+  </section>
+
+  <!-- ===== MORE ===== -->
+  <section class="fade" id="more">
+    <div class="heading"><p class="en">More</p><h2 class="gold-text">恋愛以外のご相談も</h2><div class="rule">✦</div></div>
+
+    <figure class="plate">
+      <div class="art">
+        <svg viewBox="0 0 320 200" fill="none" stroke="currentColor" stroke-width="1.3" role="img" aria-label="恋愛・お仕事・人間関係・転居をあらわす四つの紋">
+          <path d="M52 96H268" stroke-opacity=".3" stroke-dasharray="2 5"/>
+          <g filter="url(#glow)">
+            <g fill="#1f1229"><circle cx="52" cy="96" r="28"/><circle cx="124" cy="96" r="28"/><circle cx="196" cy="96" r="28"/><circle cx="268" cy="96" r="28"/></g>
+            <g stroke-opacity=".4"><circle cx="52" cy="96" r="23"/><circle cx="124" cy="96" r="23"/><circle cx="196" cy="96" r="23"/><circle cx="268" cy="96" r="23"/></g>
+            <!-- 恋愛 -->
+            <path d="M52 108c-12-8-16-14-16-19a7 7 0 0 1 16-4 7 7 0 0 1 16 4c0 5-4 11-16 19z" fill="#d9b877" fill-opacity=".35"/>
+            <!-- お仕事 -->
+            <rect x="110" y="88" width="28" height="20" rx="2"/>
+            <path d="M118 88v-5h12v5M110 96h28"/>
+            <!-- 人間関係 -->
+            <circle cx="188" cy="88" r="5"/><circle cx="204" cy="88" r="5"/>
+            <path d="M178 108c0-8 4-12 10-12s10 4 10 12M194 108c0-8 4-12 10-12s10 4 10 12"/>
+            <!-- 転居 -->
+            <path d="M254 98l14-12 14 12M258 95v14h20V95"/>
+            <path d="M265 109v-8h6v8"/>
+          </g>
+          <g fill="currentColor" stroke="none" font-family="serif" font-size="11" text-anchor="middle" letter-spacing="1.5">
+            <text x="52" y="148">恋愛</text><text x="124" y="148">お仕事</text><text x="196" y="148">人間関係</text><text x="268" y="148">転居</text>
+          </g>
+        </svg>
+      </div>
+    </figure>
+
+    <div class="poem">
+      <p>イルミのメインは恋愛鑑定ですが、<br>お仕事、人間関係、転居、<br>これからの生き方など、<br>恋愛以外のお悩みを含めた<br>鑑定にも対応しています。</p>
+      <p class="hl">「恋愛と仕事、どちらも気になっている」<br>「引っ越しのタイミングも<br>一緒に視てほしい」</p>
+      <p>そんなふうに、複数のテーマをまたぐ<br>ご相談も大歓迎です。</p>
+    </div>
+    <div class="small-note" style="text-align:center">
+      <p style="padding:0;text-indent:0">※複数ジャンルの同時鑑定をご希望の場合は、<br>カードの枚数の都合上、Bプラン以上での<br>お申し込みをおすすめしています。</p>
+    </div>
+  </section>
+
+  <!-- ===== PLANS ===== -->
+  <section class="fade" id="plans">
+    <div class="heading">
+      <p class="en">Plans</p>
+      <h2 class="gold-text">プランのご案内</h2>
+      <p class="catch">あなたの想いの深さに合わせて、<br>3つの扉をご用意しました。</p>
+      <div class="rule">✦</div>
+    </div>
+
+    <div class="plans">
+      <!-- A -->
+      <article class="plan card" id="ume">
+        <div class="plan-img"><img src="images/plan-ume.jpg" alt="本音の扉" width="1000" height="563"></div>
+        <div class="plan-body">
+        <p class="rank">Aプラン</p>
+        <h3 class="gold-text">本音の扉</h3>
+        <p class="for">まずは気軽に、<br>あの人の気持ちを知りたい方へ</p>
+        <div class="price">
+          <p class="was">通常価格 <s>5,980円</s><span class="off">新規様限定 1,000円OFF</span></p>
+          <p class="now gold-text">4,980円<small>(税込)</small></p>
+          <p class="limit">※ページ受け取りから48時間以内の<br>お申し込み限定</p>
+        </div>
+        <ul class="includes">
+          <li>5枚のカードによる完全個別鑑定</li>
+          <li>約2,000文字の鑑定文をDMでお届け</li>
+        </ul>
+        <div class="beyond">
+          <h4>― この扉の先にあるもの ―</h4>
+          <ul>
+            <li>あの人の「いまの本音」がまっすぐわかり、ひとりで考え込む夜に区切りがつく</li>
+            <li>いま自分がどうすればいいかが見えて、心がふっと軽くなる</li>
+          </ul>
+        </div>
+        <p class="close">短くても、芯のある言葉を。<br>あなたの恋のいまを、<br>まっすぐお伝えします。</p>
+        </div>
+      </article>
+
+      <!-- B -->
+      <article class="plan card featured" id="take">
+        <div class="plan-img"><img src="images/plan-take.jpg" alt="未来の扉" width="1000" height="563"></div>
+        <div class="plan-body">
+        <p class="rank">Bプラン</p>
+        <h3 class="gold-text">未来の扉</h3>
+        <p class="for">じっくり向き合い、<br>かたちに残したい方へ</p>
+        <div class="price">
+          <p class="was">通常価格 <s>7,980円</s><span class="off">新規様限定 2,000円OFF</span></p>
+          <p class="now gold-text">5,980円<small>(税込)</small></p>
+          <p class="limit">※ページ受け取りから48時間以内の<br>お申し込み限定</p>
+        </div>
+        <ul class="includes">
+          <li>7枚のカードによる完全個別鑑定</li>
+          <li>約3,000文字の、より深い鑑定文</li>
+          <li>あなた専用の「鑑定書PDF」をお届け<span class="sm">鑑定結果をいつでも読み返せる、あなただけの一冊に</span></li>
+          <li>厳選のお守りヒーリング画像 1枚<span class="sm">スマホの待ち受けにして、いつでもお守りに</span></li>
+        </ul>
+        <div class="beyond">
+          <h4>― この扉の先にあるもの ―</h4>
+          <ul>
+            <li>本音の「その奥にある理由」まで読み解けて、あの人の言動に振り回されなくなる</li>
+            <li>ふたりの関係が動き出すきっかけと、時期の目安まで見えてくる</li>
+            <li>「いつ、どんなふうに動けばいいか」がわかり、迷わず進める</li>
+          </ul>
+        </div>
+        <p class="close">迷ったときに何度でも開ける<br>「道しるべ」を、<br>あなたの手元に。</p>
+        </div>
+      </article>
+
+      <!-- C -->
+      <article class="plan card" id="matsu">
+        <div class="plan-img"><img src="images/plan-matsu.jpg" alt="運命の扉" width="1000" height="563"></div>
+        <div class="plan-body">
+        <p class="rank">Cプラン</p>
+        <h3 class="gold-text">運命の扉</h3>
+        <p class="for">この恋に、<br>本気で向き合うと決めた方へ</p>
+        <div class="price">
+          <p class="was">通常価格 <s>12,980円</s><span class="off">新規様限定 3,000円OFF</span></p>
+          <p class="now gold-text">9,980円<small>(税込)</small></p>
+          <p class="limit">※ページ受け取りから48時間以内の<br>お申し込み限定</p>
+        </div>
+        <ul class="includes">
+          <li>7枚のカードによる完全個別鑑定</li>
+          <li>約5,000文字の、最も深く濃やかな鑑定文</li>
+          <li>あなた専用の「鑑定書PDF」をお届け</li>
+          <li>厳選のお守りヒーリング画像 計3枚</li>
+          <li>鑑定結果のお受け取り後、追加のご質問を2ついただけます</li>
+        </ul>
+        <div class="beyond">
+          <h4>― この扉の先にあるもの ―</h4>
+          <ul>
+            <li>ふたりの過去・いま・これからの流れを、すみずみまで照らしてもらえる</li>
+            <li>あの人の想いの「根っこ」にあるものまで、深くひもとかれる</li>
+            <li>細かな引っかかりや小さな不安まで拾い上げ、言葉にして返してもらえる</li>
+            <li>読み終えたとき、迷いではなく「進む理由」が手元に残る</li>
+          </ul>
+        </div>
+        <p class="close">読んで終わり、にしません。<br>結果を受け取って生まれた<br>新しい想いにも、もう一度、<br>丁寧にお答えします。</p>
+        <p class="close gd">あなたの恋に、最後まで寄り添う<br>特別なプランです。</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="small-note">
+      <p>※複数ジャンル(恋愛+お仕事+転居など)の同時鑑定をご希望の方は、カードの枚数の都合上、Bプラン以上をおすすめします。</p>
+      <p>※新規様限定価格は、初めてご依頼くださる方のうち、このページのお受け取りから48時間以内にお申し込みいただいた方への特別なご案内です。</p>
+    </div>
+
+    <div class="apply">
+      <p class="lead">ご希望のプラン名を、公式LINEに送るだけ。</p>
+      <a class="btn btn-line js-line" href="https://lin.ee/weEZDF0">
+        公式LINEで鑑定を申し込む
+        <span class="ex">例:「未来の扉 希望です」</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FLOW ===== -->
+  <section class="fade" id="flow">
+    <div class="heading"><p class="en">Flow</p><h2 class="gold-text">鑑定の流れ</h2><div class="rule">✦</div></div>
+    <div class="card">
+      <ol class="steps">
+        <li><span class="txt">下のボタンから公式LINEを友だち追加</span></li>
+        <li><span class="txt">ご希望のプラン名をメッセージで送信<span class="sm">例:「未来の扉 希望です」</span></span></li>
+        <li><span class="txt">ご案内に沿って、お悩みの内容をお聞かせください</span></li>
+        <li><span class="txt">心を込めて鑑定し、原則72時間以内に結果をお届けします</span></li>
+      </ol>
+    </div>
+    <p class="after-steps">わからないことがあれば、<br>お気軽にLINEでご質問くださいね。</p>
+    <a class="btn btn-line js-line" href="https://lin.ee/weEZDF0">
+      公式LINEを友だち追加する
+    </a>
+  </section>
+
+  <!-- ===== MESSAGE FORM ===== -->
+  <section class="fade" id="form">
+    <div class="heading">
+      <p class="en">Message Form</p>
+      <h2 class="gold-text">お申し込み後に<br>お伺いすること</h2>
+      <div class="rule">✦</div>
+    </div>
+
+    <figure class="plate">
+      <div class="art">
+        <img src="images/letter.jpg" alt="万年筆と白い花" width="1024" height="672" loading="lazy">
+      </div>
+    </figure>
+
+    <div class="poem">
+      <p>より深く、より正確に<br>視させていただくために、<br>お申し込み後、次のことを<br>メッセージでお送りください。</p>
+    </div>
+
+    <ul class="keys card" style="margin-top:26px">
+      <li>あなたの氏名・性別・生年月日</li>
+      <li>お相手様の氏名・性別・生年月日</li>
+      <li>現在のお悩み、現状をできるだけ詳しく※</li>
+      <li>悩みを解決して手に入れたい、理想の未来※</li>
+      <li>特に聞きたいこと、気になることがあれば</li>
+    </ul>
+    <div class="small-note">
+      <p>※生年月日は、わかる場合のみのご記載で大丈夫です。</p>
+      <p>※お悩み・現状・理想の未来は、事前の簡易鑑定ですでにご記入いただいている場合は、あらためて書かなくてOKです。</p>
+    </div>
+
+    <div class="poem" style="margin-top:36px">
+      <p>いただく情報が多いほど、<br>より深く正確な鑑定ができます。</p>
+      <p class="hl">「こんなことまで書いていいのかな?」<br>と思うことも、<br>遠慮なくお伝えくださいね。</p>
+      <p>あなたの想いをしっかり受け止めて、<br>心を込めて鑑定いたします。</p>
+    </div>
+  </section>
+
+  <!-- ===== Q&A ===== -->
+  <section class="fade" id="faq">
+    <div class="heading"><p class="en">Q &amp; A</p><h2 class="gold-text">よくあるご質問</h2><div class="rule">✦</div></div>
+    <div class="card">
+      <details><summary><span>相手の生年月日がわからなくても大丈夫?</span></summary><p>はい、大丈夫です。わかる範囲でお知らせいただければ、カードがおふたりの「いま」を丁寧に映し出してくれます。</p></details>
+      <details><summary><span>復縁や複雑な恋愛でも鑑定してもらえますか?</span></summary><p>もちろんです。復縁、片想い、不倫など、どんなご関係でも否定することなく、心を込めて鑑定いたします。</p></details>
+      <details><summary><span>恋愛以外のことも視てもらえますか?</span></summary><p>はい。お仕事、人間関係、転居、これからの生き方など、恋愛以外のご相談にも対応しています。複数のテーマを同時に視る場合は、Bプラン以上がおすすめです。</p></details>
+      <details><summary><span>鑑定結果はどのくらいで届きますか?</span></summary><p>お悩みの内容をお伺いしてから、原則72時間以内に公式LINEでお届けします。</p></details>
+      <details><summary><span>鑑定内容が誰かに知られることはありませんか?</span></summary><p>ご安心ください。ご相談内容や個人情報を、第三者に公開・共有することは一切ありません。</p></details>
+    </div>
+  </section>
+
+  <!-- ===== NOTICE ===== -->
+  <section class="fade" id="notice">
+    <div class="heading"><p class="en">Notice</p><h2 class="gold-text">ご依頼前に<br>ご確認ください</h2><div class="rule">✦</div></div>
+    <div class="card">
+      <ul class="notes">
+        <li>合否・ギャンブル・生死・失せ物に関しては占えません。</li>
+        <li>医療的なことは法律で禁じられているため鑑定できません。重篤な症状や精神疾患等をお持ちの方は、専門家のサポートを受けた上でお越しください。</li>
+        <li>鑑定文は長文となります。長文が苦手な方は、事前にお伝えください。</li>
+        <li>鑑定結果は、原則72時間以内にお送りします。</li>
+        <li>鑑定結果はスピリチュアルな観点からのメッセージであり、未来を確定するものではございません。</li>
+        <li>ヒーリングの効果には個人差があり、効果の出方や時期をお約束するものではございません。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== おわりに ===== -->
+  <section class="ending fade" id="ending">
+    <div class="heading"><p class="en">Epilogue</p><h2 class="gold-text">おわりに</h2><div class="rule">✦</div></div>
+
+    <div class="poem">
+      <p>ここまで読んでくださって、<br>ありがとうございます。</p>
+      <p>きっとあなたは、<br>これまでたくさん我慢して、<br>たくさん考えて、<br>それでも答えが出なくて、<br>このページに<br>たどり着いたのだと思います。</p>
+      <p>その時間ごと、<br>抱きしめてください。<br><span class="hl">悩んだ分だけ、<br>あなたはあの人を大切に<br>想ってきたのです。</span></p>
+    </div>
+
+    <figure class="plate">
+      <div class="art">
+        <img src="images/key.jpg" alt="古い手紙の上のアンティークの鍵" width="1024" height="672" loading="lazy">
+      </div>
+    </figure>
+
+    <div class="poem">
+      <p>月は、新月の暗闇を経て、<br>また少しずつ満ちていきます。<br>いまのあなたの迷いも、<br>きっとその暗闇のひとつ。</p>
+      <p class="big grad">扉の向こうを見る勇気を、<br>ほんの少しだけ。<br>鍵は、もう<br>あなたの手の中にあります。</p>
+      <p>静かにひらかれるカードとともに、<br>あなたの「これから」を、<br>心を込めてお届けします。</p>
+    </div>
+
+    <div class="final-cta">
+      <p class="lead">▼ 公式LINEに、<br>ご希望のプラン名を送るだけ ▼</p>
+      <a class="btn btn-line js-line" href="https://lin.ee/weEZDF0">
+        公式LINEで鑑定を申し込む
+        <span class="ex">例:「未来の扉 希望です」</span>
+      </a>
+      <p class="limit"><strong>新規様限定価格でご案内中</strong>新規様限定価格は、<br>このページのお受け取りから<br>48時間以内のお申し込みに<br>限らせていただきます。</p>
+      <p class="wait grad">迷っている今この時間も、<br>大切な48時間のうち。<br>あなたからのメッセージを、<br>静かにお待ちしています。</p>
+      <div class="sign"><small>誰にも言えない恋の扉を、そっと開く</small><span class="en">Irumi</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="en">Irumi</span>
+    © イルミ｜ご縁を結ぶ霊視占い
+  </footer>
+</main>
+
+<a class="to-top" id="to-top" href="#top" aria-label="いちばん上に戻る">▲<br>TOP</a>
+
+<script>
+  // スクロールでふわっと表示
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+  // 少しスクロールしたら「TOP」ボタンを表示
+  const toTop = document.getElementById('to-top');
+  addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 500), { passive: true });
+</script>
+</body>
+</html>
