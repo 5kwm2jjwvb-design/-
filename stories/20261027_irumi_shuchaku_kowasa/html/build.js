@@ -1,6 +1,6 @@
 // slides.json → html/NN.html（＋ガイド版）を書き出し、Chromium で 1080×1920 PNG に変換する
 // 見た目：インスタのアプリで手で文字を置いたような「行ごとの半透明の帯」＋文ごとに少しずれた位置と傾き。
-// 主役の一言（[[[ ]]]）だけ手書き風の書体。マーカー（{{ }}）は使わず、ふつうの文字として扱う。
+// 書体は全枚・全文字 Noto Sans JP で統一。主役の一言（[[[ ]]]）は強調色＋少し大きく。マーカー（{{ }}）は使わず、ふつうの文字として扱う。
 // 使い方: PW_CORE=<playwright-core のパス> node html/build.js   （BACKDROP=<dir> で文字を消した検品用の背景版）
 const fs = require('fs');
 const path = require('path');
@@ -40,7 +40,6 @@ const STICKER = { x: 540, y: 1340, label: '質問ボックス' };
 
 const css = (L, backdrop) => `
 @font-face{font-family:"NSJ";src:url(fonts/NotoSansJP.ttf);font-weight:100 900}
-@font-face{font-family:"KUR";src:url(fonts/ZenKurenaido-Regular.ttf)}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1080px;height:1920px;overflow:hidden;background:#1a110c}
 body{position:relative;font-family:"NSJ",sans-serif;font-weight:400;font-size:${L.size}px;color:#fff;letter-spacing:.04em}
@@ -52,7 +51,7 @@ body{position:relative;font-family:"NSJ",sans-serif;font-weight:400;font-size:${
 .ln span.t,.ln .hero{background:${C.band};padding:.1em .34em .14em;border-radius:.28em;
   -webkit-box-decoration-break:clone;box-decoration-break:clone}
 .em{color:${C.em};font-weight:500}
-.hero{font-family:"KUR",sans-serif;color:${C.em};font-size:1.35em;letter-spacing:.06em;line-height:1.5}
+.hero{color:${C.em};font-weight:500;font-size:1.3em;letter-spacing:.04em;line-height:1.5}
 .next{position:absolute;right:64px;bottom:352px;font-size:26px;line-height:1;letter-spacing:.06em;
   background:${C.band};padding:.32em .6em;border-radius:.4em;opacity:.92}
 .spot{position:absolute;left:${STICKER.x - 55}px;top:${STICKER.y - 55}px;width:110px;height:110px;border-radius:50%;
@@ -107,7 +106,7 @@ ${guide ? `<div class="spot"></div><div class="spotlabel">${STICKER.label}</div>
     const r = await p.evaluate(() => {
       let L = 1e9, T = 1e9, R = 0, B = 0;
       document.querySelectorAll('.ln > *').forEach(e => { for (const b of e.getClientRects()) { L = Math.min(L, b.left); T = Math.min(T, b.top); R = Math.max(R, b.right); B = Math.max(B, b.bottom); } });
-      return [Math.round(L), Math.round(T), Math.round(R), Math.round(B), document.fonts.check('40px NSJ'), document.fonts.check('40px KUR')];
+      return [Math.round(L), Math.round(T), Math.round(R), Math.round(B), document.fonts.check('40px NSJ')];
     });
     if (!BD) console.log(h, 'left,top,right,bottom,fontOK =', JSON.stringify(r));
     await p.screenshot({ path: out });

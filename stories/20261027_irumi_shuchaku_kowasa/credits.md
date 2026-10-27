@@ -30,4 +30,4 @@
 - 紫の指定：紫が中心の写真はありません。配色テーマ（テラコッタ）と枚ごとの撮り方の指定を優先しました。4枚目の空だけ紫寄りです。
 
 ## フォント
-Zen Old Mincho Regular 400／SemiBold 600（SIL Open Font License。github.com/google/fonts から取得）
+Noto Sans JP（SIL Open Font License。github.com/google/fonts から取得）
