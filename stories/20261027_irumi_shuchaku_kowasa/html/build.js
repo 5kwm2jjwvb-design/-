@@ -1,5 +1,7 @@
 // slides.json → html/NN.html（＋ガイド版）を書き出し、Chromium で 1080×1920 PNG に変換する
-// 使い方: PW_CORE=<playwright-core のパス> node html/build.js   （BACKDROP=<dir> で文字を消した検品用の背景版を書き出す）
+// 見た目：インスタのアプリで手で文字を置いたような「行ごとの半透明の帯」＋文ごとに少しずれた位置と傾き。
+// 主役の一言（[[[ ]]]）だけ手書き風の書体。マーカー（{{ }}）は使わず、ふつうの文字として扱う。
+// 使い方: PW_CORE=<playwright-core のパス> node html/build.js   （BACKDROP=<dir> で文字を消した検品用の背景版）
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require(process.env.PW_CORE || 'playwright-core');
@@ -7,63 +9,76 @@ const { chromium } = require(process.env.PW_CORE || 'playwright-core');
 const ROOT = path.resolve(__dirname, '..');
 const slides = JSON.parse(fs.readFileSync(path.join(ROOT, 'slides.json'), 'utf8'));
 
-// 配色：テラコッタ
-const C = { emDark: '#FFC08A', marker: 'rgba(255,200,80,.55)' };
-const BODY = 44, LH = 1.7, HERO = 1.5; // 本文44px・行間1.7・主役は本文の1.5倍
+// 配色：テラコッタ（強調色は暗い帯の上で使う）
+const C = { em: '#FFC08A', band: 'rgba(24,16,12,.76)' };
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const inline = s => esc(s)
+  .replace(/\{\{(.+?)\}\}/g, '$1')
   .replace(/\[\[\[(.+?)\]\]\]/g, '<span class="hero">$1</span>')
-  .replace(/\[\[(.+?)\]\]/g, '<span class="em">$1</span>')
-  .replace(/\{\{(.+?)\}\}/g, '<span class="mk">$1</span>');
-const lines = arr => arr.map(l => {
-  if (l === '') return '<div class="ln blank">&nbsp;</div>';
-  return `<div class="ln${l.includes('[[[') ? ' big' : ''}">${inline(l)}</div>`;
-}).join('\n');
+  .replace(/\[\[(.+?)\]\]/g, '<span class="em">$1</span>');
 
-// 枚ごとの文字の置き方（すべて「画像＋文字だけ・暗い画面に白文字」）
-// pos: 文字のかたまりの縦位置（top=上端 / bottom=下端 / center）、align: 揃え、glow: 文字の後ろだけの暗い楕円の中心と大きさ
+// 文（空白行で区切られたかたまり）ごとに、少しずつ違うずれと傾きをつける（手で置いた感じ）
+const JITTER = [[0, -1.2], [26, 0.9], [-8, -0.6], [18, 1.3], [6, -1.0], [-14, 0.7]];
+
+function blocks(lines) {
+  const out = []; let cur = [];
+  for (const l of lines) { if (l === '') { if (cur.length) out.push(cur); cur = []; } else cur.push(l); }
+  if (cur.length) out.push(cur);
+  return out;
+}
+
+// 枚ごとの文字の置き場所（全枚「画像＋文字だけ・暗い画面に白文字」。読みやすさは文字の後ろの帯で出す）
 const LAYOUT = {
-  1: { pos: { top: 340 }, align: 'center', glow: [660, 500, 1000, 600], left: 300, dark: [.55, .35] },
-  2: { pos: { center: 930 }, align: 'center', glow: [540, 930, 1350, 1000], dark: [.92, .82] },
-  3: { pos: { bottom: 1500 }, align: 'center', glow: [540, 1310, 1150, 700] },
-  4: { pos: { top: 300 }, align: 'center', glow: [540, 575, 1250, 820], dark: [.66, .46], hero: 1.4 },
-  5: { pos: { top: 255 }, align: 'left', glow: [470, 680, 1500, 1500], dark: [.70, .52], size: 40, lh: 1.6, left: 90 },
+  1: { top: 330, left: 330, size: 44 },
+  2: { top: 600, left: 96, size: 42 },
+  3: { bottom: 1500, left: 96, size: 42 },
+  4: { top: 290, left: 92, size: 42 },
+  5: { top: 255, left: 92, size: 40, gap: 0.55 },
 };
-// 5枚目の質問ボックスの中心（スタンプ 800×380 を置く余白の中心）
 const STICKER = { x: 540, y: 1340, label: '質問ボックス' };
 
 const css = (L, backdrop) => `
-@font-face{font-family:"ZOM";src:url(fonts/ZenOldMincho-Regular.ttf);font-weight:400}
-@font-face{font-family:"ZOM";src:url(fonts/ZenOldMincho-SemiBold.ttf);font-weight:600}
+@font-face{font-family:"NSJ";src:url(fonts/NotoSansJP.ttf);font-weight:100 900}
+@font-face{font-family:"KUR";src:url(fonts/ZenKurenaido-Regular.ttf)}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1080px;height:1920px;overflow:hidden;background:#1a110c}
-body{position:relative;font-family:"ZOM",serif;font-weight:400;font-size:${L.size || BODY}px;line-height:${L.lh || LH};letter-spacing:.05em;color:#fff}
+body{position:relative;font-family:"NSJ",sans-serif;font-weight:400;font-size:${L.size}px;color:#fff;letter-spacing:.04em}
 .bg{position:absolute;inset:0;background-size:cover;background-position:center}
-.glow{position:absolute;left:${L.glow[0]}px;top:${L.glow[1]}px;width:${L.glow[2]}px;height:${L.glow[3]}px;transform:translate(-50%,-50%);
-  background:radial-gradient(closest-side, rgba(22,12,8,${(L.dark||[.62,.42])[0]}), rgba(22,12,8,${(L.dark||[.62,.42])[1]}) 60%, rgba(22,12,8,0))}
-.txt{position:absolute;left:${L.left || (L.align === 'left' ? 110 : 72)}px;right:${L.right || 72}px;text-align:${L.align};
-  ${L.pos.top != null ? `top:${L.pos.top}px;` : ''}${L.pos.bottom != null ? `bottom:${1920 - L.pos.bottom}px;` : ''}${L.pos.center != null ? `top:${L.pos.center}px;transform:translateY(-50%);` : ''}}
-.ln{white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.6),0 0 16px rgba(0,0,0,.45)}
-.ln.big{line-height:1.45}
-.em{color:${C.emDark};font-weight:600}
-.hero{color:${C.emDark};font-weight:600;font-size:${L.hero || HERO}em;letter-spacing:.04em}
-.mk{background:linear-gradient(transparent 76%, ${C.marker} 76%, ${C.marker} 96%, transparent 96%)}
-.next{position:absolute;right:72px;bottom:352px;padding:16px 10px 16px 24px;background:radial-gradient(closest-side, rgba(22,12,8,.88), rgba(22,12,8,.6) 60%, rgba(22,12,8,0));font-size:26px;line-height:1;letter-spacing:.08em;opacity:.9;
-  text-shadow:0 0 2px rgba(0,0,0,.9),0 1px 8px rgba(0,0,0,.7)}
+.txt{position:absolute;left:${L.left}px;right:60px;${L.top != null ? `top:${L.top}px;` : ''}${L.bottom != null ? `bottom:${1920 - L.bottom}px;` : ''}
+  display:flex;flex-direction:column;align-items:flex-start;gap:${L.gap || 0.75}em}
+.blk{line-height:1.78}
+.ln{display:block;white-space:nowrap}
+.ln span.t,.ln .hero{background:${C.band};padding:.1em .34em .14em;border-radius:.28em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+.em{color:${C.em};font-weight:500}
+.hero{font-family:"KUR",sans-serif;color:${C.em};font-size:1.35em;letter-spacing:.06em;line-height:1.5}
+.next{position:absolute;right:64px;bottom:352px;font-size:26px;line-height:1;letter-spacing:.06em;
+  background:${C.band};padding:.32em .6em;border-radius:.4em;opacity:.92}
 .spot{position:absolute;left:${STICKER.x - 55}px;top:${STICKER.y - 55}px;width:110px;height:110px;border-radius:50%;
   border:4.5px dashed #fff;filter:drop-shadow(0 0 1.5px rgba(0,0,0,.9)) drop-shadow(0 1px 2px rgba(0,0,0,.6))}
 .spotlabel{position:absolute;right:${1080 - (STICKER.x - 55) + 18}px;top:${STICKER.y - 18}px;font-size:30px;line-height:1.2;letter-spacing:.06em;
   text-shadow:0 0 2px #000,0 1px 3px rgba(0,0,0,.8)}
-${backdrop ? '.ln,.next,.spotlabel{color:transparent!important;text-shadow:none!important}.hero,.em{color:transparent!important}' : ''}
+${backdrop ? '.txt,.next,.spotlabel{visibility:hidden}' : ''}
 `;
+
+function lineHtml(l) {
+  const h = inline(l);
+  // 主役の一言だけの行は手書き風の帯、それ以外は行全体を1つの帯に入れる
+  if (/^<span class="hero">.*<\/span>[。、]?$/.test(h)) return `<span class="ln">${h}</span>`;
+  return `<span class="ln"><span class="t">${h}</span></span>`;
+}
 
 function page(s, { guide = false, backdrop = false } = {}) {
   const L = LAYOUT[s.no];
   const n = String(s.no).padStart(2, '0');
+  const body = blocks(s.lines).map((b, i) => {
+    const [dx, rot] = JITTER[(i + s.no) % JITTER.length];
+    return `<div class="blk" style="transform:translateX(${dx}px) rotate(${rot}deg);transform-origin:left center">${b.map(lineHtml).join('')}</div>`;
+  }).join('\n');
   return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><style>${css(L, backdrop)}</style></head><body>
-<div class="bg" style="background-image:url(../bg/${n}.jpg)"></div><div class="glow"></div>
-<div class="txt">${lines(s.lines)}</div>
+<div class="bg" style="background-image:url(../bg/${n}.jpg)"></div>
+<div class="txt">${body}</div>
 ${s.no < 5 ? '<div class="next">次へ →</div>' : ''}
 ${guide ? `<div class="spot"></div><div class="spotlabel">${STICKER.label}</div>` : ''}
 </body></html>`;
@@ -88,14 +103,13 @@ ${guide ? `<div class="spot"></div><div class="spotlabel">${STICKER.label}</div>
     await p.goto('file://' + path.join(__dirname, h));
     await p.evaluate(() => document.fonts.ready);
     await p.waitForTimeout(300);
-    // 検品用：文字の実際の範囲（各行の文字の左右端と、かたまりの上下端）
+    // 検品用：帯を含めた文字の範囲
     const r = await p.evaluate(() => {
-      const rg = document.createRange(); let L = 1e9, R = 0;
-      document.querySelectorAll('.ln:not(.blank)').forEach(e => { rg.selectNodeContents(e); const b = rg.getBoundingClientRect(); L = Math.min(L, b.left); R = Math.max(R, b.right); });
-      const t = document.querySelector('.txt').getBoundingClientRect();
-      return [Math.round(L), Math.round(t.top), Math.round(R), Math.round(t.bottom), document.fonts.check('44px ZOM')];
+      let L = 1e9, T = 1e9, R = 0, B = 0;
+      document.querySelectorAll('.ln > *').forEach(e => { for (const b of e.getClientRects()) { L = Math.min(L, b.left); T = Math.min(T, b.top); R = Math.max(R, b.right); B = Math.max(B, b.bottom); } });
+      return [Math.round(L), Math.round(T), Math.round(R), Math.round(B), document.fonts.check('40px NSJ'), document.fonts.check('40px KUR')];
     });
-    console.log(h, 'left,top,right,bottom,font =', JSON.stringify(r));
+    if (!BD) console.log(h, 'left,top,right,bottom,fontOK =', JSON.stringify(r));
     await p.screenshot({ path: out });
   }
   await b.close();
