@@ -24,14 +24,14 @@ const lines = arr => arr.map(l => {
 // 枚ごとの文字の置き方（すべて「画像＋文字だけ・暗い画面に白文字」）
 // pos: 文字のかたまりの縦位置（top=上端 / bottom=下端 / center）、align: 揃え、glow: 文字の後ろだけの暗い楕円の中心と大きさ
 const LAYOUT = {
-  1: { pos: { bottom: 1490 }, align: 'center', glow: [619, 1320, 1250, 760], left: 230, size: 40, dark: [.92, .82] },
-  2: { pos: { center: 930 }, align: 'center', glow: [540, 930, 1350, 1060], dark: [.92, .82] },
-  3: { pos: { bottom: 1520 }, align: 'center', glow: [540, 1215, 1150, 820], size: 42 },
-  4: { pos: { top: 300 }, align: 'center', glow: [540, 565, 1200, 760], dark: [.66, .46] },
-  5: { pos: { top: 560 }, align: 'left', glow: [430, 880, 1080, 900], dark: [.92, .80], size: 40, lh: 1.6, left: 90, right: 270, hero: 1.4 },
+  1: { pos: { top: 340 }, align: 'center', glow: [660, 500, 1000, 600], left: 300, dark: [.55, .35] },
+  2: { pos: { center: 930 }, align: 'center', glow: [540, 930, 1350, 1000], dark: [.92, .82] },
+  3: { pos: { bottom: 1500 }, align: 'center', glow: [540, 1310, 1150, 700] },
+  4: { pos: { top: 300 }, align: 'center', glow: [540, 575, 1250, 820], dark: [.66, .46], hero: 1.4 },
+  5: { pos: { top: 255 }, align: 'left', glow: [470, 680, 1500, 1500], dark: [.70, .52], size: 40, lh: 1.6, left: 90 },
 };
-// 5枚目のアンケートの中心（スタンプ 840×300 を置く余白の中心）
-const STICKER = { x: 520, y: 1420, label: 'アンケート' };
+// 5枚目の質問ボックスの中心（スタンプ 800×380 を置く余白の中心）
+const STICKER = { x: 540, y: 1340, label: '質問ボックス' };
 
 const css = (L, backdrop) => `
 @font-face{font-family:"ZOM";src:url(fonts/ZenOldMincho-Regular.ttf);font-weight:400}
