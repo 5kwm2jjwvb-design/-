@@ -5,29 +5,21 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <style>
 /* Layout: one narrow phone-first reading column, like a letter by lamplight; each trait is a "reframe" turning a worry into a strength */
+/* Single light look on purpose: pale lavender paper with pink and yellow, same in every theme */
 :root {
-  --bg: #f6f2f8;          /* pale lilac paper */
-  --surface: #ffffff;
-  --ink: #2c2233;         /* plum-black text */
-  --muted: #6e6178;
-  --plum: #5b3a78;        /* Ilumi purple */
-  --plum-soft: #ece3f3;
-  --brass: #9a7418;       /* the key */
-  --line: #ddd2e6;
+  --bg: #f6f1fc;          /* pale lavender paper */
+  --surface: #fffdf7;     /* warm white card */
+  --ink: #4b3e55;         /* soft plum-gray text */
+  --muted: #7f7189;
+  --plum: #b93d74;        /* pink: emphasis text */
+  --plum-soft: #fde6ef;   /* pale pink panel */
+  --brass: #9a6a00;       /* key gold, dark enough to read */
+  --yellow: #ffe68f;      /* marker highlight */
+  --yellow-soft: #fff7d6; /* pale yellow panel */
+  --line: #e7dbf2;
   --display: "Zen Old Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
   --body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #1a1420; --surface: #241c2d; --ink: #ece4f2; --muted: #a999b6;
-    --plum: #c7a5e6; --plum-soft: #2f2440; --brass: #d9b45a; --line: #3a2f47;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #1a1420; --surface: #241c2d; --ink: #ece4f2; --muted: #a999b6;
-  --plum: #c7a5e6; --plum-soft: #2f2440; --brass: #d9b45a; --line: #3a2f47;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -50,7 +42,8 @@ body {
 }
 p { margin: 0; }
 .stack { display: flex; flex-direction: column; gap: 1.4rem; }
-strong { color: var(--plum); font-weight: 700; }
+strong { color: var(--plum); font-weight: 700; background: linear-gradient(transparent 62%, var(--yellow) 62%); }
+.promise strong, .keyword strong { background: none; }
 
 /* hero */
 .hero { display: flex; flex-direction: column; gap: 1.25rem; padding-top: 1rem; }
@@ -74,9 +67,9 @@ h1 em { font-style: normal; color: var(--plum); }
   line-height: 1.6;
   color: var(--plum);
   text-align: center;
-  padding-block: 1.5rem;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  padding: 1.5rem 1rem;
+  background: var(--plum-soft);
+  border-radius: 20px;
 }
 
 /* trait sections */
@@ -100,8 +93,8 @@ h2 {
 .reframe .to { background: var(--plum-soft); color: var(--plum); font-weight: 700; padding: .1rem .7rem; border-radius: 999px; }
 
 .action {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: var(--yellow-soft);
+  border: 1px solid var(--yellow);
   border-radius: 14px;
   padding: 1.2rem 1.3rem;
   display: flex; flex-direction: column; gap: .6rem;
@@ -113,7 +106,8 @@ h2 {
 
 /* fortune chapter */
 .fortune {
-  background: var(--plum-soft);
+  background: var(--surface);
+  border: 2px dashed var(--yellow);
   border-radius: 20px;
   padding: 2rem max(20px, 1.5rem);
   display: flex; flex-direction: column; gap: 1.4rem;
@@ -129,7 +123,7 @@ h2 {
 
 /* CTA */
 .cta {
-  background: var(--surface);
+  background: linear-gradient(180deg, var(--plum-soft), var(--yellow-soft));
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 2rem 1.4rem;
