@@ -3,19 +3,24 @@
    和風で静かな高級感：生成り × 深い藍・墨 × 金箔
    ===================================================================== */
 :root {
-  --kinari: #f5f0e6;      /* 生成り（地） */
-  --kinari-2: #ece4d4;    /* 生成り・濃 */
-  --washi: #fbf8f2;       /* カード地 */
-  --ai: #1b2440;          /* 藍 */
-  --ai-deep: #121a30;     /* 深い藍 */
-  --ai-soft: #2b3658;
-  --sumi: #2a2a2e;        /* 墨（本文） */
-  --sumi-soft: #5d5a60;
-  --gold: #b08d4c;        /* 金 */
-  --gold-light: #d8bf86;
-  --gold-pale: #efe2bf;
-  --line: rgba(176, 141, 76, .35);
-  --foil: linear-gradient(135deg, #9c7a3c 0%, #d9c08a 28%, #f3e6c4 45%, #c7a462 62%, #9c7a3c 100%);
+  /* イルミのブランドカラー：深い紫 × 金 × ローズゴールド
+     （変数名の ai＝メインの濃色。藍から紫に変更済み） */
+  --kinari: #f7f2ef;      /* 生成り（ほんのり桜色） */
+  --kinari-2: #efe6e4;    /* 生成り・濃 */
+  --washi: #fcf9f7;       /* カード地 */
+  --ai: #2b1a3c;          /* 深い紫 */
+  --ai-deep: #170c21;     /* 夜の紫（ほぼ黒） */
+  --ai-soft: #3f2856;
+  --sumi: #2f2634;        /* 墨（本文） */
+  --sumi-soft: #655b6b;
+  --gold: #b8924f;        /* 金 */
+  --gold-light: #e3c27f;
+  --gold-pale: #f4e5c3;
+  --rose: #e9a99a;        /* ローズゴールド */
+  --rose-light: #f3cdb0;
+  --line: rgba(184, 146, 79, .35);
+  --foil: linear-gradient(135deg, #a07c3e 0%, #e3c27f 28%, #f7ebcc 45%, #cfa864 62%, #a07c3e 100%);
+  --rose-foil: linear-gradient(120deg, #d98a86 0%, #eeb19c 35%, #f6d2b2 60%, #e3a48f 100%);
   --serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
   --w: 560px;
   --gutter: 22px;
@@ -47,8 +52,8 @@ s { text-decoration-thickness: 1px; }
 body::before {
   content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
   background:
-    radial-gradient(ellipse at 20% 0%, rgba(216,191,134,.18), transparent 55%),
-    radial-gradient(ellipse at 100% 60%, rgba(27,36,64,.05), transparent 60%),
+    radial-gradient(ellipse at 20% 0%, rgba(227,194,127,.18), transparent 55%),
+    radial-gradient(ellipse at 100% 60%, rgba(43,26,60,.05), transparent 60%),
     var(--kinari);
 }
 
@@ -67,7 +72,7 @@ body::before {
 .btn-gold {
   background: var(--foil); background-size: 200% 200%;
   color: #2a2110;
-  box-shadow: 0 6px 18px rgba(156,122,60,.35), inset 0 1px 0 rgba(255,255,255,.5);
+  box-shadow: 0 6px 18px rgba(160,124,62,.35), inset 0 1px 0 rgba(255,255,255,.5);
   animation: foil 6s ease-in-out infinite;
 }
 .btn-gold:hover { filter: brightness(1.05); }
@@ -105,13 +110,13 @@ body::before {
 .fv {
   position: relative; color: var(--kinari); text-align: center;
   background:
-    radial-gradient(circle at 50% 18%, rgba(216,191,134,.22), transparent 42%),
-    radial-gradient(ellipse at 50% 110%, rgba(43,54,88,.9), transparent 60%),
+    radial-gradient(circle at 50% 18%, rgba(233,169,154,.20), transparent 42%),
+    radial-gradient(ellipse at 50% 110%, rgba(74,44,98,.9), transparent 60%),
     linear-gradient(180deg, var(--ai-deep), var(--ai));
   padding: 40px var(--gutter) 48px; overflow: hidden;
 }
 .fv::after { /* 金の細い縁 */
-  content: ""; position: absolute; inset: 12px; border: 1px solid rgba(216,191,134,.35);
+  content: ""; position: absolute; inset: 12px; border: 1px solid rgba(227,194,127,.35);
   pointer-events: none;
 }
 .fv-inner { position: relative; z-index: 1; max-width: var(--w); margin: 0 auto; }
@@ -124,15 +129,15 @@ body::before {
 }
 .fv-title {
   font-size: clamp(34px, 10vw, 46px); line-height: 1.5; letter-spacing: .14em;
-  background: var(--foil); -webkit-background-clip: text; background-clip: text; color: transparent;
+  background: var(--rose-foil); -webkit-background-clip: text; background-clip: text; color: transparent;
   text-shadow: 0 0 0 transparent;
 }
-.fv-brand { margin-top: 12px; font-size: 13px; letter-spacing: .18em; color: rgba(245,240,230,.75); }
+.fv-brand { margin-top: 12px; font-size: 13px; letter-spacing: .3em; color: rgba(245,240,230,.8); }
 .fv-lead { margin-top: 16px; font-size: 15px; line-height: 2; color: rgba(245,240,230,.92); }
 
 .offer {
   margin: 44px auto 0; padding: 28px 18px 24px; position: relative;
-  background: rgba(10,15,30,.35); border: 1px solid rgba(216,191,134,.45); border-radius: 4px;
+  background: rgba(16,8,24,.35); border: 1px solid rgba(227,194,127,.45); border-radius: 4px;
 }
 .badge { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; margin-top: -48px; margin-bottom: 18px; }
 .badge-days {
@@ -150,7 +155,7 @@ body::before {
 .price-list { display: grid; gap: 6px; }
 .price-row {
   display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  padding: 6px 4px; border-bottom: 1px dashed rgba(216,191,134,.35); text-align: left;
+  padding: 6px 4px; border-bottom: 1px dashed rgba(227,194,127,.35); text-align: left;
 }
 .price-row:last-child { border-bottom: 0; }
 .price-name { font-size: 15px; letter-spacing: .14em; color: var(--gold-pale); white-space: nowrap; }
@@ -164,7 +169,7 @@ body::before {
 .price-lim b { font-size: 26px; font-weight: 700; color: var(--gold-pale); letter-spacing: .04em; }
 .tax { font-size: 11px; color: rgba(245,240,230,.6); margin-top: 4px; text-align: right; }
 
-.cd { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(216,191,134,.35); }
+.cd { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(227,194,127,.35); }
 .cd-label { font-size: 13px; letter-spacing: .16em; color: var(--gold-pale); }
 .cd-time { display: flex; justify-content: center; gap: 6px; margin-top: 10px; font-size: 11px; color: rgba(245,240,230,.75); }
 .cd-time span { display: flex; align-items: baseline; gap: 2px; }
@@ -180,7 +185,7 @@ body::before {
 .scarcity::before { content: "◆ "; color: var(--gold-light); }
 
 .fv .cta { margin-top: 32px; }
-.fv .btn-line { color: rgba(245,240,230,.85); border-color: rgba(216,191,134,.5); }
+.fv .btn-line { color: rgba(245,240,230,.85); border-color: rgba(227,194,127,.5); }
 .scroll {
   margin-top: 36px; font-size: 10px; letter-spacing: .4em; text-transform: uppercase; color: var(--gold-light);
 }
@@ -231,14 +236,14 @@ body::before {
 .sec-ai {
   color: rgba(245,240,230,.92);
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(216,191,134,.14), transparent 50%),
+    radial-gradient(ellipse at 50% 0%, rgba(227,194,127,.14), transparent 50%),
     linear-gradient(180deg, var(--ai-deep), var(--ai) 50%, var(--ai-deep));
 }
-.sec-ai .sec-head h2 { color: var(--kinari); }
+.sec-ai .sec-head h2 { color: #fbf6f2; }
 .sec-ai .kicker { color: var(--gold-light); }
 .sec-ai .kicker::before, .sec-ai .kicker::after { background: var(--gold-light); }
 .sec-ai .prose .em { color: var(--gold-pale); }
-.sec-ai .btn-line { color: rgba(245,240,230,.85); border-color: rgba(216,191,134,.5); }
+.sec-ai .btn-line { color: rgba(245,240,230,.85); border-color: rgba(227,194,127,.5); }
 
 /* ---------------------------------------------------------------
    II. 守る・ほどく・整える ／ 実績
@@ -270,11 +275,11 @@ body::before {
 .layer {
   --depth: calc(var(--i) / 7);
   display: flex; align-items: center; gap: 16px; padding: 16px 18px;
-  border: 1px solid rgba(216,191,134,.35);
+  border: 1px solid rgba(227,194,127,.35);
   /* 下の層ほど深い藍に沈む */
   background: linear-gradient(90deg,
-    rgba(216,191,134, calc(.20 - var(--depth) * .16)),
-    rgba(10,14,28, calc(var(--depth) * .55)));
+    rgba(227,194,127, calc(.20 - var(--depth) * .16)),
+    rgba(16,8,24, calc(var(--depth) * .55)));
   margin-left: calc(var(--i) * 4px); margin-right: calc(var(--i) * 4px);
 }
 .layer-no {
@@ -315,15 +320,15 @@ body::before {
 .compare tbody th i { font-style: normal; color: var(--gold); margin-right: 6px; }
 .compare td { color: var(--ai); font-size: 16px; width: 26%; }
 .compare td.no { color: rgba(93,90,96,.5); }
-.compare td.col-main { background: rgba(216,191,134,.14); font-weight: 600; }
+.compare td.col-main { background: rgba(227,194,127,.14); font-weight: 600; }
 .compare .row-sub td, .compare .row-sub th { font-size: 13px; }
 
 .card {
   position: relative; padding: 34px 22px 28px; margin-top: 26px;
   background: var(--washi); border: 1px solid var(--line);
-  box-shadow: 0 10px 30px rgba(27,36,64,.07);
+  box-shadow: 0 10px 30px rgba(43,26,60,.07);
 }
-.card::before { content: ""; position: absolute; inset: 6px; border: 1px solid rgba(176,141,76,.18); pointer-events: none; }
+.card::before { content: ""; position: absolute; inset: 6px; border: 1px solid rgba(184,146,79,.18); pointer-events: none; }
 .card-main { background: linear-gradient(180deg, var(--washi), #f6eedc); border-color: var(--gold); }
 .card-kicker { font-size: 11px; letter-spacing: .3em; color: var(--gold); text-transform: uppercase; font-style: italic; text-align: center; }
 .card-name { margin-top: 6px; text-align: center; font-size: 26px; letter-spacing: .2em; color: var(--ai); }
@@ -400,11 +405,11 @@ body::before {
 .ph-portrait { width: 70%; max-width: 280px; margin-bottom: 44px !important; }
 .letter {
   display: grid; gap: 1.8em; padding: 40px 24px;
-  background: rgba(251,248,242,.06); border: 1px solid rgba(216,191,134,.35);
+  background: rgba(251,248,242,.06); border: 1px solid rgba(227,194,127,.35);
 }
 .letter .em { color: var(--gold-pale); font-weight: 600; }
 .placeholder-text { padding: 14px; border: 1px dashed var(--gold-light); color: var(--gold-pale); font-size: 13px; line-height: 1.9; }
-.sign { text-align: right; font-size: 22px; letter-spacing: .3em; color: var(--gold-light); }
+.sign { text-align: right; font-size: 22px; letter-spacing: .3em; color: var(--rose); }
 .sign::before { content: ""; display: inline-block; width: 30px; height: 1px; background: currentColor; vertical-align: middle; margin-right: 14px; }
 
 /* ---------------------------------------------------------------
@@ -412,7 +417,7 @@ body::before {
    --------------------------------------------------------------- */
 .ph {
   position: relative; display: block; width: 100%; aspect-ratio: 16 / 10;
-  background-color: rgba(176,141,76,.08); background-size: cover; background-position: center;
+  background-color: rgba(184,146,79,.08); background-size: cover; background-position: center;
   border: 1px dashed var(--gold);
 }
 .ph:not(.loaded)::after {
@@ -421,7 +426,7 @@ body::before {
   font-size: 11px; letter-spacing: .06em; color: var(--gold); text-align: center; line-height: 1.5;
 }
 .ph.loaded { border: 0; }
-.ph-round { aspect-ratio: 1; border-radius: 50%; background-color: rgba(216,191,134,.1); border-color: var(--gold-light); }
+.ph-round { aspect-ratio: 1; border-radius: 50%; background-color: rgba(227,194,127,.1); border-color: var(--gold-light); }
 .ph-round:not(.loaded)::after { color: var(--gold-light); }
 .ph-portrait { aspect-ratio: 4 / 5; }
 .ph-voice { aspect-ratio: 9 / 16; background-color: var(--washi); }
@@ -431,10 +436,10 @@ body::before {
    フッター
    --------------------------------------------------------------- */
 .footer { background: var(--ai-deep); color: rgba(245,240,230,.75); text-align: center; padding: 48px var(--gutter) 40px; font-size: 13px; line-height: 1.9; }
-.footer-brand { color: var(--gold-pale); letter-spacing: .14em; font-size: 15px; }
+.footer-brand { color: var(--rose-light); letter-spacing: .14em; font-size: 15px; }
 .footer-methods { font-size: 12px; margin-top: 4px; }
 .footer-sns, .footer-legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 20px; margin-top: 20px; }
-.footer a { color: inherit; text-decoration: none; display: inline-block; padding: 6px 0; border-bottom: 1px solid rgba(216,191,134,.3); }
+.footer a { color: inherit; text-decoration: none; display: inline-block; padding: 6px 0; border-bottom: 1px solid rgba(227,194,127,.3); }
 .copy { margin-top: 26px; font-size: 11px; color: rgba(245,240,230,.45); }
 
 /* ---------------------------------------------------------------
@@ -444,8 +449,8 @@ body::before {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-  background: rgba(18,26,48,.94); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-  border-top: 1px solid rgba(216,191,134,.5); color: var(--kinari);
+  background: rgba(23,12,33,.94); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(227,194,127,.5); color: var(--kinari);
   transform: translateY(110%); transition: transform .35s ease;
 }
 .sticky.show { transform: none; }
@@ -461,11 +466,11 @@ body::before {
    拡大表示
    --------------------------------------------------------------- */
 .lightbox { border: 0; padding: 0; background: transparent; max-width: 92vw; max-height: 90vh; }
-.lightbox::backdrop { background: rgba(10,14,28,.85); }
+.lightbox::backdrop { background: rgba(16,8,24,.85); }
 .lightbox img { max-height: 86vh; width: auto; margin: 0 auto; border-radius: 6px; }
 .lightbox-close {
   position: fixed; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%;
-  border: 1px solid var(--gold-light); background: rgba(18,26,48,.8); color: var(--kinari); font-size: 22px; cursor: pointer;
+  border: 1px solid var(--gold-light); background: rgba(23,12,33,.8); color: var(--kinari); font-size: 22px; cursor: pointer;
 }
 
 /* ---------------------------------------------------------------
