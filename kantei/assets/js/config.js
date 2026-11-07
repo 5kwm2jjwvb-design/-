@@ -80,13 +80,11 @@ window.CONFIG = {
 
   /* ---- お客様の声（第VII章） ----
      LINE感想のスクリーンショット画像のパス。並べたい順に書きます。
-     画像ファイルを置くまでは、プレースホルダ枠が表示されます。               */
-  voices: [
-    'assets/img/voices/voice_01.jpg',
-    'assets/img/voices/voice_02.jpg',
-    'assets/img/voices/voice_03.jpg',
-    'assets/img/voices/voice_04.jpg',
-    'assets/img/voices/voice_05.jpg',
-    'assets/img/voices/voice_06.jpg'
-  ]
+     空配列 [] の間は、第VII章ごと非表示になります（今は非表示）。
+     例：
+     voices: [
+       'assets/img/voices/voice_01.jpg',
+       'assets/img/voices/voice_02.jpg'
+     ]                                                                       */
+  voices: []
 };

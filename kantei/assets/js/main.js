@@ -174,6 +174,11 @@
   function buildVoices() {
     var wrap = document.getElementById('voices-list');
     if (!wrap) return;
+    if (!(C.voices || []).length) {           // 空なら「お客様の声」の章ごと非表示
+      var sec = document.getElementById('voices');
+      if (sec) sec.remove();
+      return;
+    }
     (C.voices || []).forEach(function (src, i) {
       var b = document.createElement('button');
       b.type = 'button';

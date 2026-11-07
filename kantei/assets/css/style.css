@@ -255,7 +255,7 @@ body::before {
   font-size: 15px; line-height: 1.8;
 }
 .vow-k {
-  flex: none; width: 3.6em; text-align: center; font-size: 17px; font-weight: 700; letter-spacing: .12em;
+  flex: none; width: 4.6em; white-space: nowrap; text-align: center; font-size: 17px; font-weight: 700; letter-spacing: .12em;
   color: var(--ai); padding-right: 16px; border-right: 1px solid var(--line);
 }
 .ph-wide { margin-top: 44px; }
