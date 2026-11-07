@@ -23,27 +23,41 @@ window.CONFIG = {
     privacy: 'legal/privacy.html'        // プライバシーポリシー
   },
 
-  /* ---- 鑑定メニュー（2段階） ----
-     priceRegular / priceLimited : 数字（税込・円）。例 12000
-     chars        : 鑑定書の文字数の目安。例 5000
-     payUrl       : 限定期間中の決済リンク（未設定は '#'）
-     payUrlRegular: 期限切れ後の決済リンク。null なら payUrl を使う          */
+  /* ---- 鑑定メニュー（松竹梅の3段階：元の鑑定ページと同じ内容） ----
+     priceRegular / priceLimited : 数字（税込・円）
+     chars  : 鑑定文の文字数の目安
+     payUrl : 限定期間中の決済リンク。'#' の間は、ボタンは公式LINEを開きます
+     payUrlRegular : 期限切れ後の決済リンク。null なら payUrl を使う        */
   menus: {
-    lite: {
-      name: 'ライト',
-      priceRegular: null,   // ★通常価格
-      priceLimited: null,   // ★限定価格
-      chars: null,          // ★鑑定書の文字数
-      payUrl: '#',          // ★決済リンク（限定価格）
-      payUrlRegular: null   // ★決済リンク（通常価格）
+    a: {
+      plan: 'Aプラン',
+      name: '本音の扉',
+      cards: '3枚「スリーカード」',
+      priceRegular: 5980,
+      priceLimited: 4980,
+      chars: 2000,
+      payUrl: '#',          // ★決済リンク
+      payUrlRegular: null
     },
-    main: {
-      name: '本鑑定',
-      priceRegular: null,   // ★通常価格
-      priceLimited: null,   // ★限定価格
-      chars: null,          // ★鑑定書の文字数
-      payUrl: '#',          // ★決済リンク（限定価格）
-      payUrlRegular: null   // ★決済リンク（通常価格）
+    b: {
+      plan: 'Bプラン',
+      name: '未来の扉',
+      cards: '7枚「ヘキサグラム」',
+      priceRegular: 7980,
+      priceLimited: 5980,
+      chars: 3000,
+      payUrl: '#',          // ★決済リンク
+      payUrlRegular: null
+    },
+    c: {
+      plan: 'Cプラン',
+      name: '運命の扉',
+      cards: '10枚「ケルト十字」',
+      priceRegular: 12980,
+      priceLimited: 9980,
+      chars: 5000,
+      payUrl: '#',          // ★決済リンク
+      payUrlRegular: null
     }
   },
   taxLabel: '税込',
@@ -58,7 +72,7 @@ window.CONFIG = {
   limit: {
     enabled: true,
     days: null,             // ★限定日数
-    previewDays: 7,         // days 未設定時のプレビュー用（本番前に days を入れてください）
+    previewDays: 7,
     storageKey: 'irumi_kantei_first_visit_v1'
   },
 
@@ -71,20 +85,11 @@ window.CONFIG = {
 
   /* ---- 実績（第II章のカウンター） ----
      根拠のある数字だけを入れてください。空配列なら実績ブロックごと非表示。
-     例：
-     stats: [
-       { value: 3000, suffix: '名以上', label: 'これまでに視てきた方' },
-       { value: 5,    suffix: '年',     label: '鑑定歴' }
-     ]                                                                       */
+     例：{ value: 3000, suffix: '名以上', label: 'これまでに視てきた方' }     */
   stats: [],
 
   /* ---- お客様の声（第VII章） ----
-     LINE感想のスクリーンショット画像のパス。並べたい順に書きます。
      空配列 [] の間は、第VII章ごと非表示になります（今は非表示）。
-     例：
-     voices: [
-       'assets/img/voices/voice_01.jpg',
-       'assets/img/voices/voice_02.jpg'
-     ]                                                                       */
+     例：voices: ['assets/img/voices/voice_01.jpg', 'assets/img/voices/voice_02.jpg'] */
   voices: []
 };

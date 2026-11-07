@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#1d1029">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <!-- 可変値はすべて config.js に集約しています（価格・日数・URL・実績など） -->
 <script src="assets/js/config.js"></script>
@@ -24,14 +24,13 @@
     <p class="fv-kicker">After the free reading</p>
     <p class="fv-to">無料ワンポイント鑑定を<br>受け取ったあなたへ</p>
 
-    <!-- 画像：assets/img/hero.jpg
-         丸窓の中に入るFVのメインビジュアル（タロット・灯り・手元など、静かな写真）。
-         正方形 1200×1200px 推奨。置くだけで自動で差し替わります。 -->
+    <!-- 画像：assets/img/hero.jpg（イルミのメインビジュアル：鍵をくわえた白猫）
+         正方形 600×600px 以上。 -->
     <div class="fv-window">
       <div class="ph ph-round" data-src="assets/img/hero.jpg" data-label="hero.jpg"></div>
     </div>
 
-    <h1 class="fv-title">あの一行の、<br>続きを。</h1>
+    <h1 class="fv-title lines"><span class="ln">あの一行の、</span><br><span class="ln">続きを。</span></h1>
     <p class="fv-brand"><span data-cfg="brand.name"></span>｜<span data-cfg="brand.tagline"></span></p>
 
     <p class="fv-lead">
@@ -39,10 +38,10 @@
       まだ言葉にしていないことが<br>
       残っている気がしたなら。
     </p>
-    <p class="fv-lead">
+    <p class="fv-lead fv-lead-strong">
       ここから先は、もう少しだけ深く。<br>
-      あなたとあの人のご縁を、<br>
-      ていねいに視ていきます。
+      あなたとあの人のご縁を<br>
+      <span class="fv-em">ていねいに視ていきます。</span>
     </p>
 
     <div class="offer">
@@ -51,19 +50,27 @@
 
       <ul class="price-list">
         <li class="price-row">
-          <span class="price-name" data-cfg="menus.lite.name"></span>
+          <span class="price-name"><small data-cfg="menus.a.plan"></small><span data-cfg="menus.a.name"></span></span>
           <span class="price-vals">
-            <span class="price-reg"><span class="only-limited">通常</span><s data-yen="menus.lite.priceRegular"></s></span>
+            <span class="price-reg"><span class="only-limited">通常</span><s data-yen="menus.a.priceRegular"></s></span>
             <span class="price-arrow only-limited" aria-hidden="true">→</span>
-            <span class="price-lim only-limited"><small>限定</small><b data-yen="menus.lite.priceLimited"></b></span>
+            <span class="price-lim only-limited"><b data-yen="menus.a.priceLimited"></b></span>
           </span>
         </li>
         <li class="price-row">
-          <span class="price-name" data-cfg="menus.main.name"></span>
+          <span class="price-name"><small data-cfg="menus.b.plan"></small><span data-cfg="menus.b.name"></span></span>
           <span class="price-vals">
-            <span class="price-reg"><span class="only-limited">通常</span><s data-yen="menus.main.priceRegular"></s></span>
+            <span class="price-reg"><span class="only-limited">通常</span><s data-yen="menus.b.priceRegular"></s></span>
             <span class="price-arrow only-limited" aria-hidden="true">→</span>
-            <span class="price-lim only-limited"><small>限定</small><b data-yen="menus.main.priceLimited"></b></span>
+            <span class="price-lim only-limited"><b data-yen="menus.b.priceLimited"></b></span>
+          </span>
+        </li>
+        <li class="price-row">
+          <span class="price-name"><small data-cfg="menus.c.plan"></small><span data-cfg="menus.c.name"></span></span>
+          <span class="price-vals">
+            <span class="price-reg"><span class="only-limited">通常</span><s data-yen="menus.c.priceRegular"></s></span>
+            <span class="price-arrow only-limited" aria-hidden="true">→</span>
+            <span class="price-lim only-limited"><b data-yen="menus.c.priceLimited"></b></span>
           </span>
         </li>
       </ul>
@@ -84,10 +91,12 @@
       <p class="scarcity" data-scarcity></p>
     </div>
 
-    <div class="cta">
-      <a class="btn btn-gold" href="#menu">鑑定を選ぶ</a>
-      <a class="btn-line" data-link="line">迷ったら、LINEで相談する</a>
-    </div>
+    <a class="cta" href="#menu">
+      <span class="cta-arrow" aria-hidden="true">▼</span>
+      <span class="btn btn-primary">鑑定を選ぶ</span>
+      <span class="cta-sub">▶ 限定料金 <span data-price-now="a"></span>〜</span>
+    </a>
+    <a class="btn-line" data-link="line">迷ったら、LINEで相談する</a>
 
     <p class="scroll" aria-hidden="true">scroll</p>
   </div>
@@ -103,19 +112,37 @@
     <span class="sec-num">I</span>
     <p class="kicker">What you felt</p>
     <h2>指が止まった、<br>あの場所。</h2>
+    <span class="gline"></span>
   </header>
   <div class="prose">
     <p class="rv">無料鑑定、読んでくださって<br>ありがとうございます。</p>
     <p class="rv">短い文章だったと思います。<br>それでも、どこかで一度、<br>スクロールする指が止まった方が<br>いらっしゃるかもしれません。</p>
-    <p class="rv quote">「どうして、それを知ってるんだろう」<br>「誰にも話していないのに」</p>
+  </div>
+
+  <div class="quote rv">
+    <p>「どうして、それを知ってるんだろう」</p>
+    <p>「誰にも話していないのに」</p>
+  </div>
+
+  <div class="prose">
     <p class="rv">そう感じた瞬間が、もしあったなら。</p>
     <p class="rv">それは、私が何かを見抜いたから<br>というよりも。</p>
-    <p class="rv em">あなたがずっと胸の奥にしまっていた気持ちに、<br>はじめて名前がついたから、<br>だったりします。</p>
-    <p class="rv">言えない恋をしていると、<br>気持ちの置き場所がなくなります。</p>
-    <p class="rv">友達にも、家族にも話せない。<br>だからひとりで抱えて、<br>大丈夫なふりばかり上手になっていく。</p>
-    <p class="rv">あの一行で心が動いたのは、<br>あなたが弱いからではありません。</p>
-    <p class="rv em">それだけ長いあいだ、<br>ひとりで頑張ってきた。<br>ということなんだと思います。</p>
   </div>
+
+  <p class="big rv"><span class="big-s">もしかすると</span>あなたの気持ちに、<br><span class="wipe">はじめて名前がついた</span><br>からかもしれません。</p>
+
+  <!-- 画像：assets/img/door.jpg（少しだけ開いた扉と光）横長 -->
+  <div class="ph ph-wide rv" data-src="assets/img/door.jpg" data-label="door.jpg"></div>
+
+  <div class="prose">
+    <p class="rv">言えない恋をしていると、<br>気持ちの置き場所がなくなります。</p>
+    <p class="rv"><span class="mk">友達にも、家族にも話せない。</span><br>だからひとりで抱えて、<br>大丈夫なふりばかり上手になっていく。</p>
+    <p class="rv">あの一行で心が動いたのは、</p>
+  </div>
+
+  <p class="big rv">あなたが弱いからでは、<br><span class="wipe">ありません。</span></p>
+
+  <p class="whisper rv">それだけ長いあいだ、<br>ひとりで頑張ってきた<br>ということなのだと思います。</p>
 </section>
 
 <!-- =========================================================
@@ -126,14 +153,17 @@
     <span class="sec-num">II</span>
     <p class="kicker">Not fortune-telling</p>
     <h2>当てるための占いでは、<br>ありません。</h2>
+    <span class="gline"></span>
   </header>
   <div class="prose">
     <p class="rv">はじめに、<br>お伝えしておきたいことがあります。</p>
     <p class="rv">私の鑑定は、<br>未来を言い当てて驚かせるためのもの<br>ではありません。</p>
     <p class="rv">あの人は戻ってくるのか。<br>この関係は、いつか終わるのか。</p>
     <p class="rv">もちろん、そういう問いにも<br>まっすぐ向き合います。</p>
-    <p class="rv">でも、いちばん大切にしているのは<br>答えを聞いたあとの、あなたのほうです。</p>
+    <p class="rv">でも、いちばん大切にしているのは</p>
   </div>
+
+  <p class="big rv">答えを聞いたあとの、<br><span class="wipe">あなたのほう</span>です。</p>
 
   <ul class="vows rv">
     <li><span class="vow-k">守る</span><span>傷つきすぎないように、<br>自分を守ること。</span></li>
@@ -141,15 +171,14 @@
     <li><span class="vow-k">整える</span><span>明日を少し穏やかに<br>迎えられるように、<br>心を整えること。</span></li>
   </ul>
 
-  <!-- 画像：assets/img/philosophy.jpg
-       章の途中に入る横長の雰囲気写真（窓辺の光・お茶・手帳など、人の顔が写らないもの）。
-       横 1600×1000px 推奨。 -->
-  <div class="ph ph-wide rv" data-src="assets/img/philosophy.jpg" data-label="philosophy.jpg"></div>
+  <!-- 画像：assets/img/cards.jpg（紫の花とタロットカード）横長 -->
+  <div class="ph ph-wide rv" data-src="assets/img/cards.jpg" data-label="cards.jpg"></div>
 
   <div class="prose">
-    <p class="rv">霊視タロットで、今の気持ちの流れを。<br>四柱推命で、<br>おふたりが生まれ持った性質を。<br>波動鑑定で、言葉にならないご縁の温度を。</p>
-    <p class="rv em">三つを重ねて、<br>あなたが「自分で選べる」ところまで<br>一緒に視ていきます。</p>
+    <p class="rv"><span class="shu">霊視タロット</span>で、今の気持ちの流れを。<br><span class="shu">四柱推命</span>で、<br>おふたりが生まれ持った性質を。<br><span class="shu">波動鑑定</span>で、<br>言葉にならないご縁の温度を。</p>
   </div>
+
+  <p class="big big-sm rv">三つを重ねて、<br>あなたが<span class="mk">「自分で選べる」</span>ところまで<br>一緒に視ていきます。</p>
 
   <!-- 実績カウンター：CONFIG.stats が空なら非表示 -->
   <div class="stats rv" id="stats" hidden>
@@ -157,46 +186,53 @@
     <ul class="stats-list" id="stats-list"></ul>
   </div>
 
-  <div class="cta">
-    <a class="btn btn-gold" href="#menu">鑑定を選ぶ</a>
-    <a class="btn-line" data-link="line">LINEで相談する</a>
-  </div>
+  <a class="minicta rv" href="#menu">鑑定を選ぶ<span class="minicta-s">限定料金 <span data-price-now="a"></span>〜 ／ 3つの扉からお選びいただけます</span></a>
 </section>
 
 <!-- =========================================================
      III. The difference
      ========================================================= -->
-<section class="sec sec-ai" id="difference">
+<section class="sec sec-dark" id="difference">
   <header class="sec-head rv">
     <span class="sec-num">III</span>
     <p class="kicker">The difference</p>
     <h2>無料鑑定で視えたのは、<br>入り口の二層まで。</h2>
+    <span class="gline"></span>
   </header>
   <div class="prose">
     <p class="rv">無料鑑定で視ていたのは、<br>ご縁の表面に近いところです。</p>
-    <p class="rv">本鑑定では、そのずっと奥。<br>あなた自身もまだ気づいていない層まで、<br>静かに降りていきます。</p>
   </div>
+
+  <p class="big rv"><span class="big-s">本鑑定では、そのずっと奥。</span><span class="wipe">六つの層</span>まで<br>静かに降りていきます。</p>
 
   <ol class="layers" aria-label="鑑定で視る六つの層">
     <li class="layer" style="--i:0"><span class="layer-no">一</span><span class="layer-body"><b>今の気持ち</b><span>いま、いちばん心を占めているもの</span></span></li>
     <li class="layer" style="--i:1"><span class="layer-no">二</span><span class="layer-body"><b>あの人の今</b><span>相手が置かれている状況と、気持ちの温度</span></span></li>
     <li class="layer-mark mark-free" style="--i:2"><span>無料鑑定はここまで</span></li>
     <li class="layer" style="--i:3"><span class="layer-no">三</span><span class="layer-body"><b>縁の結び目</b><span>ふたりが惹かれ合った理由と、絡まっている場所</span></span></li>
-    <li class="layer" style="--i:4"><span class="layer-no">四</span><span class="layer-body"><b>あなたの奥</b><span>同じところで苦しくなってしまう、心の癖</span></span></li>
-    <li class="layer" style="--i:5"><span class="layer-no">五</span><span class="layer-body"><b>あの人の本音</b><span>言葉や態度の裏にある、迷いと本当の気持ち</span></span></li>
-    <li class="layer" style="--i:6"><span class="layer-no">六</span><span class="layer-body"><b>これからの流れ</b><span>この先の流れと、ご縁のほどき方・結び方</span></span></li>
-    <li class="layer-mark mark-main" style="--i:7"><span>本鑑定はここまで</span></li>
+    <li class="layer-mark" style="--i:4"><span><span data-cfg="menus.a.name"></span>はここまで</span></li>
+    <li class="layer" style="--i:5"><span class="layer-no">四</span><span class="layer-body"><b>あなたの奥</b><span>同じところで苦しくなってしまう、心の癖</span></span></li>
+    <li class="layer" style="--i:6"><span class="layer-no">五</span><span class="layer-body"><b>あの人の本音</b><span>言葉や態度の裏にある、迷いと本当の気持ち</span></span></li>
+    <li class="layer-mark" style="--i:7"><span><span data-cfg="menus.b.name"></span>はここまで</span></li>
+    <li class="layer" style="--i:8"><span class="layer-no">六</span><span class="layer-body"><b>これからの流れ</b><span>この先の流れと、ご縁のほどき方・結び方</span></span></li>
+    <li class="layer-mark mark-main" style="--i:9"><span><span data-cfg="menus.c.name"></span>は、すべての層まで</span></li>
   </ol>
 
   <div class="prose">
-    <p class="rv">深い層ほど、<br>「どうなるか」より<br>「どうしたら楽になれるか」が<br>視えてきます。</p>
-    <p class="rv em">答えがひとつ見つかるより、<br>自分の気持ちの理由がわかるほうが<br>ずっと救われる夜もあります。🌙</p>
+    <p class="rv">深い層ほど、<br>「どうなるか」より</p>
+  </div>
+  <p class="big rv">「どうしたら<br><span class="wipe">楽になれるか</span>」が<br>視えてきます。</p>
+
+  <div class="quote rv">
+    <p>答えがひとつ見つかるより、<br>自分の気持ちの理由がわかるほうが<br>ずっと救われる夜もあります。🌙</p>
   </div>
 
-  <div class="cta">
-    <a class="btn btn-gold" href="#menu">鑑定を選ぶ</a>
-    <a class="btn-line" data-link="line">LINEで相談する</a>
-  </div>
+  <a class="cta rv" href="#menu">
+    <span class="cta-arrow" aria-hidden="true">▼</span>
+    <span class="btn btn-primary">鑑定を選ぶ</span>
+    <span class="cta-sub">▶ 限定料金 <span data-price-now="a"></span>〜</span>
+  </a>
+  <a class="btn-line" data-link="line">LINEで相談する</a>
 </section>
 
 <!-- =========================================================
@@ -207,38 +243,39 @@
     <span class="sec-num">IV</span>
     <p class="kicker">If you hesitate</p>
     <h2>迷っているあなたへ。</h2>
+    <span class="gline"></span>
   </header>
   <div class="prose">
-    <p class="rv">申し込むかどうか、<br>迷っている方も多いと思います。<br>それは、とても自然なことです。</p>
+    <p class="rv">申し込むかどうか、<br>迷っている方も多いと思います。</p>
   </div>
+  <p class="big big-sm rv">それは、<span class="wipe">とても自然なこと</span>です。</p>
 
   <ul class="worries">
-    <li class="rv"><p class="worry-q">「お金をかけるほどのことなのかな」</p><p>そう立ち止まれるのは、ご自分を大切にしている証拠です。無理のない範囲かどうか、どうか先に確かめてください。</p></li>
-    <li class="rv"><p class="worry-q">「期待して、がっかりしたらどうしよう」</p><p>期待が大きいほど、怖くなりますよね。だからこそ鑑定書は、何度でも読み返せる形でお渡ししています。</p></li>
-    <li class="rv"><p class="worry-q">「占いって、正直まだ半信半疑で」</p><p>半信半疑のままで大丈夫です。信じてもらうことより、読み終えたあとに少し呼吸が楽になっていることを大切にしています。</p></li>
-    <li class="rv"><p class="worry-q">「怖いことを言われたら、立ち直れないかも」</p><p>不安をあおる伝え方はしません。厳しい流れが視えたときも、どう守るかを一緒にお伝えします。</p></li>
-    <li class="rv"><p class="worry-q">「こんな恋、人に相談していいのかな」</p><p>誰にも言えない恋のご相談は、私がいちばん多くお受けしているご相談です。責めることはありません。</p></li>
+    <li class="rv"><p class="worry-q">「お金をかけるほどのことなのかな」</p><p>そう立ち止まれるのは、<span class="mk">ご自分を大切にしている証拠</span>です。無理のない範囲かどうか、どうか先に確かめてください。</p></li>
+    <li class="rv"><p class="worry-q">「期待して、がっかりしたらどうしよう」</p><p>期待が大きいほど、怖くなりますよね。だからこそ鑑定書は、<span class="mk">何度でも読み返せる形</span>でお渡ししています。</p></li>
+    <li class="rv"><p class="worry-q">「占いって、正直まだ半信半疑で」</p><p>半信半疑のままで大丈夫です。信じてもらうことより、<span class="mk">読み終えたあとに少し呼吸が楽になっていること</span>を大切にしています。</p></li>
+    <li class="rv"><p class="worry-q">「怖いことを言われたら、立ち直れないかも」</p><p>不安をあおる伝え方はしません。厳しい流れが視えたときも、<span class="mk">どう守るかを一緒に</span>お伝えします。</p></li>
+    <li class="rv"><p class="worry-q">「こんな恋、人に相談していいのかな」</p><p>誰にも言えない恋のご相談は、私がいちばん多くお受けしているご相談です。<span class="mk">責めることはありません。</span></p></li>
   </ul>
 
-  <div class="prose">
-    <p class="rv">どれかひとつでも当てはまるなら、<br>今日決めなくても大丈夫です。</p>
-    <p class="rv">わからないことは、<br>LINEでそのまま聞いてくださいね。</p>
-  </div>
+  <!-- 画像：assets/img/intro-moon.jpg（雲間の月）横長 -->
+  <div class="ph ph-wide rv" data-src="assets/img/intro-moon.jpg" data-label="intro-moon.jpg"></div>
 
-  <div class="cta">
-    <a class="btn btn-ghost" href="#menu">ふたつの鑑定を見てみる</a>
-    <a class="btn-line" data-link="line">LINEで聞いてみる</a>
-  </div>
+  <p class="whisper rv">どれかひとつでも当てはまるなら、<br>今日決めなくても大丈夫です。<br>わからないことは、<br>LINEでそのまま聞いてくださいね。</p>
+
+  <a class="minicta rv" href="#menu">3つの扉を見てみる<span class="minicta-s">本音の扉・未来の扉・運命の扉</span></a>
+  <a class="btn-line" data-link="line">LINEで聞いてみる</a>
 </section>
 
 <!-- =========================================================
-     V. Two ways（購入セクション）
+     V. Three doors（購入セクション）
      ========================================================= -->
 <section class="sec sec-tint" id="menu" data-sticky-hide>
   <header class="sec-head rv">
     <span class="sec-num">V</span>
-    <p class="kicker">Two ways</p>
-    <h2>鑑定は、<br>ふたつの深さから。</h2>
+    <p class="kicker">Three doors</p>
+    <h2>あなたの想いの深さに合わせて、<br>3つの扉をご用意しました。</h2>
+    <span class="gline"></span>
   </header>
 
   <p class="expired-note only-expired rv">限定料金は終了し、<br>通常料金でのご案内です。</p>
@@ -246,83 +283,129 @@
   <div class="table-wrap rv">
     <table class="compare">
       <thead>
-        <tr><th scope="col">視る層</th><th scope="col" data-cfg="menus.lite.name"></th><th scope="col" class="col-main" data-cfg="menus.main.name"></th></tr>
+        <tr><th scope="col"></th><th scope="col"><small data-cfg="menus.a.plan"></small><span data-cfg="menus.a.name"></span></th><th scope="col"><small data-cfg="menus.b.plan"></small><span data-cfg="menus.b.name"></span></th><th scope="col" class="col-main"><small data-cfg="menus.c.plan"></small><span data-cfg="menus.c.name"></span></th></tr>
       </thead>
       <tbody>
-        <tr><th scope="row"><i>一</i>今の気持ち</th><td>○</td><td class="col-main">○</td></tr>
-        <tr><th scope="row"><i>二</i>あの人の今</th><td>○</td><td class="col-main">○</td></tr>
-        <tr><th scope="row"><i>三</i>縁の結び目</th><td>○</td><td class="col-main">○</td></tr>
-        <tr><th scope="row"><i>四</i>あなたの奥</th><td>○</td><td class="col-main">○</td></tr>
-        <tr><th scope="row"><i>五</i>あの人の本音</th><td class="no">―</td><td class="col-main">○</td></tr>
-        <tr><th scope="row"><i>六</i>これからの流れ</th><td class="no">―</td><td class="col-main">○</td></tr>
-        <tr class="row-sub"><th scope="row">鑑定書</th><td>約<span data-num="menus.lite.chars"></span>字</td><td class="col-main">約<span data-num="menus.main.chars"></span>字</td></tr>
-        <tr class="row-sub"><th scope="row">料金</th><td data-price-now="lite"></td><td class="col-main" data-price-now="main"></td></tr>
+        <tr><th scope="row"><i>一</i>今の気持ち</th><td>○</td><td>○</td><td class="col-main">○</td></tr>
+        <tr><th scope="row"><i>二</i>あの人の今</th><td>○</td><td>○</td><td class="col-main">○</td></tr>
+        <tr><th scope="row"><i>三</i>縁の結び目</th><td>○</td><td>○</td><td class="col-main">○</td></tr>
+        <tr><th scope="row"><i>四</i>あなたの奥</th><td class="no">―</td><td>○</td><td class="col-main">○</td></tr>
+        <tr><th scope="row"><i>五</i>あの人の本音</th><td class="no">―</td><td>○</td><td class="col-main">○</td></tr>
+        <tr><th scope="row"><i>六</i>これからの流れ</th><td class="no">―</td><td class="no">―</td><td class="col-main">○</td></tr>
+        <tr class="row-sub"><th scope="row">カード</th><td>3枚</td><td>7枚</td><td class="col-main">10枚</td></tr>
+        <tr class="row-sub"><th scope="row">鑑定文</th><td>約<span data-num="menus.a.chars"></span>字</td><td>約<span data-num="menus.b.chars"></span>字</td><td class="col-main">約<span data-num="menus.c.chars"></span>字</td></tr>
+        <tr class="row-sub"><th scope="row">スプレッド画像</th><td>○</td><td>○</td><td class="col-main">○</td></tr>
+        <tr class="row-sub"><th scope="row">鑑定書PDF</th><td class="no">―</td><td>○</td><td class="col-main">○</td></tr>
+        <tr class="row-sub"><th scope="row">お守り画像</th><td class="no">―</td><td>1枚</td><td class="col-main">3枚</td></tr>
+        <tr class="row-sub"><th scope="row">追加のご質問</th><td class="no">―</td><td class="no">―</td><td class="col-main">2つ</td></tr>
+        <tr class="row-price"><th scope="row">料金</th><td data-price-now="a"></td><td data-price-now="b"></td><td class="col-main" data-price-now="c"></td></tr>
       </tbody>
     </table>
   </div>
 
-  <!-- ライト -->
-  <article class="card rv" id="menu-lite">
-    <p class="card-kicker">Light</p>
-    <h3 class="card-name" data-cfg="menus.lite.name"></h3>
-    <p class="card-catch">今の気持ちと、あの人の今を、<br>もう一歩深く知りたい方へ</p>
-    <p class="card-price">
-      <span class="price-reg"><span class="only-limited">通常</span><s data-yen="menus.lite.priceRegular"></s></span>
-      <span class="price-arrow only-limited" aria-hidden="true">→</span>
-      <span class="price-lim only-limited"><small>限定</small><b data-yen="menus.lite.priceLimited"></b></span>
-      <span class="tax">（<span data-cfg="taxLabel"></span>）</span>
-    </p>
-    <p class="card-h">含まれる内容</p>
-    <ul class="card-list">
-      <li>今のあなたの気持ちの整理</li>
-      <li>あの人の今の状況と、気持ちの温度</li>
-      <li>ふたりの縁の結び目</li>
-      <li>あなたの心の癖と、楽になるためのヒント</li>
-      <li>鑑定書（約<span data-num="menus.lite.chars"></span>字・LINEでお届け）</li>
-    </ul>
-    <p class="card-h">こんな方へ</p>
-    <ul class="card-for">
-      <li>はじめて本鑑定を受ける方</li>
-      <li>まずは今の状況を整理したい方</li>
-      <li>ひとつの悩みに絞って視てほしい方</li>
-    </ul>
-    <a class="btn btn-gold btn-block" data-link="pay.lite"><span data-cfg="menus.lite.name"></span>を申し込む</a>
+  <!-- ========== Aプラン 本音の扉 ========== -->
+  <article class="card rv" id="menu-a">
+    <!-- 画像：assets/img/plan-ume.jpg（本音の扉）16:9 -->
+    <div class="ph ph-plan" data-src="assets/img/plan-ume.jpg" data-label="plan-ume.jpg"></div>
+    <div class="card-body">
+      <p class="card-plan" data-cfg="menus.a.plan"></p>
+      <h3 class="card-name" data-cfg="menus.a.name"></h3>
+      <p class="card-catch">まずは気軽に、<br>あの人の気持ちを知りたい方へ</p>
+      <div class="pr-stage" data-menu="a">
+        <p class="pr-was">通常価格 <s data-yen="menus.a.priceRegular"></s></p>
+        <p class="pr-nanto only-limited">限定料金で</p>
+        <p class="pr-price"><b data-price-now="a"></b><small>（<span data-cfg="taxLabel"></span>）</small></p>
+        <p class="pr-off only-limited"><b data-off="a"></b>円OFF</p>
+      </div>
+      <ul class="card-list">
+        <li><b>3枚のカード「スリーカード」による完全個別鑑定</b><small>過去・現在・未来の流れを、まっすぐ読み解きます</small></li>
+        <li><b>約<span data-num="menus.a.chars"></span>文字の鑑定文をLINEでお届け</b></li>
+        <li><b>実際に展開したカードのスプレッド画像をお届け</b><small>あなたのために引いたカードを、その目で確かめられます</small></li>
+      </ul>
+      <p class="card-h">― この扉の先にあるもの ―</p>
+      <ul class="card-for">
+        <li>あの人の「いまの本音」がまっすぐわかり、ひとりで考え込む夜に区切りがつく</li>
+        <li>いま自分がどうすればいいかが見えて、心がふっと軽くなる</li>
+      </ul>
+      <p class="card-note">短くても、芯のある言葉を。<br>あなたの恋のいまを、<br>まっすぐお伝えします。</p>
+      <a class="btn btn-primary btn-block" data-link="pay.a"><span data-cfg="menus.a.name"></span>を申し込む</a>
+    </div>
   </article>
 
-  <!-- 本鑑定 -->
-  <article class="card card-main rv" id="menu-main">
-    <p class="card-kicker">Full reading</p>
-    <h3 class="card-name" data-cfg="menus.main.name"></h3>
-    <p class="card-catch">六つの層すべてを、<br>時間をかけて視ていきます</p>
-    <p class="card-price">
-      <span class="price-reg"><span class="only-limited">通常</span><s data-yen="menus.main.priceRegular"></s></span>
-      <span class="price-arrow only-limited" aria-hidden="true">→</span>
-      <span class="price-lim only-limited"><small>限定</small><b data-yen="menus.main.priceLimited"></b></span>
-      <span class="tax">（<span data-cfg="taxLabel"></span>）</span>
-    </p>
-    <p class="card-h">含まれる内容</p>
-    <ul class="card-list">
-      <li><span data-cfg="menus.lite.name"></span>の内容すべて</li>
-      <li>あの人の本音と迷い</li>
-      <li>これからの流れと、ご縁のほどき方・結び方</li>
-      <li>あなたが自分で選ぶための、具体的な向き合い方</li>
-      <li>鑑定書（約<span data-num="menus.main.chars"></span>字・LINEでお届け）</li>
-    </ul>
-    <p class="card-h">こんな方へ</p>
-    <ul class="card-for">
-      <li>何度も同じところで苦しくなってしまう方</li>
-      <li>相手の本当の気持ちまで知りたい方</li>
-      <li>続けるか離れるか、自分で決めたい方</li>
-    </ul>
-    <a class="btn btn-gold btn-block" data-link="pay.main"><span data-cfg="menus.main.name"></span>を申し込む</a>
+  <!-- ========== Bプラン 未来の扉 ========== -->
+  <article class="card rv" id="menu-b">
+    <!-- 画像：assets/img/plan-take.jpg（未来の扉）16:9 -->
+    <div class="ph ph-plan" data-src="assets/img/plan-take.jpg" data-label="plan-take.jpg"></div>
+    <div class="card-body">
+      <p class="card-plan" data-cfg="menus.b.plan"></p>
+      <h3 class="card-name" data-cfg="menus.b.name"></h3>
+      <p class="card-catch">じっくり向き合い、<br>かたちに残したい方へ</p>
+      <div class="pr-stage" data-menu="b">
+        <p class="pr-was">通常価格 <s data-yen="menus.b.priceRegular"></s></p>
+        <p class="pr-nanto only-limited">限定料金で</p>
+        <p class="pr-price"><b data-price-now="b"></b><small>（<span data-cfg="taxLabel"></span>）</small></p>
+        <p class="pr-off only-limited"><b data-off="b"></b>円OFF</p>
+      </div>
+      <ul class="card-list">
+        <li><b>7枚のカード「ヘキサグラム」による完全個別鑑定</b><small>あなたとあの人の気持ち、ふたりの関係の行方を読み解きます</small></li>
+        <li><b>約<span data-num="menus.b.chars"></span>文字の、より深い鑑定文</b></li>
+        <li><b>実際に展開したカードのスプレッド画像をお届け</b><small>あなたのために引いたカードを、その目で確かめられます</small></li>
+        <li><b>あなた専用の「鑑定書PDF」をお届け</b><small>鑑定結果をいつでも読み返せる、あなただけの一冊に</small></li>
+        <li><b>厳選のお守りヒーリング画像 1枚</b><small>スマホの待ち受けにして、いつでもお守りに</small></li>
+      </ul>
+      <p class="card-h">― この扉の先にあるもの ―</p>
+      <ul class="card-for">
+        <li>本音の「その奥にある理由」まで読み解けて、あの人の言動に振り回されなくなる</li>
+        <li>ふたりの関係が動き出すきっかけと、時期の目安まで見えてくる</li>
+        <li>「いつ、どんなふうに動けばいいか」がわかり、迷わず進める</li>
+      </ul>
+      <p class="card-note">迷ったときに何度でも開ける<br>「道しるべ」を、<br>あなたの手元に。</p>
+      <a class="btn btn-primary btn-block" data-link="pay.b"><span data-cfg="menus.b.name"></span>を申し込む</a>
+    </div>
   </article>
 
-  <div class="prose center">
-    <p class="rv">高い方を選べばいい、<br>というお話ではありません。</p>
-    <p class="rv em">今のあなたに要る深さで、いいんです。</p>
-    <p class="rv">迷ったら、LINEで<br>「どちらがいいですか」<br>とだけ送ってください。</p>
-  </div>
-  <div class="cta">
+  <!-- ========== Cプラン 運命の扉 ========== -->
+  <article class="card card-main rv" id="menu-c">
+    <p class="card-ribbon">いちばん深く視るプラン</p>
+    <!-- 画像：assets/img/plan-matsu.jpg（運命の扉）16:9 -->
+    <div class="ph ph-plan" data-src="assets/img/plan-matsu.jpg" data-label="plan-matsu.jpg"></div>
+    <div class="card-body">
+      <p class="card-plan" data-cfg="menus.c.plan"></p>
+      <h3 class="card-name" data-cfg="menus.c.name"></h3>
+      <p class="card-catch">この恋に、<br>本気で向き合うと決めた方へ</p>
+      <div class="pr-stage" data-menu="c">
+        <p class="pr-was">通常価格 <s data-yen="menus.c.priceRegular"></s></p>
+        <p class="pr-nanto only-limited">限定料金で</p>
+        <p class="pr-price"><b data-price-now="c"></b><small>（<span data-cfg="taxLabel"></span>）</small></p>
+        <p class="pr-off only-limited"><b data-off="c"></b>円OFF</p>
+      </div>
+      <ul class="card-list">
+        <li><b>10枚のカード「ケルト十字」による完全個別鑑定</b><small>いちばん深く、すべてを照らす本格的な展開法です</small></li>
+        <li><b>約<span data-num="menus.c.chars"></span>文字の、最も深く濃やかな鑑定文</b></li>
+        <li><b>実際に展開したカードのスプレッド画像をお届け</b><small>あなたのために引いたカードを、その目で確かめられます</small></li>
+        <li><b>あなた専用の「鑑定書PDF」をお届け</b></li>
+        <li><b>厳選のお守りヒーリング画像 計3枚</b></li>
+        <li><b>鑑定結果のお受け取り後、追加のご質問を2ついただけます</b></li>
+      </ul>
+      <p class="card-h">― この扉の先にあるもの ―</p>
+      <ul class="card-for">
+        <li>ふたりの過去・いま・これからが一本の流れとして見え、この恋の全体像がはっきりする</li>
+        <li>あの人の想いの「根っこ」がわかり、これまでの言動にも納得できる</li>
+        <li>胸に残っていた小さな引っかかりや不安がほどけ、心がすっと軽くなる</li>
+        <li>読み終えたとき、迷いではなく「進む理由」が手元に残る</li>
+      </ul>
+      <p class="card-note">読んで終わり、にしません。<br>結果を受け取って生まれた<br>新しい想いにも、もう一度、<br>丁寧にお答えします。<br><b>あなたの恋に、最後まで寄り添う<br>特別なプランです。</b></p>
+      <a class="btn btn-primary btn-block" data-link="pay.c"><span data-cfg="menus.c.name"></span>を申し込む</a>
+    </div>
+  </article>
+
+  <p class="small-note">※ 複数ジャンル（恋愛＋お仕事＋転居など）の同時鑑定をご希望の方は、カードの枚数の都合上、<span data-cfg="menus.b.plan"></span>以上をおすすめします。</p>
+
+  <p class="big rv"><span class="big-s">高い方を選べばいい、というお話ではありません。</span>今のあなたに<br><span class="wipe">要る深さで、いい。</span></p>
+
+  <div class="linebox rv">
+    <p class="linebox-h">どの扉にするか、迷ったら</p>
+    <p>LINEで「どれがいいですか」と<br>ひとこと送ってください。<br>今のお話を伺って、一緒に選びます。</p>
     <a class="btn-line" data-link="line">LINEで相談する</a>
   </div>
 </section>
@@ -335,53 +418,68 @@
     <span class="sec-num">VI</span>
     <p class="kicker">The flow</p>
     <h2>申し込みから、<br>鑑定書が届くまで。</h2>
+    <span class="gline"></span>
   </header>
   <ol class="steps">
-    <li class="rv"><span class="step-no">1</span><div><p class="step-t">ご購入</p><p>このページのボタンから、鑑定をお選びください。</p></div></li>
+    <li class="rv"><span class="step-no">1</span><div><p class="step-t">ご購入</p><p>このページのボタンから、扉をお選びください。</p></div></li>
     <li class="rv"><span class="step-no">2</span><div><p class="step-t">購入画面のスクリーンショットと<br>お名前をLINEへ</p><p>公式LINEに送ってください。こちらで確認いたします。</p></div></li>
     <li class="rv"><span class="step-no">3</span><div><p class="step-t">今の気持ち・ご質問をLINEへ</p><p>上手にまとめなくて大丈夫です。思いつくまま、そのままの言葉で。</p></div></li>
-    <li class="rv"><span class="step-no">4</span><div><p class="step-t">2〜3日で、鑑定書が届きます</p><p>LINEでお届けします。ひとりで落ち着ける時間に、ゆっくり開いてください。</p></div></li>
+    <li class="rv"><span class="step-no">4</span><div><p class="step-t">原則72時間以内に、<br>鑑定書が届きます</p><p>LINEでお届けします。ひとりで落ち着ける時間に、ゆっくり開いてください。</p></div></li>
   </ol>
-  <div class="cta">
-    <a class="btn btn-gold" href="#menu">鑑定を選ぶ</a>
-    <a class="btn-line" data-link="line">公式LINEを開く</a>
+
+  <div class="sendbox rv">
+    <p class="sendbox-h">ステップ3で、お送りいただきたいこと</p>
+    <ul>
+      <li>あなたの氏名・性別・生年月日</li>
+      <li>お相手様の氏名・性別・生年月日</li>
+      <li>現在のお悩み、現状をできるだけ詳しく</li>
+      <li>悩みを解決して手に入れたい、理想の未来</li>
+      <li>特に聞きたいこと、気になることがあれば</li>
+    </ul>
+    <p class="small-note">※ 生年月日は、わかる場合のみのご記載で大丈夫です。<br>※ 無料鑑定ですでにお伝えいただいている内容は、あらためて書かなくてOKです。</p>
   </div>
+
+  <p class="whisper rv">「こんなことまで書いていいのかな？」<br>と思うことも、遠慮なくお伝えくださいね。</p>
+
+  <a class="cta rv" href="#menu">
+    <span class="cta-arrow" aria-hidden="true">▼</span>
+    <span class="btn btn-primary">鑑定を選ぶ</span>
+    <span class="cta-sub">▶ 限定料金 <span data-price-now="a"></span>〜</span>
+  </a>
+  <a class="btn-line" data-link="line">公式LINEを開く</a>
 </section>
 
 <!-- =========================================================
-     VII. Voices
+     VII. Voices（config.js の voices が空の間は非表示）
      画像：assets/img/voices/voice_01.jpg 〜
-           LINEでいただいた感想のスクリーンショット（縦長・個人が特定される部分は必ず隠す）。
-           枚数・順番は config.js の voices で管理。
+           LINEでいただいた感想のスクリーンショット（個人が特定される部分は必ず隠す）。
      ========================================================= -->
 <section class="sec sec-tint" id="voices">
   <header class="sec-head rv">
     <span class="sec-num">VII</span>
     <p class="kicker">Voices</p>
     <h2>受け取ってくださった方の声</h2>
+    <span class="gline"></span>
   </header>
-  <div class="prose center">
-    <p class="rv">本鑑定を受け取ってくださった方から<br>届いたお言葉を、<br>ご本人の許可をいただいて掲載しています。</p>
-  </div>
+  <p class="whisper rv">本鑑定を受け取ってくださった方から<br>届いたお言葉を、<br>ご本人の許可をいただいて掲載しています。</p>
   <div class="voices" id="voices-list"></div>
-  <p class="note center">※ 感じ方には個人差があります。<br>画像はタップで大きく表示されます。</p>
-  <div class="cta">
-    <a class="btn btn-gold" href="#menu">鑑定を選ぶ</a>
-  </div>
+  <p class="small-note center">※ 感じ方には個人差があります。画像はタップで大きく表示されます。</p>
+  <a class="minicta rv" href="#menu">鑑定を選ぶ<span class="minicta-s">限定料金 <span data-price-now="a"></span>〜</span></a>
 </section>
 
 <!-- =========================================================
      VIII. Please do not
      ========================================================= -->
-<section class="sec" id="please-do-not">
+<section class="sec sec-enji" id="please-do-not">
   <header class="sec-head rv">
     <span class="sec-num">VIII</span>
     <p class="kicker">Please do not</p>
     <h2>今回は、<br>申し込まないでください。</h2>
+    <span class="gline"></span>
   </header>
   <div class="prose">
     <p class="rv">少しだけ、正直なお話をさせてください。</p>
-    <p class="rv">次のような方には、<br>今回は見送っていただきたいと思っています。</p>
+    <p class="rv">次のような方には、<br>今回は見送っていただきたいと<br>思っています。</p>
   </div>
   <ul class="dont rv">
     <li>生活費や、必要なお金を削って受けようとしている方</li>
@@ -389,11 +487,14 @@
     <li>相手の気持ちを、思い通りに動かす方法を探している方</li>
     <li>今、心がとても疲れていて、まずは休むことが必要な方<small>心や体の不調が続くときは、どうか専門の窓口や医療機関を頼ってください。</small></li>
   </ul>
+  <p class="big rv">鑑定は、あなたの暮らしを<br><span class="wipe">削ってまで受けるもの</span><br>ではありません。</p>
   <div class="prose">
-    <p class="rv">鑑定は、あなたの暮らしや心を<br>すり減らしてまで受けるものではありません。</p>
-    <p class="rv em">今回見送っても、<br>LINEはそのままで大丈夫です。</p>
+    <p class="rv">今回見送っても、<br>LINEはそのままで大丈夫です。</p>
     <p class="rv">また必要だと思えたときに、<br>声をかけてくださいね。</p>
   </div>
+
+  <!-- 画像：assets/img/key.jpg（古い鍵）横長 -->
+  <div class="ph ph-wide rv" data-src="assets/img/key.jpg" data-label="key.jpg"></div>
 </section>
 
 <!-- =========================================================
@@ -404,56 +505,74 @@
     <span class="sec-num">IX</span>
     <p class="kicker">Questions</p>
     <h2>よくあるご質問</h2>
+    <span class="gline"></span>
   </header>
   <div class="faq">
     <details class="rv"><summary>怖いことを言われませんか？</summary><div class="faq-a"><p>不安をあおる伝え方はしません。厳しい流れが視えたときも、「どうすれば自分を守れるか」と一緒にお伝えします。</p></div></details>
-    <details class="rv"><summary>家族やパートナーに知られませんか？</summary><div class="faq-a"><p>やりとりは公式LINEの中だけで完結し、郵送物はありません。決済明細の表記は決済サービスによって異なるため、気になる方は購入前にLINEでお尋ねください。</p></div></details>
-    <details class="rv"><summary>どのくらいで届きますか？</summary><div class="faq-a"><p>ご質問をいただいてから2〜3日ほどでお届けします。混み合っているときは、LINEで目安をお知らせします。</p></div></details>
+    <details class="rv"><summary>家族やパートナーに知られませんか？</summary><div class="faq-a"><p>やりとりは公式LINEの中だけで完結し、郵送物はありません。ご相談内容や個人情報を、第三者に公開・共有することは一切ありません。決済明細の表記は決済サービスによって異なるため、気になる方は購入前にLINEでお尋ねください。</p></div></details>
+    <details class="rv"><summary>どのくらいで届きますか？</summary><div class="faq-a"><p>お悩みの内容をお伺いしてから、原則72時間以内に公式LINEでお届けします。</p></div></details>
     <details class="rv"><summary>追加で何かを購入する必要はありますか？</summary><div class="faq-a"><p>ありません。鑑定の中で、開運グッズや追加のお申し込みをおすすめすることはありません。届いた鑑定書だけで、ちゃんと受け取っていただけるようにお書きしています。</p></div></details>
     <details class="rv"><summary>支払いの画面で止まってしまいました。</summary><div class="faq-a"><p>焦らなくて大丈夫です。LINEに「支払いで止まった」とだけ送ってください。一緒に確認します。</p><p><a class="text-link" data-link="line">LINEで連絡する</a></p></div></details>
-    <details class="rv"><summary><span data-cfg="menus.lite.name"></span>と<span data-cfg="menus.main.name"></span>、どちらを選べばいいですか？</summary><div class="faq-a"><p>はじめての方や、まず状況を整理したい方は<span data-cfg="menus.lite.name"></span>。同じことで何度も苦しくなっている方は<span data-cfg="menus.main.name"></span>が向いています。迷ったらLINEでご相談ください。</p></div></details>
-    <details class="rv"><summary>質問がうまくまとまりません。</summary><div class="faq-a"><p>まとまっていなくて大丈夫です。今の気持ちを、そのまま送ってください。言葉の奥にあるものを読み取って視ていきます。</p></div></details>
-    <details class="rv"><summary>鑑定書は読み返せますか？</summary><div class="faq-a"><p>LINEでお届けするので、いつでも読み返せます。</p></div></details>
+    <details class="rv"><summary>どの扉を選べばいいですか？</summary><div class="faq-a"><p>まずはあの人の気持ちを知りたい方は<span data-cfg="menus.a.name"></span>。かたちに残して何度も読み返したい方は<span data-cfg="menus.b.name"></span>。この恋に本気で向き合うと決めた方は<span data-cfg="menus.c.name"></span>が向いています。迷ったらLINEでご相談ください。</p></div></details>
+    <details class="rv"><summary>相手の生年月日がわからなくても大丈夫？</summary><div class="faq-a"><p>はい、大丈夫です。わかる範囲でお知らせいただければ、カードがおふたりの「いま」を丁寧に映し出してくれます。</p></div></details>
+    <details class="rv"><summary>復縁や複雑な恋愛でも鑑定してもらえますか？</summary><div class="faq-a"><p>もちろんです。復縁、片想い、不倫など、どんなご関係でも否定することなく、心を込めて鑑定いたします。</p></div></details>
+    <details class="rv"><summary>恋愛以外のことも視てもらえますか？</summary><div class="faq-a"><p>はい。お仕事、人間関係、転居、これからの生き方など、恋愛以外のご相談にも対応しています。複数のテーマを同時に視る場合は、<span data-cfg="menus.b.plan"></span>以上がおすすめです。</p></div></details>
     <details class="rv"><summary>限定期間が過ぎたらどうなりますか？</summary><div class="faq-a"><p>通常料金でのご案内になります。申し込めなくなるわけではないので、ご自分のペースで決めてください。</p></div></details>
   </div>
-  <div class="cta">
-    <a class="btn btn-gold" href="#menu">鑑定を選ぶ</a>
-    <a class="btn-line" data-link="line">ほかの質問はLINEで</a>
+
+  <div class="notice rv">
+    <p class="notice-h">ご依頼前にご確認ください</p>
+    <ul>
+      <li>合否・ギャンブル・生死・失せ物に関しては占えません。</li>
+      <li>医療的なことは法律で禁じられているため鑑定できません。重篤な症状や精神疾患等をお持ちの方は、専門家のサポートを受けた上でお越しください。</li>
+      <li>鑑定文は長文となります。長文が苦手な方は、事前にお伝えください。</li>
+      <li>鑑定結果はスピリチュアルな観点からのメッセージであり、未来を確定するものではございません。</li>
+      <li>ヒーリングの効果には個人差があり、効果の出方や時期をお約束するものではございません。</li>
+    </ul>
   </div>
+
+  <a class="minicta rv" href="#menu">鑑定を選ぶ<span class="minicta-s">ほかの質問は、LINEでいつでもどうぞ</span></a>
 </section>
 
 <!-- =========================================================
      X. From イルミ
      ========================================================= -->
-<section class="sec sec-ai" id="letter">
+<section class="sec sec-dark" id="letter">
   <header class="sec-head rv">
     <span class="sec-num">X</span>
     <p class="kicker">From <span data-cfg="brand.name"></span></p>
     <h2><span data-cfg="brand.name"></span>より、<br>あなたへ。</h2>
+    <span class="gline"></span>
   </header>
 
-  <!-- 画像：assets/img/portrait.jpg
-       手紙の章の写真（今は手紙とキャンドルのフリー素材）。
-       ご本人の写真・手元・後ろ姿に差し替えてもOK。縦 1000×1250px 推奨（4:5）。 -->
-  <div class="ph ph-portrait rv" data-src="assets/img/portrait.jpg" data-label="portrait.jpg"></div>
+  <!-- 画像：assets/img/letter.jpg（白い花と万年筆）横長 -->
+  <div class="ph ph-wide rv" data-src="assets/img/letter.jpg" data-label="letter.jpg"></div>
 
   <div class="letter">
     <p class="rv">ここまで読んでくださって、<br>ありがとうございます。</p>
     <p class="rv">最後に少しだけ、<br>私自身のお話をさせてください。</p>
     <!-- ★原点ストーリー：ここをご自身のエピソードに書き換えてください -->
+    <p class="rv">私自身、<br>複雑な恋愛を経験してきました。<br>だからこそ、<br>誰にも言えない恋の苦しさが<br>わかります。</p>
     <p class="rv placeholder-text">★ここに、イルミさんご自身の原点のエピソードが入ります。<br>（例：占いを始めたきっかけ／自分が救われた経験／なぜ複雑な恋のご相談を受け続けているのか）</p>
-    <p class="rv">だから私は、<br>誰にも言えない恋をしている人の<br>味方でいたいと思っています。</p>
+    <p class="rv">だから私は、<br>誰にも言えない恋をしている人の<br><span class="mk">味方でいたい</span>と思っています。</p>
     <p class="rv">正しいか、正しくないか。<br>それを決めるのは、<br>私ではありません。</p>
-    <p class="rv">私にできるのは、<br>あなたが自分の気持ちを置き去りにしないように<br>そっと灯りをともすことくらいです。</p>
-    <p class="rv">あの無料鑑定で、<br>少しでも何かを<br>感じてくださったなら。</p>
-    <p class="rv em">その続きを、今度はもう少し深く、<br>あなたのために視させてください。</p>
-    <p class="sign rv" data-cfg="brand.name"></p>
+    <p class="rv">私にできるのは、<br>あなたが自分の気持ちを<br>置き去りにしないように、<br>そっと灯りをともすことくらいです。</p>
   </div>
 
-  <div class="cta cta-final">
-    <a class="btn btn-gold" href="#menu">鑑定を選ぶ</a>
-    <a class="btn-line" data-link="line">LINEで相談する</a>
+  <div class="peak rv">
+    <p class="peak-1">あの無料鑑定で、<br>少しでも何かを<br>感じてくださったなら。</p>
+    <p class="peak-2">その続きを、<br><em>あなたのために</em><br>視させてください。</p>
+    <p class="peak-3">鍵は、もう<br>あなたの手の中にあります。</p>
   </div>
+
+  <p class="sign rv" data-cfg="brand.name"></p>
+
+  <a class="cta rv" href="#menu">
+    <span class="cta-arrow" aria-hidden="true">▼</span>
+    <span class="btn btn-primary">鑑定を選ぶ</span>
+    <span class="cta-sub">▶ 限定料金 <span data-price-now="a"></span>〜</span>
+  </a>
+  <a class="btn-line" data-link="line">LINEで相談する</a>
 </section>
 
 </main>
@@ -476,9 +595,9 @@
 <div class="sticky" id="sticky" aria-hidden="true">
   <div class="sticky-info">
     <span class="sticky-scarcity" data-scarcity></span>
-    <span class="sticky-price"><span class="only-limited">限定料金</span><span class="only-expired">通常料金</span> <b data-price-now="lite"></b>〜</span>
+    <span class="sticky-price"><span class="only-limited">限定料金</span><span class="only-expired">通常料金</span> <b data-price-now="a"></b>〜</span>
   </div>
-  <a class="btn btn-gold btn-sm" href="#menu" tabindex="-1">鑑定を選ぶ</a>
+  <a class="btn btn-primary btn-sm" href="#menu" tabindex="-1">鑑定を選ぶ</a>
 </div>
 
 <!-- お客様の声の拡大表示 -->
