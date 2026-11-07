@@ -84,12 +84,20 @@
       el.textContent = yen(lim ? m.priceLimited : m.priceRegular);
     });
 
+    $$('[data-off]').forEach(function (el) {
+      var m = menus[el.getAttribute('data-off')] || {};
+      var ok = typeof m.priceRegular === 'number' && typeof m.priceLimited === 'number';
+      el.textContent = num(ok ? m.priceRegular - m.priceLimited : null);
+    });
+
     $$('[data-link]').forEach(function (el) {
       var key = el.getAttribute('data-link');
       var url;
       if (key.indexOf('pay.') === 0) {
         var m = menus[key.slice(4)] || {};
         url = lim ? m.payUrl : (m.payUrlRegular || m.payUrl);
+        // 決済リンクが未設定の間は、公式LINEで申し込んでもらう
+        if (!isSet(url) || url === '#') url = (C.links || {}).line;
       } else {
         url = (C.links || {})[key];
       }
@@ -107,11 +115,7 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a.is-unset');
     if (!a) return;
-    e.preventDefault();
-    var isPay = (a.getAttribute('data-link') || '').indexOf('pay.') === 0;
-    alert(isPay
-      ? 'ただいまお申し込みの準備中です。\n公式LINEからお問い合わせください。'
-      : 'このリンクは準備中です。');
+    e.preventDefault();   // 決済リンクは未設定なら公式LINEへ差し替え済み
   });
 
   /* ---------------------------------------------------------------
@@ -223,7 +227,7 @@
      7. スクロール演出（フェードイン・層・カウンター）
      --------------------------------------------------------------- */
   function observe() {
-    var targets = $$('.rv, .layers, [data-count-to]');
+    var targets = $$('.rv, .layers, .lines, [data-count-to]');
     if (!('IntersectionObserver' in window)) {
       targets.forEach(function (el) { el.classList.add('in'); if (el.hasAttribute('data-count-to')) countUp(el); });
       return;
