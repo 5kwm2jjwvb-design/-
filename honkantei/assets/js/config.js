@@ -63,17 +63,18 @@ window.CONFIG = {
   taxLabel: '税込',
 
   /* ---- 限定期間 ----
-     days : 「ページを初めて開いた日」から何日間限定か。★必須
-            開いた日を1日目として、days日目の24時（翌0時）に終了します。
-            null の間は「★日間」と表示し、タイマーは previewDays で仮に動きます。
+     hours: 「ページを初めて開いた瞬間」から何時間限定か（今は24時間）。
+            hours を入れると days より優先されます。日数で区切りたいときは null に。
+     days : hours が null のときに使う。開いた日を1日目として、days日目の24時に終了。
      storageKey : 初回訪問日時を保存する localStorage のキー。
                   キャンペーンを仕切り直したいときは末尾を変えると全員リセット。
      ※ 動作確認用：URL末尾に ?timer=reset を付けて開くと、自分の端末だけリセット。 */
   limit: {
     enabled: true,
-    days: null,             // ★限定日数
+    hours: 24,              // 初めて開いてから24時間
+    days: null,
     previewDays: 7,
-    storageKey: 'irumi_kantei_first_visit_v1'
+    storageKey: 'irumi_kantei_first_visit_v2'
   },
 
   /* ---- 希少性表示（「今月の鑑定枠 残りわずか」など） ----
