@@ -546,3 +546,4 @@ s { text-decoration-thickness: 1px; }
   .sec { padding-top: 112px; padding-bottom: 112px; }
   .fv { padding-top: 72px; padding-bottom: 80px; }
 }
+.cd-time [hidden] { display: none; }

@@ -18,6 +18,6 @@ HTML / CSS / JavaScript だけで動きます（ビルド不要）。
 - GitHub Pages：https://5kwm2jjwvb-design.github.io/-/honkantei/ （公開ブランチは `claude/fortune-telling-homepage-y8cc1j`。既存の `kantei/` は別ページなので上書きしないこと）
 
 ## タイマー
-- 初めて開いた日を1日目として、`limit.days` 日目の24時に終了します（localStorage に保存）。
+- 初めて開いた瞬間から `limit.hours`（今は24時間）で終了します（localStorage に保存）。日数で区切りたいときは `hours` を null にして `days` を入れます。
 - 自分の端末だけリセットしたいときは、URLの末尾に `?timer=reset` を付けて開きます。
 - 期限が切れると「限定料金は終了し、通常料金でのご案内です」が表示され、価格と決済リンクは通常のものに切り替わります。

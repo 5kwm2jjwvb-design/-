@@ -21,7 +21,7 @@
      1. 限定期間（初回訪問日時を localStorage に保存）
      --------------------------------------------------------------- */
   var L = C.limit || {};
-  var KEY = L.storageKey || 'irumi_kantei_first_visit_v1';
+  var KEY = L.storageKey || 'irumi_kantei_first_visit_v2';
   var memoryStart = null;
 
   try {
@@ -42,10 +42,16 @@
     return now;
   }
 
+  var hours = (typeof L.hours === 'number' && L.hours > 0) ? L.hours : null;
   var days = (typeof L.days === 'number' && L.days > 0) ? L.days : (L.previewDays || 7);
-  var start = new Date(firstVisit());
-  // 開いた日を1日目として、days日目の24時（= 翌日0時）まで
-  var deadline = new Date(start.getFullYear(), start.getMonth(), start.getDate() + days).getTime();
+  var startMs = firstVisit();
+  var start = new Date(startMs);
+  var deadline = hours
+    // hours 指定：初めて開いた瞬間から hours 時間
+    ? startMs + hours * 3600 * 1000
+    // days 指定：開いた日を1日目として、days日目の24時（= 翌日0時）まで
+    : new Date(start.getFullYear(), start.getMonth(), start.getDate() + days).getTime();
+  var hideDays = hours !== null && hours <= 24;   // 24時間以内なら「日」の枠は出さない
 
   function isLimited() { return L.enabled !== false && Date.now() < deadline; }
 
@@ -60,6 +66,13 @@
      2. CONFIG の値をページに反映
      --------------------------------------------------------------- */
   function bindStatic() {
+    // 限定期間の表記（「24時間限定」「7日間限定」など）
+    var label = hours ? hours + '時間限定' : (isSet(L.days) ? L.days : '★') + '日間限定';
+    $$('[data-limit-label]').forEach(function (el) { el.textContent = label; });
+    $$('[data-limit-from]').forEach(function (el) {
+      el.textContent = hours ? 'このページを初めて開いてから' : 'このページを初めて開いた日から';
+    });
+
     $$('[data-cfg]').forEach(function (el) {
       var v = get(el.getAttribute('data-cfg'));
       el.textContent = isSet(v) ? v : '★';
@@ -131,8 +144,11 @@
     var s = Math.floor(left / 1000);
     var d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600),
         m = Math.floor(s % 3600 / 60), sec = s % 60;
+    if (hideDays) { h = Math.floor(s / 3600); }
     cds.forEach(function (c) {
-      c.querySelector('[data-d]').textContent = d;
+      var dEl = c.querySelector('[data-d]');
+      dEl.textContent = d;
+      dEl.parentNode.hidden = hideDays;
       c.querySelector('[data-h]').textContent = pad(h);
       c.querySelector('[data-m]').textContent = pad(m);
       c.querySelector('[data-s]').textContent = pad(sec);
