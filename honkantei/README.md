@@ -1,4 +1,4 @@
-# イルミ本鑑定LP（kantei/）
+# イルミ本鑑定LP（honkantei/）
 
 公式LINEで無料ワンポイント鑑定を受け取った方向けの、有料鑑定の案内ページです。
 HTML / CSS / JavaScript だけで動きます（ビルド不要）。
@@ -13,9 +13,9 @@ HTML / CSS / JavaScript だけで動きます（ビルド不要）。
 - `COPY.md` … コピー原稿
 
 ## プレビュー
-- 手元：`kantei/index.html` をブラウザで開く。
-  またはリポジトリ直下で `python3 -m http.server 8000` を実行し、http://localhost:8000/kantei/ を開く。
-- GitHub Pages：公開URLの末尾に `/kantei/` を付けて開く。
+- 手元：`honkantei/index.html` をブラウザで開く。
+  またはリポジトリ直下で `python3 -m http.server 8000` を実行し、http://localhost:8000/honkantei/ を開く。
+- GitHub Pages：https://5kwm2jjwvb-design.github.io/-/honkantei/ （公開ブランチは `claude/fortune-telling-homepage-y8cc1j`。既存の `kantei/` は別ページなので上書きしないこと）
 
 ## タイマー
 - 初めて開いた日を1日目として、`limit.days` 日目の24時に終了します（localStorage に保存）。
